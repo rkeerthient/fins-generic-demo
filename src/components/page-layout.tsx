@@ -15,7 +15,7 @@ type Props = {
   children?: React.ReactNode;
 };
 const PageLayout = ({ _site, children }: Props) => {
-  console.log(import.meta.env.YEXT_PUBLIC_CHAT_APIKEY);
+  console.log(_site);
 
   return (
     <div className="min-h-screen">
@@ -28,7 +28,7 @@ const PageLayout = ({ _site, children }: Props) => {
         </LocationsProvider>
       </div>
       <Footer _site={_site}></Footer>
-      {import.meta.env.YEXT_PUBLIC_CHAT_APIKEY &&
+      {/* {import.meta.env.YEXT_PUBLIC_CHAT_APIKEY &&
         import.meta.env.YEXT_PUBLIC_CHAT_BOTID && (
           <ChatHeadlessProvider config={chatConfig}>
             <ChatPopUp
@@ -56,7 +56,7 @@ const PageLayout = ({ _site, children }: Props) => {
               }}
             />
           </ChatHeadlessProvider>
-        )}
+        )} */}
     </div>
   );
 };

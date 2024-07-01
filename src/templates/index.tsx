@@ -57,7 +57,7 @@ export const verticals = [
 const Search: Template<TemplateRenderProps> = ({ document }) => {
   return (
     <>
-      <PageLayout>
+      <PageLayout _site={document._site}>
         <SearchPage></SearchPage>
       </PageLayout>
     </>

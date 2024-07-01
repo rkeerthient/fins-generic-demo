@@ -13,8 +13,44 @@ siteStream:
   source: knowledgeGraph
   fields:
     - name
+    - c_headerLogo
+    - primaryPhoto
+    - slug
+    - c_featuredServices.id
+    - c_featuredServices.name
+    - c_featuredServices.slug
+    - c_featuredServices.fins_servicesImage
+    - c_featuredEvents.id
+    - c_featuredEvents.name
+    - c_featuredEvents.slug
+    - c_featuredEvents.c_eventPhoto
+    - c_taxonomyStructure.name
+    - c_taxonomyStructure.slug
+    - c_heroBanners.name
+    - c_heroBanners.description
+    - c_heroBanners.cTA
+    - c_heroBanners.backgroundImage
+    - c_featuredArticles.id
+    - c_featuredArticles.name
+    - c_featuredArticles.slug
+    - c_featuredArticles.primaryPhoto
+    - c_footer.name
+    - c_footer.slug
+    - c_footer.relatedServices
+    - c_primaryNav.name
+    - c_primaryNav.slug
+    - c_primaryNav.relatedServices
+    - c_secondaryNav.name
+    - c_secondaryNav.slug
+    - c_secondaryNav.relatedServices
+    - c_topLeftNav.name
+    - c_topLeftNav.slug
+    - c_topLeftNav.relatedServices
+    - c_topRightNav.name
+    - c_topRightNav.slug
+    - c_topRightNav.relatedServices
   localization:
     locales:
       - en
     primary: false
-  entityId: "7089236598532783488"
+  entityId: "4121027060066083725"
