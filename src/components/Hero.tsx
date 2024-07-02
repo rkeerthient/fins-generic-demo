@@ -10,7 +10,11 @@ const Hero = ({ c_heroBanners }: any) => {
   } = c_heroBanners[0];
 
   return (
-    <div className="w-full md:h-[400px] relative flex items-center justify-center md:justify-start">
+    <div
+      aria-label="Hero section"
+      className="w-full md:h-[400px] relative flex items-center justify-center md:justify-start"
+    >
+      <h2 className="sr-only">Hero section</h2>
       <Image
         image={c_heroBanner.backgroundImage!}
         layout="fill"
