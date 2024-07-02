@@ -98,7 +98,12 @@ const Header = ({ _site }: any) => {
       <header className="p-6 justify-between items-center w-full max-w-screen-3xl bg-primary text-white md:hidden h-20 flex ">
         <div className="flex justify-between items-center font-bold w-full">
           <div className="ml-2">
-            <Image image={c_headerLogo!} width={150} layout="fixed" />
+            <Image
+              image={c_headerLogo!}
+              width={150}
+              className="!h-auto"
+              layout="fixed"
+            />
           </div>
           <div className="flex gap-4">
             <CiSearch
