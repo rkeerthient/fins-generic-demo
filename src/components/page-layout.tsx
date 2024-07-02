@@ -9,26 +9,25 @@ import Header from "./header";
 import { ChatHeadlessProvider } from "@yext/chat-headless-react";
 import { ChatPopUp } from "@yext/chat-ui-react";
 import "@yext/chat-ui-react/bundle.css";
+import Hero from "./Hero";
 
 type Props = {
   _site?: any;
   children?: React.ReactNode;
 };
 const PageLayout = ({ _site, children }: Props) => {
-  console.log(_site);
+  const { c_heroBanners } = _site;
 
   return (
-    <div className="min-h-screen">
-      <Header _site={_site} />
-      <div className="py-8">
-        <LocationsProvider>
-          <SearchHeadlessProvider searcher={provideHeadless(searchConfig)}>
-            {children}
-          </SearchHeadlessProvider>
-        </LocationsProvider>
-      </div>
-      <Footer _site={_site}></Footer>
-      {/* {import.meta.env.YEXT_PUBLIC_CHAT_APIKEY &&
+    <SearchHeadlessProvider searcher={provideHeadless(searchConfig)}>
+      <div className="min-h-screen">
+        <Header _site={_site} />
+        <Hero c_heroBanners={c_heroBanners} />
+        <div className="py-8">
+          <LocationsProvider>{children}</LocationsProvider>
+        </div>
+        <Footer _site={_site}></Footer>
+        {/* {import.meta.env.YEXT_PUBLIC_CHAT_APIKEY &&
         import.meta.env.YEXT_PUBLIC_CHAT_BOTID && (
           <ChatHeadlessProvider config={chatConfig}>
             <ChatPopUp
@@ -57,7 +56,8 @@ const PageLayout = ({ _site, children }: Props) => {
             />
           </ChatHeadlessProvider>
         )} */}
-    </div>
+      </div>
+    </SearchHeadlessProvider>
   );
 };
 

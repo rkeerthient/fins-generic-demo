@@ -58,7 +58,7 @@ const Search: Template<TemplateRenderProps> = ({ document }) => {
   return (
     <>
       <PageLayout _site={document._site}>
-        <SearchPage></SearchPage>
+        {/* <SearchPage></SearchPage> */}
       </PageLayout>
     </>
   );
