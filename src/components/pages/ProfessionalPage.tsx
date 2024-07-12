@@ -13,6 +13,8 @@ import Loader from "../Loader";
 
 const ProfessionalPage = ({ verticalKey }: PageProps) => {
   const { isLoaded } = useVerticalSearch(verticalKey) || false;
+  console.log(verticalKey);
+
   return (
     <>
       {isLoaded ? (
@@ -30,8 +32,7 @@ const ProfessionalPage = ({ verticalKey }: PageProps) => {
             <VerticalResults
               CardComponent={ProfessionalCard}
               customCssClasses={{
-                verticalResultsContainer:
-                  "grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8",
+                verticalResultsContainer: "flex flex-col gap-8",
               }}
             />
             <Pagination />

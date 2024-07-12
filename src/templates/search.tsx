@@ -17,7 +17,7 @@ export const config: TemplateConfig = {
 };
 
 export const getPath = () => {
-  return `index.html`;
+  return `search.html`;
 };
 
 export const getHeadConfig: GetHeadConfig<
@@ -39,26 +39,11 @@ export const getHeadConfig: GetHeadConfig<
   };
 };
 
-export const verticals = [
-  {
-    name: "All",
-    key: "all",
-  },
-  {
-    name: "Aha Idea",
-    key: "aha_idea",
-  },
-  {
-    name: "File",
-    key: "file_1",
-  },
-];
-
 const Search: Template<TemplateRenderProps> = ({ document }) => {
   return (
     <>
       <PageLayout _site={document._site}>
-        {/* <SearchPage></SearchPage> */}
+        <SearchPage></SearchPage>
       </PageLayout>
     </>
   );

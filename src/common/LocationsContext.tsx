@@ -1,16 +1,7 @@
 import * as React from "react";
 import { useState, useContext } from "react";
 
-export interface ReviewsData {
-  ratingValue: number;
-  ratingCount: number;
-  commentsCount: number;
-  npi: string;
-}
-
 interface ContextType {
-  reviewsData: ReviewsData[];
-  setReviewsData: React.Dispatch<React.SetStateAction<ReviewsData[]>>;
   selectedLocationId: any;
   setSelectedLocationId: React.Dispatch<React.SetStateAction<any>>;
   hoveredLocationId: any;
@@ -29,7 +20,6 @@ export const LocationsProvider = ({
   const [selectedLocationId, setSelectedLocationId] = useState<any>(null);
   const [hoveredLocationId, setHoveredLocationId] = useState<any>(null);
   const [clicked, setClicked] = useState<any>(null);
-  const [reviewsData, setReviewsData] = useState<ReviewsData[]>([]);
 
   return (
     <LocationsContext.Provider
@@ -39,12 +29,10 @@ export const LocationsProvider = ({
           setSelectedLocationId,
           hoveredLocationId,
           setHoveredLocationId,
-          reviewsData,
-          setReviewsData,
           clicked,
           setClicked,
         }),
-        [selectedLocationId, hoveredLocationId, reviewsData, clicked]
+        [selectedLocationId, hoveredLocationId, clicked]
       )}
     >
       {children}

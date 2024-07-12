@@ -16,6 +16,21 @@ siteStream:
     - c_headerLogo
     - primaryPhoto
     - slug
+    - c_footer.name
+    - c_footer.slug
+    - c_footer.relatedServices
+    - c_primaryNav.name
+    - c_primaryNav.slug
+    - c_primaryNav.relatedServices
+    - c_secondaryNav.name
+    - c_secondaryNav.slug
+    - c_secondaryNav.relatedServices
+    - c_topLeftNav.name
+    - c_topLeftNav.slug
+    - c_topLeftNav.relatedServices
+    - c_topRightNav.name
+    - c_topRightNav.slug
+    - c_topRightNav.relatedServices
     - c_featuredServices.id
     - c_featuredServices.name
     - c_featuredServices.slug
@@ -34,21 +49,7 @@ siteStream:
     - c_featuredArticles.name
     - c_featuredArticles.slug
     - c_featuredArticles.primaryPhoto
-    - c_footer.name
-    - c_footer.slug
-    - c_footer.relatedServices
-    - c_primaryNav.name
-    - c_primaryNav.slug
-    - c_primaryNav.relatedServices
-    - c_secondaryNav.name
-    - c_secondaryNav.slug
-    - c_secondaryNav.relatedServices
-    - c_topLeftNav.name
-    - c_topLeftNav.slug
-    - c_topLeftNav.relatedServices
-    - c_topRightNav.name
-    - c_topRightNav.slug
-    - c_topRightNav.relatedServices
+
   localization:
     locales:
       - en

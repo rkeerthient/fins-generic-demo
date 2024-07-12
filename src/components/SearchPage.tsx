@@ -1,31 +1,53 @@
 import {
-  provideHeadless,
   Result,
   UniversalLimit,
   useSearchActions,
   VerticalResults as VR,
 } from "@yext/search-headless-react";
-import {
-  DropdownItem,
-  FocusedItemData,
-  RenderEntityPreviews,
-  SearchBar,
-} from "@yext/search-ui-react";
+import { SearchBar } from "@yext/search-ui-react";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useLocationsContext } from "../common/LocationsContext";
-import { verticals } from "../templates";
 import FAQPage from "./pages/FAQPage";
 import Locator from "./pages/LocationsPage";
 import ProfessionalPage from "./pages/ProfessionalPage";
 import ServicePage from "./pages/ServicePage";
 import UniversalPage from "./pages/UniversalPage";
 import { useTypingEffect } from "./useTypeEffect";
-import { searchConfig } from "./config";
-import HealthcareProfessional from "../types/healthcare_professionals";
 type verticalInterface = {
   name: string;
   key: string;
 };
+
+const verticals: verticalInterface[] = [
+  {
+    name: "All",
+    key: "all",
+  },
+  {
+    name: "Financial Professionals",
+    key: "financial_professionals",
+  },
+  {
+    name: "Locations",
+    key: "locations",
+  },
+  {
+    name: "FAQs",
+    key: "faqs",
+  },
+  {
+    name: "Services",
+    key: "services",
+  },
+  {
+    name: "Financial Products",
+    key: "financial_products",
+  },
+  {
+    name: "Documents",
+    key: "documents",
+  },
+];
 
 const SearchPage = () => {
   const { queryPrompts } = useTypingEffect(
@@ -34,7 +56,6 @@ const SearchPage = () => {
   );
 
   const context = useLocationsContext();
-  const { setReviewsData } = context;
   const [results, setResults] = useState<
     (VR[] | Result<Record<string, unknown>>)[]
   >([]);
@@ -43,60 +64,38 @@ const SearchPage = () => {
     name: "All",
     key: "all",
   });
-  const universalLimit: UniversalLimit = {
-    faqs: 4,
-    healthcare_facilities: 4,
-    healthcare_professionals: 4,
-    specialties: 4,
-  };
+  // const universalLimit: UniversalLimit = {
+  //   faqs: 4,
+  //   healthcare_facilities: 4,
+  //   healthcare_professionals: 4,
+  //   specialties: 4,
+  // };
 
-  useEffect(() => {
-    if (!results) return;
-    const ids: any[] = [];
+  // useEffect(() => {
+  //   if (!results) return;
+  //   const ids: any[] = [];
 
-    if (currentVertical.key === "healthcare_professionals") {
-      results.forEach((item: any) => ids.push(item.rawData.npi));
-    } else if (currentVertical.key === "all") {
-      results.forEach(({ verticalKey, results: nestedResults }: any) => {
-        if (verticalKey === "healthcare_professionals") {
-          nestedResults.forEach((item: any) => ids.push(item.rawData.npi));
-        }
-      });
-    }
-
-    if (ids.length) getReviews(ids, results.length);
-  }, [results]);
-
-  const getReviews = async (ids: any, length: any) => {
-    const url = `/api/getRatings?npis=${ids.join(",")}&length=${length}`;
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      const reviewsData = data.entities.map((item: any) => ({
-        ratingValue: item.overallRating.value,
-        ratingCount: item.totalRatingCount,
-        commentsCount: item.totalCommentCount,
-        npi: item.id,
-      }));
-      setReviewsData(reviewsData);
-    } catch (error) {
-      console.error("Error fetching reviews:", error);
-    }
-  };
+  //   if (currentVertical.key === "healthcare_professionals") {
+  //     results.forEach((item: any) => ids.push(item.rawData.npi));
+  //   } else if (currentVertical.key === "all") {
+  //     results.forEach(({ verticalKey, results: nestedResults }: any) => {
+  //       if (verticalKey === "healthcare_professionals") {
+  //         nestedResults.forEach((item: any) => ids.push(item.rawData.npi));
+  //       }
+  //     });
+  //   }
+  // }, [results]);
 
   const executeSearch = () => {
     if (currentVertical.key === "all") {
       searchActions.setUniversal();
-      searchActions.setUniversalLimit(universalLimit);
+      // searchActions.setUniversalLimit(universalLimit);
       searchActions.executeUniversalQuery().then((res: any) => {
-        console.log(JSON.stringify(res));
-
         setResults(res?.verticalResults);
       });
     } else {
       searchActions.setVertical(currentVertical.key);
       searchActions.executeVerticalQuery().then((res: any) => {
-        console.log(JSON.stringify(res));
         setResults(res?.verticalResults.results);
       });
     }
@@ -173,11 +172,9 @@ const SearchPage = () => {
         {currentVertical &&
           (currentVertical.key === "faqs" ? (
             <FAQPage verticalKey={currentVertical.key} />
-          ) : currentVertical.key === "specialties" ? (
-            <ServicePage verticalKey={currentVertical.key} />
-          ) : currentVertical.key === "healthcare_professionals" ? (
+          ) : currentVertical.key === "financial_professionals" ? (
             <ProfessionalPage verticalKey={currentVertical.key} />
-          ) : currentVertical.key === "healthcare_facilities" ? (
+          ) : currentVertical.key === "locations" ? (
             <Locator verticalKey={currentVertical.key} />
           ) : (
             <UniversalPage />

@@ -8,6 +8,7 @@ const Hero = ({ c_heroBanners }: any) => {
   const {
     cTA: { label, linkType, link },
   } = c_heroBanners[0];
+  console.log(c_heroBanner.backgroundImage);
 
   return (
     <div
@@ -18,12 +19,17 @@ const Hero = ({ c_heroBanners }: any) => {
       <Image
         image={c_heroBanner.backgroundImage!}
         layout="fill"
-        className="absolute -z-10 !object-top	h-full"
+        className="absolute z-0 !object-top	h-full"
       />
-      <section className="bg-white md:p-8 md:ml-16 border rounded-md w-full md:w-1/3 flex flex-col gap-2 md:gap-4 mx-6 my-12 p-4">
+      <section className="bg-white md:p-8 md:ml-16 border rounded-md w-full md:w-1/3 flex flex-col gap-2 md:gap-4 mx-6 my-12 p-4 z-10">
         <h2 className="md:text-2xl font-bold text-lg">{c_heroBanner.name}</h2>
         <p className="md:text-base text-[12px] ">{c_heroBanner.description}</p>
-        <Cta buttonText={label} url={link} style="primary" />
+        <Cta
+          buttonText={label}
+          url={link}
+          style="primary"
+          classNames=" px-2 py-1.5 md:px-6 md:py-2.5 text-sm md:text-base rounded-md"
+        />
       </section>
     </div>
   );

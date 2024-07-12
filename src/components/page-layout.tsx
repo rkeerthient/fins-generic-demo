@@ -20,12 +20,9 @@ const PageLayout = ({ _site, children }: Props) => {
 
   return (
     <SearchHeadlessProvider searcher={provideHeadless(searchConfig)}>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-primary-bg">
         <Header _site={_site} />
-        <Hero c_heroBanners={c_heroBanners} />
-        <div className="py-8">
-          <LocationsProvider>{children}</LocationsProvider>
-        </div>
+        <LocationsProvider>{children}</LocationsProvider>
         <Footer _site={_site}></Footer>
         {/* {import.meta.env.YEXT_PUBLIC_CHAT_APIKEY &&
         import.meta.env.YEXT_PUBLIC_CHAT_BOTID && (

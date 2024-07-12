@@ -22,6 +22,7 @@ const _searchBar = () => {
       customCssClasses={{
         searchBarContainer: "w-full !-mb-2",
         searchButton: "text-primary",
+        inputElement: "!h-9 md:h-11",
       }}
     />
   );

@@ -1,16 +1,20 @@
-type Cta = {
+interface CtaProps {
   buttonText: string;
+  style: "primary" | "secondary";
   url: string;
-  style?: "primary" | "secondary";
-};
+  classNames?: string;
+}
 
-const Cta = (props: Cta) => {
-  const { buttonText, url, style } = props;
+const Cta = ({ buttonText, style, url, classNames = "" }: CtaProps) => {
+  const styleClasses =
+    style === "primary"
+      ? "bg-primary text-white w-fit"
+      : "border-primary text-primary border w-fit";
 
   return (
     <a
-      href={url}
-      className={` ${style === "primary" ? `w-fit px-2 py-1.5 md:px-6 md:py-2.5 text-sm md:text-base bg-primary text-white rounded-md ` : ``}`}
+      href={url || "#"}
+      className={`${styleClasses} ${classNames} `}
       target="_blank"
       rel="noopener noreferrer"
     >
