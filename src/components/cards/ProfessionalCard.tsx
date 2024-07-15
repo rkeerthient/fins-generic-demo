@@ -32,7 +32,7 @@ const ProfessionalCard = ({ result }: CardProps<any>) => {
           {headshot && (
             <Image
               image={headshot!}
-              className="pointer-events-none group-hover:opacity-75 !aspect-square !w-full !max-w-none !object-top rounded-lg"
+              className="pointer-events-none  !aspect-square !w-full !max-w-none !object-top rounded-lg"
             />
           )}
         </a>

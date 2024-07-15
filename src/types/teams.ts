@@ -1,32 +1,3 @@
-export interface Interval {
-	start: any,
-	end: any,
-}
-
-export interface DayHour {
-	openIntervals?: Interval[],
-	isClosed?: boolean,
-}
-
-export interface HolidayHours {
-	date: string,
-	openIntervals?: Interval[],
-	isClosed?: boolean,
-	isRegularHours?: boolean,
-}
-
-export interface Hours {
-	monday?: DayHour,
-	tuesday?: DayHour,
-	wednesday?: DayHour,
-	thursday?: DayHour,
-	friday?: DayHour,
-	saturday?: DayHour,
-	sunday?: DayHour,
-	holidayHours?: HolidayHours[],
-	reopenDate?: string,
-}
-
 export enum Category {
 	BOOK_TRAVEL = "Book Travel",
 	CHECK_IN = "Check in",
@@ -110,12 +81,6 @@ export enum BingRelationshipType {
 	WORKS_AT = "Works At",
 }
 
-export enum CovidVaccinesOffered {
-	PFIZER = "Pfizer",
-	MODERNA = "Moderna",
-	JOHNSON___JOHNSON = "Johnson & Johnson",
-}
-
 export interface FrequentlyAskedQuestions {
 	question: string,
 	answer?: string,
@@ -129,6 +94,35 @@ export enum Type {
 export interface GoogleEntityRelationship {
 	type: Type,
 	placeId: string,
+}
+
+export interface Interval {
+	start: any,
+	end: any,
+}
+
+export interface DayHour {
+	openIntervals?: Interval[],
+	isClosed?: boolean,
+}
+
+export interface HolidayHours {
+	date: string,
+	openIntervals?: Interval[],
+	isClosed?: boolean,
+	isRegularHours?: boolean,
+}
+
+export interface Hours {
+	monday?: DayHour,
+	tuesday?: DayHour,
+	wednesday?: DayHour,
+	thursday?: DayHour,
+	friday?: DayHour,
+	saturday?: DayHour,
+	sunday?: DayHour,
+	holidayHours?: HolidayHours[],
+	reopenDate?: string,
 }
 
 export enum Type_1 {
@@ -169,6 +163,11 @@ export interface Coordinate {
 	longitude?: number,
 }
 
+export enum C_individualOrTeam {
+	INDIVIDUAL = "Individual",
+	TEAM = "Team",
+}
+
 export enum LinkType {
 	OTHER = "Other",
 	URL = "URL",
@@ -176,164 +175,15 @@ export enum LinkType {
 	EMAIL = "Email",
 }
 
-export interface CTA {
+export interface Fins_primaryCTA {
 	label?: string,
 	linkType?: LinkType,
 	link?: string,
 }
 
-export interface C_appointmentPromo {
-	sectionTitle?: string,
-	sectionDescription?: string,
-	cTA?: CTA[],
-}
-
-export enum C_appointmentSectionType {
-	WHEN = "When",
-	ACCESS = "Access",
-	TO_ACCESS = "To access",
-	NEW = "New",
-}
-
-export interface Button1 {
-	text?: string,
-	ctaAction(url,Phone,Email)?: string,
-}
-
-export interface Button2 {
-	text?: string,
-	ctaAction(url,Phone,Email)?: string,
-}
-
-export interface Link1 {
-	text?: string,
-	link?: string,
-}
-
-export interface Link2 {
-	text?: string,
-	ctaAction(url,Phone,Email)?: string,
-}
-
-export interface C_appointmentsAndReferralsProviders {
-	Description?: string,
-	button1?: Button1,
-	button2?: Button2,
-	link1?: Link1,
-	link2?: Link2,
-	additionalText?: string,
-}
-
-export interface C_appointmentsAndReferralsSectionFlexible {
-	Description?: string,
-	button1?: Button1,
-	button2?: Button2,
-	link1?: Link1,
-	link2?: Link2,
-	additionalText?: string,
-}
-
-export interface C_findExpertsSectionFlexible {
-	description?: string,
-	button1?: Button1,
-	button2?: Button2,
-}
-
-export enum C_locationType {
-	PRIMARY_CARE = "Primary Care",
-	SPECIALTY_CARE = "Specialty Care",
-	HOME_HEALTH = "Home Health",
-	PHARMACY = "Pharmacy",
-	DEPARTMENT = "Medical Center",
-	URGENT_CARE = "Urgent Care",
-	SURGERY_CENTER = "Surgery Center",
-	EMERGENCY_DEPARTMENT = "Emergency Department",
-}
-
-export interface MediaTitleURL {
-	text?: string,
-	link?: string,
-}
-
-export interface C_mediaGallery {
-	photo?: Image,
-	mediaTitleURL?: MediaTitleURL,
-	mediaDescription?: string,
-}
-
-export interface C_meta {
-	title?: string,
-	description?: string,
-}
-
-export interface NotificationBannerLink {
-	text?: string,
-	link?: string,
-}
-
-export interface C_notificationBannerNew {
-	notificationBannerHeader?: string,
-	notificationBannerDescription?: string,
-	notificationBannerLink?: NotificationBannerLink,
-}
-
-export interface C_primaryCTA {
+export interface Fins_secondaryCTA {
 	label?: string,
 	linkType?: LinkType,
-	link?: string,
-}
-
-export interface Button {
-	text?: string,
-	ctaAction(url,Phone,Email)?: string,
-}
-
-export interface C_promoSectionFlexible {
-	photo?: Image,
-	heading?: string,
-	description?: string,
-	button?: Button,
-}
-
-export enum C_region {
-	SOUHEAST = "Souheast",
-	SOUTHWEST = "Southwest",
-}
-
-export interface ResourcesList {
-	text?: string,
-	link?: string,
-}
-
-export interface SectionCTA {
-	label?: string,
-	linkType?: LinkType,
-	link?: string,
-}
-
-export interface C_resources {
-	sectionTitle?: string,
-	sectionDescription?: string,
-	video?: string,
-	listHeading?: string,
-	resourcesList?: ResourcesList[],
-	sectionCTA?: SectionCTA,
-}
-
-export interface C_secondaryCTA {
-	label?: string,
-	linkType?: LinkType,
-	link?: string,
-}
-
-export interface C_secondayCTA {
-	label?: string,
-	linkType?: LinkType,
-	link?: string,
-}
-
-export interface C_servicesSectionList {
-	text?: string,
 	link?: string,
 }
 
@@ -363,15 +213,6 @@ export interface FacebookCallToAction {
 export interface FeaturedMessage {
 	description?: string,
 	url?: string,
-}
-
-export enum LocationType {
-	LOCATION = "Location",
-	HEALTHCARE_FACILITY = "Healthcare Facility",
-	HEALTHCARE_PROFESSIONAL = "Healthcare Professional",
-	ATM = "ATM",
-	RESTAURANT = "Restaurant",
-	HOTEL = "Hotel",
 }
 
 export interface MenuUrl {
@@ -486,65 +327,10 @@ export enum PaymentOptions {
 	Überweisung = "Banküberweisung",
 }
 
-export interface RankTrackingCompetitors {
-	name: string,
-	website: string,
-}
-
-export enum RankTrackingFrequency {
-	WEEKLY = "Weekly",
-	MONTHLY = "Monthly",
-	QUARTERLY = "Quarterly",
-}
-
-export enum RankTrackingKeywords {
-	NAME = "Name",
-	PRIMARY_CATEGORY = "Primary Category",
-	SECONDARY_CATEGORY = "Secondary Category",
-}
-
-export enum RankTrackingQueryTemplates {
-	KEYWORD = "Keyword",
-	KEYWORD_ZIP = "Keyword Zip",
-	KEYWORD_CITY = "Keyword City",
-	KEYWORD_IN_CITY = "Keyword in City",
-	KEYWORD_NEAR_ME = "Keyword near me",
-	KEYWORD_CITY_STATE = "Keyword City State",
-}
-
-export enum RankTrackingSites {
-	GOOGLE_DESKTOP = "Google Desktop",
-	GOOGLE_MOBILE = "Google Mobile",
-	BING_DESKTOP = "Bing Desktop",
-	BING_MOBILE = "Bing Mobile",
-	YAHOO_DESKTOP = "Yahoo Desktop",
-	YAHOO_MOBILE = "Yahoo Mobile",
-}
-
 export interface ReservationUrl {
 	url?: string,
 	displayUrl?: string,
 	preferDisplayUrl?: boolean,
-}
-
-export interface ServiceArea {
-	places?: string[],
-}
-
-export enum Presentation {
-	BUTTON = "Button",
-	LINK = "Link",
-}
-
-export interface UberLink {
-	text?: string,
-	presentation: Presentation,
-}
-
-export interface UberTripBranding {
-	text: string,
-	url: string,
-	description: string,
 }
 
 export interface WebsiteUrl {
@@ -559,8 +345,7 @@ export interface ComplexVideo {
 	description?: string,
 }
 
-export default interface HealthcareFacility {
-	accessHours?: Hours,
+export default interface FinancialProfessional {
 	appleActionLinks?: AppleActionLinks[],
 	appleBusinessConnectLinkedAccount?: any,
 	appleBusinessDescription?: string,
@@ -569,59 +354,46 @@ export default interface HealthcareFacility {
 	appleCompanyId?: string,
 	appleCompanyIdDqe?: string,
 	appleCoverPhoto?: Image,
+	appointmentOnly?: boolean,
+	awards?: string[],
 	bingParentLocation?: EntityReference,
 	bingRelationshipType?: BingRelationshipType,
 	bingWebsiteOverride?: string,
-	blackOwnedBusiness?: boolean,
-	covid19InformationUrl?: string,
-	covidMessaging?: string,
-	covidTestAppointmentUrl?: string,
-	covidTestingAppointmentRequired?: boolean,
-	covidTestingDriveThroughSite?: boolean,
-	covidTestingIsFree?: boolean,
-	covidTestingPatientRestrictions?: boolean,
-	covidTestingReferralRequired?: boolean,
-	covidTestingSiteInstructions?: string,
-	covidVaccineAppointmentRequired?: boolean,
-	covidVaccineDriveThroughSite?: boolean,
-	covidVaccineInformationUrl?: string,
-	covidVaccinePatientRestrictions?: boolean,
-	covidVaccineReferralRequired?: boolean,
-	covidVaccineSiteInstructions?: string,
-	covidVaccinesOffered?: CovidVaccinesOffered[],
+	disclosureLink?: string,
 	facebookAbout?: string,
 	facebookWebsiteOverride?: string,
 	frequentlyAskedQuestions?: FrequentlyAskedQuestions[],
-	fullyVaccinatedStaff?: boolean,
 	geomodifier?: string,
 	googleEntityRelationship?: GoogleEntityRelationship,
 	googleMyBusinessLabels?: string[],
 	googlePlaceId?: string,
 	googleShortName?: string,
+	hobbies?: string[],
 	holidayHoursConversationEnabled?: boolean,
 	impressum?: string,
+	interests?: string[],
 	landingPageUrl?: string,
 	linkedInUrl?: string,
 	neighborhood?: string,
+	nmlsNumber?: string,
 	nudgeEnabled?: boolean,
 	onlineServiceHours?: Hours,
-	phoneticName?: string,
-	pickupHours?: Hours,
 	pinterestUrl?: string,
 	primaryConversationContact?: any,
 	reviewResponseConversationEnabled?: boolean,
 	serviceAreaPlaces?: ServiceAreaPlaces[],
 	slug?: string,
-	telehealthUrl?: string,
+	teamName?: string,
 	tikTokUrl?: string,
 	what3WordsAddress?: string,
+	yearsOfExperience?: number,
 	yelpWebsiteOverride?: string,
 	youTubeChannelUrl?: string,
-	acceptingNewPatients?: boolean,
 	additionalHoursText?: string,
 	address: Address,
 	addressHidden?: boolean,
 	alternatePhone?: any,
+	androidAppUrl?: string,
 	associations?: string[],
 	brands?: string[],
 	description?: string,
@@ -629,51 +401,32 @@ export default interface HealthcareFacility {
 	logo?: ComplexImage,
 	name: string,
 	categories?: any,
+	certifications?: string[],
 	cityCoordinate?: Coordinate,
 	closed?: boolean,
-	conditionsTreated?: string[],
-	c_appointmentPromo?: C_appointmentPromo,
-	c_appointmentSectionType?: C_appointmentSectionType,
-	c_appointmentURL?: string,
-	c_appointmentsAndReferralsProviders?: C_appointmentsAndReferralsProviders,
-	c_appointmentsAndReferralsCTAText?: string,
-	c_appointmentsAndReferralsSectionFlexible?: C_appointmentsAndReferralsSectionFlexible,
-	c_bingURL?: string,
-	c_bingUTM?: string,
-	c_campusMapPDF?: string,
 	dm_directoryParents?: EntityReference[],
-	c_extendedNetworkUTM?: string,
-	c_facebookURL?: string,
-	c_facebookUTM?: string,
-	c_facilityTeamURL?: string,
-	c_findExpertsSectionFlexible?: C_findExpertsSectionFlexible,
-	c_generalWebsite?: string,
-	c_googleCID?: string,
-	c_googleUTM?: string,
-	c_languagesList?: string[],
+	c_displayCalculators?: boolean,
+	c_displayInsights?: boolean,
+	c_displayRefinanceRates?: boolean,
+	c_fPBio?: string,
+	c_individualOrTeam?: C_individualOrTeam,
+	fins_jobTitle?: string,
+	c_linkedInsightsArticles?: EntityReference[],
+	c_linkedTeam?: EntityReference[],
 	c_liveOnPages?: boolean,
-	c_locationPhoto?: Image,
-	c_locationType: C_locationType,
-	c_mediaGallery?: C_mediaGallery[],
-	c_meta?: C_meta,
-	c_notificationBannerNew?: C_notificationBannerNew,
-	c_openMonth?: string,
-	c_pagesSpecialty?: string,
-	c_pagesURL?: string,
-	c_parkingMapPDF?: string,
-	c_primaryCTA?: C_primaryCTA,
-	c_primaryLocation?: string,
-	c_promoSectionFlexible?: C_promoSectionFlexible,
-	c_region?: C_region,
-	c_relatedHealthcareFacility?: EntityReference[],
-	c_resources?: C_resources,
-	c_secondaryCTA?: C_secondaryCTA,
-	c_secondayCTA?: C_secondayCTA,
-	c_servicesSectionList?: C_servicesSectionList[],
-	c_specialty?: string,
-	c_teamSection?: EntityReference[],
-	c_testimonialImage?: Image,
-	c_testimonialQuote?: string,
+	c_liveOnSearch?: boolean,
+	fins_primaryCTA?: Fins_primaryCTA,
+	c_primaryService?: EntityReference[],
+	fins_relatedFaqs?: EntityReference[],
+	fins_relatedLocations?: EntityReference[],
+	fins_relatedProducts?: EntityReference[],
+	fins_relatedServices?: EntityReference[],
+	fins_secondaryCTA?: Fins_secondaryCTA,
+	c_teamBio?: string,
+	c_teamMembers?: EntityReference[],
+	firstPartyReviewPage?: any,
+	reviewGenerationUrl?: any,
+	defaultReviewInviteTemplate?: any,
 	displayCoordinate?: Coordinate,
 	dropoffCoordinate?: Coordinate,
 	emails?: string[],
@@ -681,7 +434,6 @@ export default interface HealthcareFacility {
 	facebookCoverPhoto?: Image,
 	facebookCallToAction?: FacebookCallToAction,
 	facebookDescriptor?: string,
-	facebookEmail?: string,
 	facebookLinkedAccount?: any,
 	facebookName?: string,
 	facebookPageUrl?: string,
@@ -699,47 +451,31 @@ export default interface HealthcareFacility {
 	googleCoverPhoto?: Image,
 	googleProfilePhoto?: Image,
 	googleWebsiteOverride?: string,
-	insuranceAccepted?: string[],
+	headshot?: Image,
 	instagramHandle?: string,
+	iosAppUrl?: string,
 	isoRegionCode?: string,
 	keywords?: string[],
 	languages?: string[],
 	localPhone?: any,
-	locationType?: LocationType,
 	mainPhone?: any,
 	menuUrl?: MenuUrl,
 	mobilePhone?: any,
-	npi?: string,
 	orderUrl?: OrderUrl,
 	paymentOptions?: PaymentOptions[],
-	phones?: any,
 	pickupCoordinate?: Coordinate,
-	alternateNames?: string[],
-	alternateWebsites?: string[],
-	rankTrackingCompetitors?: RankTrackingCompetitors[],
-	customKeywords?: string[],
-	rankTrackingEnabled?: boolean,
-	rankTrackingFrequency?: RankTrackingFrequency,
-	rankTrackingKeywords?: RankTrackingKeywords[],
-	rankTrackingQueryTemplates?: RankTrackingQueryTemplates[],
-	rankTrackingSites?: RankTrackingSites[],
+	products?: string[],
 	reservationUrl?: ReservationUrl,
 	routableCoordinate?: Coordinate,
-	serviceArea?: ServiceArea,
 	services?: string[],
-	shortName35?: string,
-	shortName64?: string,
+	specialities?: string[],
 	id: string,
 	timezone?: any,
 	tollFreePhone?: any,
 	ttyPhone?: any,
 	twitterHandle?: string,
-	uberClientId?: string,
-	uberLink?: UberLink,
-	uberTripBranding?: UberTripBranding,
 	walkableCoordinate?: Coordinate,
 	websiteUrl?: WebsiteUrl,
-	yearEstablished?: number,
 	yextDisplayCoordinate?: Coordinate,
 	yextDropoffCoordinate?: Coordinate,
 	yextPickupCoordinate?: Coordinate,

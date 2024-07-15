@@ -81,7 +81,7 @@ export const getHeadConfig: GetHeadConfig<
   };
 };
 
-const Search: Template<TemplateRenderProps> = ({ document }) => {
+const Homepage: Template<TemplateRenderProps> = ({ document }) => {
   const {
     id,
     uid,
@@ -113,4 +113,4 @@ const Search: Template<TemplateRenderProps> = ({ document }) => {
   );
 };
 
-export default Search;
+export default Homepage;

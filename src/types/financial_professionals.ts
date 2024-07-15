@@ -163,6 +163,11 @@ export interface Coordinate {
 	longitude?: number,
 }
 
+export enum C_individualOrTeam {
+	INDIVIDUAL = "Individual",
+	TEAM = "Team",
+}
+
 export enum LinkType {
 	OTHER = "Other",
 	URL = "URL",
@@ -170,159 +175,19 @@ export enum LinkType {
 	EMAIL = "Email",
 }
 
-export interface CTA1 {
+export interface Fins_primaryCTA {
 	label?: string,
 	linkType?: LinkType,
 	link?: string,
 }
 
-export interface CTA2 {
-	label?: string,
-	linkType?: LinkType,
-	link?: string,
-}
-
-export interface C_aboutSection {
-	sectionTitle?: string,
-	testimonialQuote?: string,
-	videoYoutube?: string,
-	videoVimeo?: string,
-	biographyParagraph?: string,
-	cTA1?: CTA1,
-	cTA2?: CTA2,
-}
-
-export interface C_aboutSectionResearchList {
-	researchTitle?: string,
-	researchDescription?: string,
-	cTA1?: CTA1,
-	cTA2?: CTA2,
-}
-
-export enum C_acceptingNewPatientAnswersFilter {
-	AGES_0_3 = "Ages 0-3",
-	OF_ALL_AGES = "Of All Ages",
-}
-
-export enum C_answersCTAText {
-	REQUEST_AN_APPOINTMENT = "Request an Appointment",
-	REQUEST_A_CONSULTATION = "Request a Consultation",
-}
-
-export interface CTA {
-	label?: string,
-	linkType?: LinkType,
-	link?: string,
-}
-
-export interface C_appointmentPromoCFTProvider {
-	sectionTitle?: string,
-	sectionDescription?: string,
-	cTA?: CTA[],
-}
-
-export enum C_cTACode {
-	PC = "PC",
-	SC = "SC",
-	UC = "UC",
-	NB = "NB",
-}
-
-export interface MediaTitleURL {
-	text?: string,
-	link?: string,
-}
-
-export interface C_mediaGallery {
-	photo?: Image,
-	mediaTitleURL?: MediaTitleURL,
-	mediaDescription?: string,
-}
-
-export interface C_meta {
-	title?: string,
-	description?: string,
-}
-
-export interface NotificationBannerLink {
-	text?: string,
-	link?: string,
-}
-
-export interface C_notificationBannerNew {
-	notificationBannerHeader?: string,
-	notificationBannerDescription?: string,
-	notificationBannerLink?: NotificationBannerLink,
-}
-
-export interface ServicesList {
-	label?: string,
-	linkType?: LinkType,
-	link?: string,
-}
-
-export interface C_physicianServicesSection {
-	sectionTitle?: string,
-	sectionDescription?: string,
-	servicesList?: ServicesList[],
-}
-
-export interface C_primaryCTA {
-	label?: string,
-	linkType?: LinkType,
-	link?: string,
-}
-
-export enum C_schemaSpecialty {
-	PEDIATRIC = "Pediatric",
-	ANESTHESIA = "Anesthesia",
-	CARDIOVASCULAR = "Cardiovascular",
-	PSYCHIATRIC = "Psychiatric",
-	NEUROLOGIC = "Neurologic",
-	PLASTICSURGERY = "PlasticSurgery",
-	DERMATOLOGY = "Dermatology",
-	EMERGENCY = "Emergency",
-	ENDOCRINE = "Endocrine",
-	OTOLARYNGOLOGIC = "Otolaryngologic",
-	GASTROENTEROLOGIC = "Gastroenterologic",
-	GENETIC = "Genetic",
-	GYNECOLOGIC = "Gynecologic",
-	ONCOLOGIC = "Oncologic",
-	HEMATOLOGIC = "Hematologic",
-	OBSETRIC = "Obstetric",
-	INFECTIOUS = "Infectious",
-	RENAL = "Renal",
-	SURGICAL = "Surgical",
-	MUSCULOSKELETAL = "Musculoskeletal",
-	PATHOLOGY = "Pathology",
-	PRIMARYCARE = "PrimaryCare",
-	PULMONARY = "Pulmonary",
-	RADIOGRAPHY = "Radiography",
-	RHEUMATOLOGIC = "Rheumatologic",
-	RESPIRATORYTHERAPY = "RespiratoryTherapy",
-	UROLOGIC = "Urologic",
-}
-
-export interface C_secondaryCTA {
+export interface Fins_secondaryCTA {
 	label?: string,
 	linkType?: LinkType,
 	link?: string,
 }
 
 export enum Type_2 {
-	FELLOWSHIP = "Fellowship",
-	RESIDENCY = "Residency",
-	INTERNSHIP = "Internship",
-	MEDICAL_SCHOOL = "Medical School",
-}
-
-export interface EducationList {
-	type: Type_2,
-	institutionName: string,
-	yearCompleted: number,
-}
-
-export enum Type_3 {
 	NONE = "None",
 	BOOK_NOW = "Book Now",
 	CALL_NOW = "Call Now",
@@ -341,83 +206,13 @@ export enum Type_3 {
 }
 
 export interface FacebookCallToAction {
-	type: Type_3,
+	type: Type_2,
 	value?: string,
 }
 
 export interface FeaturedMessage {
 	description?: string,
 	url?: string,
-}
-
-export enum Gender {
-	UNSPECIFIED = "Unspecified",
-	FEMALE = "Female",
-	MALE = "Male",
-	NONBINARY = "Nonbinary",
-	TRANSGENDER_FEMALE = "Transgender Female",
-	TRANSGENDER_MALE = "Transgender Male",
-	OTHER = "Other",
-	PREFER_NOT_TO_DISCLOSE = "Prefer Not to Disclose",
-}
-
-export enum Degrees {
-	ANP = "Adult Nurse Practitioner (ANP)",
-	APN = "Advanced Practice Nurse (APN)",
-	APRN = "Advanced Practice Registered Nurse (APRN)",
-	ARNP = "Advanced Registered Nurse Practitioner (ARNP)",
-	AUD = "Audiologist (AUD)",
-	BSW = "Bachelors of Social Work (BSW)",
-	CCCA = "Certificate of Clinical Competence in Audiology (CCCA)",
-	CNM = "Certified Nurse Midwife (CNM)",
-	CNP = "Certified Nurse Practitioner (CNP)",
-	CNS = "Clinical Nurse Specialist (CNS)",
-	CPNP = "Certified Pediatric Nurse Practitioner (CPNP)",
-	CRNA = "Certified Registered Nurse Anesthetist (CRNA)",
-	CRNP = "Certified Registered Nurse Practitioner (CRNP)",
-	DC = "Doctor of Chiropractic (DC)",
-	DDS = "Doctor of Dental Surgery (DDS)",
-	DMD = "Doctor of Dental Medicine (DMD)",
-	DNP = "Doctor of Nursing Practice (DNP)",
-	DO = "Doctor of Osteopathy (DO)",
-	DPM = "Doctor of Podiatric Medicine (DPM)",
-	DPT = "Doctor of Physical Therapy (DPT)",
-	DSW = "Doctorate Social Work (DSW)",
-	DVM = "Doctor of Veterinary Medicine (DVM)",
-	FNP = "Family Nurse Practitioner (FNP)",
-	GNP = "Geriatric Nurse Practitioner (GNP)",
-	LAC = "Licensed Acupuncturist (LAC)",
-	LCSW = "Licensed Social Worker (LCSW)",
-	LPN = "Licensed Practical Nurse (LPN)",
-	MBA = "Master of Business Administration (MBA)",
-	MBBS = "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
-	MD = "Medical Doctor (MD)",
-	MPAS = "Master of Physician Assistant Studies (MPAS)",
-	MPH = "Master of Public Health (MPH)",
-	MSW = "Master Social Work (MSW)",
-	ND = "Naturopathic Doctor (ND)",
-	NNP = "Neonatal Nurse Practitioner (NNP)",
-	NP = "Nurse Practitioner (NP)",
-	OD = "Doctor of Optometry (OD)",
-	PA = "Physician Assistant (PA)",
-	PAC = "Physician Assistant Certified (PAC)",
-	PHARMD = "Doctor of Pharmacy (PHARMD)",
-	PHD = "Doctor of Philosophy (PHD)",
-	PNP = "Pediatric Nurse Practitioner (PNP)",
-	PSYD = "Doctor of Psychology (PSYD)",
-	RD = "Registered Dietician (RD)",
-	RSW = "Registered Social Worker (RSW)",
-	VMD = "Veterinary Medical Doctor (VMD)",
-	WHNP = "Womens Health Nurse Practitioner (WHNP)",
-}
-
-export enum LocationType {
-	LOCATION = "Location",
-	HEALTHCARE_FACILITY = "Healthcare Facility",
-	HEALTHCARE_PROFESSIONAL = "Healthcare Professional",
-	ATM = "ATM",
-	RESTAURANT = "Restaurant",
-	HOTEL = "Hotel",
 }
 
 export interface MenuUrl {
@@ -532,65 +327,10 @@ export enum PaymentOptions {
 	Überweisung = "Banküberweisung",
 }
 
-export interface RankTrackingCompetitors {
-	name: string,
-	website: string,
-}
-
-export enum RankTrackingFrequency {
-	WEEKLY = "Weekly",
-	MONTHLY = "Monthly",
-	QUARTERLY = "Quarterly",
-}
-
-export enum RankTrackingKeywords {
-	NAME = "Name",
-	PRIMARY_CATEGORY = "Primary Category",
-	SECONDARY_CATEGORY = "Secondary Category",
-}
-
-export enum RankTrackingQueryTemplates {
-	KEYWORD = "Keyword",
-	KEYWORD_ZIP = "Keyword Zip",
-	KEYWORD_CITY = "Keyword City",
-	KEYWORD_IN_CITY = "Keyword in City",
-	KEYWORD_NEAR_ME = "Keyword near me",
-	KEYWORD_CITY_STATE = "Keyword City State",
-}
-
-export enum RankTrackingSites {
-	GOOGLE_DESKTOP = "Google Desktop",
-	GOOGLE_MOBILE = "Google Mobile",
-	BING_DESKTOP = "Bing Desktop",
-	BING_MOBILE = "Bing Mobile",
-	YAHOO_DESKTOP = "Yahoo Desktop",
-	YAHOO_MOBILE = "Yahoo Mobile",
-}
-
 export interface ReservationUrl {
 	url?: string,
 	displayUrl?: string,
 	preferDisplayUrl?: boolean,
-}
-
-export interface ServiceArea {
-	places?: string[],
-}
-
-export enum Presentation {
-	BUTTON = "Button",
-	LINK = "Link",
-}
-
-export interface UberLink {
-	text?: string,
-	presentation: Presentation,
-}
-
-export interface UberTripBranding {
-	text: string,
-	url: string,
-	description: string,
 }
 
 export interface WebsiteUrl {
@@ -605,7 +345,7 @@ export interface ComplexVideo {
 	description?: string,
 }
 
-export default interface HealthcareProfessional {
+export default interface FinancialProfessional {
 	appleActionLinks?: AppleActionLinks[],
 	appleBusinessConnectLinkedAccount?: any,
 	appleBusinessDescription?: string,
@@ -614,11 +354,12 @@ export default interface HealthcareProfessional {
 	appleCompanyId?: string,
 	appleCompanyIdDqe?: string,
 	appleCoverPhoto?: Image,
+	appointmentOnly?: boolean,
+	awards?: string[],
 	bingParentLocation?: EntityReference,
 	bingRelationshipType?: BingRelationshipType,
 	bingWebsiteOverride?: string,
-	covid19InformationUrl?: string,
-	covidMessaging?: string,
+	disclosureLink?: string,
 	facebookAbout?: string,
 	facebookWebsiteOverride?: string,
 	frequentlyAskedQuestions?: FrequentlyAskedQuestions[],
@@ -627,11 +368,14 @@ export default interface HealthcareProfessional {
 	googleMyBusinessLabels?: string[],
 	googlePlaceId?: string,
 	googleShortName?: string,
+	hobbies?: string[],
 	holidayHoursConversationEnabled?: boolean,
 	impressum?: string,
+	interests?: string[],
 	landingPageUrl?: string,
 	linkedInUrl?: string,
 	neighborhood?: string,
+	nmlsNumber?: string,
 	nudgeEnabled?: boolean,
 	onlineServiceHours?: Hours,
 	pinterestUrl?: string,
@@ -639,16 +383,17 @@ export default interface HealthcareProfessional {
 	reviewResponseConversationEnabled?: boolean,
 	serviceAreaPlaces?: ServiceAreaPlaces[],
 	slug?: string,
-	telehealthUrl?: string,
+	teamName?: string,
 	tikTokUrl?: string,
 	what3WordsAddress?: string,
+	yearsOfExperience?: number,
 	yelpWebsiteOverride?: string,
 	youTubeChannelUrl?: string,
-	acceptingNewPatients?: boolean,
 	additionalHoursText?: string,
 	address: Address,
 	addressHidden?: boolean,
 	alternatePhone?: any,
+	androidAppUrl?: string,
 	associations?: string[],
 	brands?: string[],
 	description?: string,
@@ -659,67 +404,36 @@ export default interface HealthcareProfessional {
 	certifications?: string[],
 	cityCoordinate?: Coordinate,
 	closed?: boolean,
-	clusterIndex?: number,
-	conditionsTreated?: string[],
-	c_aboutSection?: C_aboutSection,
-	c_aboutSectionPublicationList?: string[],
-	c_aboutSectionResearchList?: C_aboutSectionResearchList[],
-	c_aboutSectionResearchTitle?: string,
-	c_acceptingNewPatientAnswersFilter?: C_acceptingNewPatientAnswersFilter[],
-	c_acceptingPatientsAges03?: boolean,
-	c_affiliationsPages?: string,
-	c_allPracticeLocationsLink?: EntityReference[],
-	c_answersCTAText?: C_answersCTAText,
-	c_appointmentCTAText?: string,
-	c_appointmentPromoCFTProvider?: C_appointmentPromoCFTProvider,
-	c_bingURL?: string,
-	c_bingUTM?: string,
-	c_bookApptWidgetShowOnPage?: boolean,
-	c_cTACode?: C_cTACode,
 	dm_directoryParents?: EntityReference[],
-	c_educationPages?: string,
-	c_epicID?: string,
-	c_extendedNetworkUTM?: string,
-	c_facebookURL?: string,
-	c_facebookUTM?: string,
-	c_fellowshipPages?: string,
-	c_generalWebsite?: string,
-	c_googleUTM?: string,
-	c_linkedInURL?: string,
-	c_locationPageURL?: string,
-	c_mediaGallery?: C_mediaGallery[],
-	c_meta?: C_meta,
-	c_metadescription?: string,
-	c_metatitle?: string,
-	c_notificationBannerNew?: C_notificationBannerNew,
-	c_offeringVirtualVisits?: boolean,
-	c_pageExists?: boolean,
-	c_pagesProviderName?: string,
-	c_pagesSpecialty?: string,
-	c_pagesURL?: string,
-	c_physicianDeptID?: string,
-	c_physicianPID?: string,
-	c_physicianServicesSection?: C_physicianServicesSection,
-	c_physicianTitle?: string,
-	c_primaryCTA?: C_primaryCTA,
-	c_primaryLocation?: string,
-	c_primaryLocationLink?: EntityReference[],
-	c_proceduresPerformed?: string[],
-	c_recognitionListPages?: string[],
-	c_residencyPages?: string,
-	c_schemaSpecialty?: C_schemaSpecialty,
-	c_secondaryCTA?: C_secondaryCTA,
-	c_specialty?: string,
-	c_youtubeURL?: string,
+	c_displayCalculators?: boolean,
+	c_displayInsights?: boolean,
+	c_displayRefinanceRates?: boolean,
+	c_fPBio?: string,
+	c_individualOrTeam?: C_individualOrTeam,
+	fins_jobTitle?: string,
+	c_linkedInsightsArticles?: EntityReference[],
+	c_linkedTeam?: EntityReference[],
+	c_liveOnPages?: boolean,
+	c_liveOnSearch?: boolean,
+	fins_primaryCTA?: Fins_primaryCTA,
+	c_primaryService?: EntityReference[],
+	fins_relatedFaqs?: EntityReference[],
+	fins_relatedLocations?: EntityReference[],
+	fins_relatedProducts?: EntityReference[],
+	fins_relatedServices?: EntityReference[],
+	fins_secondaryCTA?: Fins_secondaryCTA,
+	c_teamBio?: string,
+	c_teamMembers?: EntityReference[],
+	firstPartyReviewPage?: any,
+	reviewGenerationUrl?: any,
+	defaultReviewInviteTemplate?: any,
 	displayCoordinate?: Coordinate,
 	dropoffCoordinate?: Coordinate,
-	educationList?: EducationList[],
 	emails?: string[],
 	facebookOverrideCity?: string,
 	facebookCoverPhoto?: Image,
 	facebookCallToAction?: FacebookCallToAction,
 	facebookDescriptor?: string,
-	facebookEmail?: string,
 	facebookLinkedAccount?: any,
 	facebookName?: string,
 	facebookPageUrl?: string,
@@ -729,9 +443,7 @@ export default interface HealthcareProfessional {
 	facebookVanityUrl?: string,
 	fax?: any,
 	featuredMessage?: FeaturedMessage,
-	firstName?: string,
 	photoGallery?: ComplexImage[],
-	gender?: Gender,
 	geocodedCoordinate?: Coordinate,
 	gmbLinkedAccount?: any,
 	googleAccountId?: string,
@@ -740,53 +452,30 @@ export default interface HealthcareProfessional {
 	googleProfilePhoto?: Image,
 	googleWebsiteOverride?: string,
 	headshot?: Image,
-	admittingHospitals?: string[],
-	degrees?: Degrees[],
-	insuranceAccepted?: string[],
 	instagramHandle?: string,
-	isClusterPrimary?: boolean,
+	iosAppUrl?: string,
 	isoRegionCode?: string,
 	keywords?: string[],
 	languages?: string[],
-	lastName?: string,
 	localPhone?: any,
-	locationType?: LocationType,
 	mainPhone?: any,
 	menuUrl?: MenuUrl,
-	middleName?: string,
 	mobilePhone?: any,
-	npi?: string,
-	officeName?: string,
 	orderUrl?: OrderUrl,
 	paymentOptions?: PaymentOptions[],
-	phones?: any,
 	pickupCoordinate?: Coordinate,
-	alternateNames?: string[],
-	alternateWebsites?: string[],
-	rankTrackingCompetitors?: RankTrackingCompetitors[],
-	customKeywords?: string[],
-	rankTrackingEnabled?: boolean,
-	rankTrackingFrequency?: RankTrackingFrequency,
-	rankTrackingKeywords?: RankTrackingKeywords[],
-	rankTrackingQueryTemplates?: RankTrackingQueryTemplates[],
-	rankTrackingSites?: RankTrackingSites[],
+	products?: string[],
 	reservationUrl?: ReservationUrl,
 	routableCoordinate?: Coordinate,
-	serviceArea?: ServiceArea,
 	services?: string[],
-	shortName35?: string,
-	shortName64?: string,
+	specialities?: string[],
 	id: string,
 	timezone?: any,
 	tollFreePhone?: any,
 	ttyPhone?: any,
 	twitterHandle?: string,
-	uberClientId?: string,
-	uberLink?: UberLink,
-	uberTripBranding?: UberTripBranding,
 	walkableCoordinate?: Coordinate,
 	websiteUrl?: WebsiteUrl,
-	yearEstablished?: number,
 	yextDisplayCoordinate?: Coordinate,
 	yextDropoffCoordinate?: Coordinate,
 	yextPickupCoordinate?: Coordinate,
