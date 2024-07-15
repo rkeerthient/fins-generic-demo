@@ -142,7 +142,9 @@ const Locations = ({ document, __meta }: TemplateProps) => {
         <h2 className="text-4xl font-medium text-center">
           Our {document.address.city} Team
         </h2>
-        <OurTeam teamMembers={document.c_relatedFPsAndTeams} />
+        {document.c_relatedFPsAndTeams && (
+          <OurTeam teamMembers={document.c_relatedFPsAndTeams} />
+        )}
       </section>
     </PageLayout>
   );
