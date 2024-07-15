@@ -9,6 +9,9 @@ body {
 .centered-container {
   @apply mx-auto px-2 md:px-14 max-w-screen-xl;
 }
+.white-centered-container {
+  @apply mx-auto px-2 md:px-14 max-w-screen-xl bg-white;
+}
 
 .section {
   @apply mt-8 mb-16;

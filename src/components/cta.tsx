@@ -9,7 +9,7 @@ const Cta = ({ buttonText, style, url, classNames = "" }: CtaProps) => {
   const styleClasses =
     style === "primary"
       ? "bg-primary text-white w-fit"
-      : "border-primary text-primary border w-fit";
+      : "border-primary text-primary border w-fit bg-white";
 
   return (
     <a

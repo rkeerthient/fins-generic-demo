@@ -16,43 +16,41 @@ import Hero from "../components/Hero";
 import Details from "../components/details";
 import OurInsights from "../components/ourInsights";
 import LetsTalk from "../components/letsTalk";
+import OurTeam from "../components/ourTeam";
 
 export const config: TemplateConfig = {
   stream: {
-    $id: "professionals",
+    $id: "locations",
     localization: { locales: ["en"] },
     filter: {
-      entityTypes: ["financialProfessional"],
-      savedFilterIds: ["1339778047"],
+      entityTypes: ["location"],
     },
     fields: [
       "name",
       "id",
       "description",
-      "headshot",
       "slug",
       "photoGallery",
-      "c_fPBio",
-      "fins_jobTitle",
       "logo",
-      "fins_relatedServices.name",
       "emails",
       "address",
       "mainPhone",
       "geocodedCoordinate",
-      "fins_relatedServices.description",
-      "fins_relatedServices.fins_servicesImage",
+      "fins_relatedServices.name",
+      "fins_relatedServices.c_serviceDescription",
+      "fins_relatedServices.slug",
+      "c_relatedFPsAndTeams.name",
+      "c_relatedFPsAndTeams.c_individualOrTeam",
+      "c_relatedFPsAndTeams.mainPhone",
+      "c_relatedFPsAndTeams.emails",
+      "c_relatedFPsAndTeams.headshot",
+      "c_relatedFPsAndTeams.fins_jobTitle",
+      "c_relatedFPsAndTeams.slug",
       "c_linkedInsightsArticles.name",
       "c_linkedInsightsArticles.slug",
       "c_linkedInsightsArticles.c_insightsArticleSummary",
       "c_linkedInsightsArticles.primaryPhoto",
       "c_linkedInsightsArticles.datePosted",
-      "yearsOfExperience",
-      "languages",
-      "certifications",
-      "interests",
-      "hobbies",
-      "yextDisplayCoordinate",
     ],
   },
 };
@@ -77,50 +75,25 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     ],
   };
 };
-const Professionals = ({ document, __meta }: TemplateProps) => {
+const Locations = ({ document, __meta }: TemplateProps) => {
   const [isSubNavOpen, setIsSubNavOpen] = useState<boolean>(false);
-  console.log(JSON.stringify(document.geocodedCoordinate));
 
-  const { _site, mainPhone, name } = document;
-  const mappinSVG = (
-    <svg
-      width="56"
-      height="58"
-      viewBox="0 0 56 58"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M28.0951 1C33.1149 1 37.6595 3.03469 40.9491 6.32432C44.2388 9.61396 46.2734 14.1586 46.2734 19.1784C46.2734 25.9554 40.1704 38.558 28.0941 57C16.019 38.5565 9.91669 25.955 9.91669 19.1784C9.91669 14.1586 11.9514 9.61396 15.241 6.32432C18.5307 3.03469 23.0752 1 28.0951 1Z"
-        fill="#0F70F0"
-        stroke="black"
-        strokeOpacity="0.5"
-      />
-      <path
-        d="M28.095 27.2577C32.5571 27.2577 36.1743 23.6405 36.1743 19.1784C36.1743 14.7163 32.5571 11.0991 28.095 11.0991C23.633 11.0991 20.0157 14.7163 20.0157 19.1784C20.0157 23.6405 23.633 27.2577 28.095 27.2577Z"
-        fill="white"
-      />
-    </svg>
-  );
-  const formattedPhone = `${document.mainPhone.substring(
-    0,
-    2
-  )} (${document.mainPhone.substring(2, 5)}) ${document.mainPhone.substring(
-    5,
-    8
-  )}-${document.mainPhone.substring(8)}`;
   const InPageNavItems = [
     {
-      name: "About",
-      navId: "about",
+      name: "Services",
+      navId: "services",
     },
     {
-      name: "Details",
-      navId: "details",
+      name: `Our ${document.address.city} Team`,
+      navId: "team",
     },
     {
       name: "Insights",
       navId: "insights",
+    },
+    {
+      name: "Recent Reviews",
+      navId: "reviews",
     },
     {
       name: "Let's Talk",
@@ -129,20 +102,26 @@ const Professionals = ({ document, __meta }: TemplateProps) => {
   ];
   return (
     <PageLayout _site={document._site}>
-      <HeroBanner document={document} isProfessional={true} />
+      <HeroBanner document={document} isProfessional={false} />
+      <article className="centered-container flex md:flex-row flex-col justify-center items-center py-16 gap-8 px-4 md:px-0">
+        <img
+          src={
+            "https://a.mktgcdn.com/p/65JQqTuL6mWfKaHM0EiyiPEV820Oi35tUPhDN36Tq1A/3149x4724.jpg"
+          }
+          className="w-full md:w-[200.59px] aspect-[3/4] rounded-lg object-center object-cover"
+        />
+        <section className="flex flex-col items-left gap-6">
+          <h2 className="text-2xl font-bold text-blue-950">Joseph Adams</h2>
+          <p className="text-blue-950 text-base font-bold">Regional Director</p>
+          <p className="text-zinc-800 text-base font-normal underline">
+            jadams@capitalbank.com
+          </p>
+          <p className="text-zinc-800 text-base font-normal">
+            {document.description}
+          </p>
+        </section>
+      </article>
       <InpageNav navItems={InPageNavItems}></InpageNav>
-
-      <section className="centered-container py-10 space-y-8">
-        <a id="about"></a>
-        <h2 className="text-4xl font-medium text-center">About {name}</h2>
-        <p>{document.c_fPBio}</p>
-      </section>
-      <section className="white-centered-container py-10 space-y-8  ">
-        <a id="details"></a>
-        <h2 className="text-4xl font-medium text-center">My Details</h2>
-        <Details document={document} />
-        {/* <Articles articles={document.c_linkedInsightsArticles} /> */}
-      </section>
       <section className="centered-container py-10 space-y-8">
         <a id="insights"></a>
         <h2 className="text-4xl font-medium text-center">Insights</h2>
@@ -158,8 +137,15 @@ const Professionals = ({ document, __meta }: TemplateProps) => {
           geoCodedCoordinate={document.geocodedCoordinate}
         />
       </section>
+      <section className="centered-container py-10 space-y-8">
+        <a id="team"></a>
+        <h2 className="text-4xl font-medium text-center">
+          Our {document.address.city} Team
+        </h2>
+        <OurTeam teamMembers={document.c_relatedFPsAndTeams} />
+      </section>
     </PageLayout>
   );
 };
 
-export default Professionals;
+export default Locations;

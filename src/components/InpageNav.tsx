@@ -14,14 +14,14 @@ const InpageNav = ({ navItems }: InpageNavProps) => {
 
   return (
     <>
-      <ul className="hidden md:flex justify-center gap-10 py-4">
+      <ul className="hidden md:flex justify-center gap-10 py-4 bg-white">
         {navItems.map((item, index) => (
           <li key={index}>
             <a href={`#${item.navId}`}>{item.name}</a>{" "}
           </li>
         ))}
       </ul>
-      <ul className="md:hidden flex flex-col justify-center px-4 md:px-0 md:gap-10 py-4">
+      <ul className="md:hidden flex flex-col justify-center px-4 md:px-0 md:gap-10 py-4 bg-white">
         <li className="flex justify-between items-center">
           <div
             onClick={() => setIsSubNavOpen(true)}
