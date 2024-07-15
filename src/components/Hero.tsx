@@ -3,13 +3,11 @@ import { C_heroBanners } from "../types/site";
 import Cta from "./cta";
 
 const Hero = ({ c_heroBanners }: any) => {
-  console.log(JSON.stringify(c_heroBanners));
-  const c_heroBanner: C_heroBanners = c_heroBanners[0];
+   const c_heroBanner: C_heroBanners = c_heroBanners[0];
   const {
     cTA: { label, linkType, link },
   } = c_heroBanners[0];
-  console.log(c_heroBanner.backgroundImage);
-
+ 
   return (
     <div
       aria-label="Hero section"

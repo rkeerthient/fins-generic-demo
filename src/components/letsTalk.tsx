@@ -18,8 +18,7 @@ const LetsTalk = ({
   emails,
   geoCodedCoordinate,
 }: LetsTalkProps) => {
-  console.log(geoCodedCoordinate);
-
+ 
   return (
     <article className="flex gap-8">
       <article className="w-1/2 flex flex-col gap-8 my-auto">
