@@ -66,7 +66,7 @@ const LocationsPage = ({ verticalKey }: PageProps) => {
   return (
     <>
       {isLoaded ? (
-        <div className="flex flex-row">
+        <div className="flex flex-row max-w-screen-2xl mx-auto px-16">
           <div className="flex flex-col w-2/5 p-4 relative">
             <>
               <div>

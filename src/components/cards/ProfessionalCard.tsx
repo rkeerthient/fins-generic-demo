@@ -62,7 +62,7 @@ const ProfessionalCard = ({ result }: CardProps<any>) => {
             </p>
             <p className="flex flex-col ">
               <p className="flex items-center">
-                <PhoneIcon className="h-4 w-4" />
+                <PhoneIcon className="h-4 w-4 text-primary" />
                 {mainPhone && (
                   <span className="ml-2">
                     {mainPhone
@@ -74,7 +74,7 @@ const ProfessionalCard = ({ result }: CardProps<any>) => {
               </p>
 
               <p className="flex items-center text-[#333333]">
-                <EnvelopeIcon className="h-4 w-4" />
+                <EnvelopeIcon className="h-4 w-4 text-primary" />
                 {emails && <span className="ml-2">{emails[0]}</span>}
               </p>
             </p>

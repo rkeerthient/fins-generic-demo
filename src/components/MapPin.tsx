@@ -1,13 +1,15 @@
 import { Result } from "@yext/search-headless-react";
 import { LngLatLike, Popup, Map } from "mapbox-gl";
 import { useState, useRef, useEffect } from "react";
-import HealthcareFacility from "../types/healthcare_facilities";
 import { Coordinate } from "@yext/pages-components";
 import { FaLocationPin } from "react-icons/fa6";
 import { renderToString } from "react-dom/server";
 import { LiaDirectionsSolid } from "react-icons/lia";
 import { BsGlobe } from "react-icons/bs";
 import { getDirectionsUrl } from "./cards/LocationCard";
+import Cta from "./cta";
+import { Location, LocationType } from "../types/locations";
+import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 
 const transformToMapboxCoord = (
   coordinate: Coordinate
@@ -19,41 +21,62 @@ const transformToMapboxCoord = (
   };
 };
 
-const getLocationHTML = (location: HealthcareFacility, index: any) => {
+const getLocationHTML = (location: Location, index: any) => {
   const {
     address: { line1, line2, city, region, postalCode },
     name,
     mainPhone,
     landingPageUrl,
+    slug,
   } = location;
   const address = location.address;
   const html = (
-    <div className="space-y-2  p-3 text-base">
+    <section className="space-y-2  p-3 text-base">
       <a
         href={landingPageUrl}
         className=" outline-transparent text-primary text-lg flex hover:underline items-center"
       >
-        <span className="mr-2 text-xs  w-6 h-6 rounded-full bg-primary text-white flex justify-center items-center">
-          {index! + 1}
-        </span>
-        {name}
+        <h2 className="flex gap-1 items-center">
+          <span className="mr-2 text-xs  w-6 h-6 rounded-full bg-primary text-white flex justify-center items-center">
+            {index! + 1}
+          </span>
+          {name}
+        </h2>
       </a>
-      <div>{line1}</div>
-      <div>{`${city}, ${region}, ${postalCode}`}</div>
-      <div className="flex text-sm flex-col md:flex-row gap-4 md:gap-8 justify-start md:items-center pt-4 pb-2">
-        <a
-          className="cta flex gap-2 items-center"
-          href={`${getDirectionsUrl(address)}`}
-        >
-          <LiaDirectionsSolid className="w-4 h-4" />
-          Get Directions
-        </a>
-        <a className="cta flex gap-2 items-center" href={landingPageUrl}>
-          <BsGlobe className="w-4 h-4" />
-          Visit page
-        </a>
-      </div>
-    </div>
+      <p>{line1}</p>
+      <p>{`${city}, ${region}, ${postalCode}`}</p>
+      <p className="flex items-center">
+        <PhoneIcon className="h-4 w-4 text-primary" />
+        {mainPhone && (
+          <span className="ml-2">
+            {mainPhone
+              .replace("+1", "")
+              .replace(/\D+/g, "")
+              .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
+          </span>
+        )}
+      </p>
+
+      <p className="flex items-center text-[#333333]">
+        <EnvelopeIcon className="h-4 w-4 text-primary" />
+        <span className="ml-2">capital-nyc@capital.com</span>
+      </p>
+      <section className="pointer-events-none flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
+        <Cta
+          buttonText="Get In Touch"
+          style="primary"
+          url={getDirectionsUrl(address)}
+          classNames=" md:px-4  md:py-1  md:text-sm rounded-md"
+        />
+
+        <Cta
+          buttonText={"View Page"}
+          style="secondary"
+          url={`/${slug}`}
+          classNames=" md:px-4  md:py-1  md:text-sm rounded-md"
+        />
+      </section>
+    </section>
   );
 
   return renderToString(html);
@@ -61,7 +84,7 @@ const getLocationHTML = (location: HealthcareFacility, index: any) => {
 
 export interface MapPinProps {
   mapbox: Map;
-  result: Result<HealthcareFacility>;
+  result: Result<LocationType>;
   index: number;
   selectedLocationId?: string;
   selectedLocationFromContext?: string;
@@ -85,9 +108,9 @@ const MapPin = ({
         .querySelectorAll(".mapboxgl-popup")
         .forEach((item) => item.remove());
 
-      setIsActive(selectedLocationFromContext === location.id);
+      setIsActive(selectedLocationFromContext === result.id);
     }
-  }, [selectedLocationFromContext, location.id]);
+  }, [selectedLocationFromContext, result.id]);
 
   useEffect(() => {
     if (isActive && location.yextDisplayCoordinate) {
@@ -114,7 +137,7 @@ const MapPin = ({
     <button onClick={handleClick}>
       <div className="relative flex items-center justify-center h-8 w-8">
         <FaLocationPin
-          className={`absolute text-[#013b5b] hover:text-[#147b94] w-full h-full ${isActive ? "h-10 w-10" : "h-8 w-8"}`}
+          className={`absolute text-primary hover:text-[#147b94] w-full h-full ${isActive ? "h-10 w-10" : "h-8 w-8"}`}
         />
         <span className="absolute text-white font-bold">{index + 1}</span>
       </div>

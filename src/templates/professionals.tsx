@@ -6,16 +6,14 @@ import {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import "../index.css";
 import { useState } from "react";
-import PageLayout from "../components/page-layout";
-import InpageNav from "../components/InpageNav";
-import { Image } from "@yext/pages-components";
 import HeroBanner from "../components/HeroBanner";
-import Hero from "../components/Hero";
+import InpageNav from "../components/InpageNav";
 import Details from "../components/details";
-import OurInsights from "../components/ourInsights";
 import LetsTalk from "../components/letsTalk";
+import OurInsights from "../components/ourInsights";
+import PageLayout from "../components/page-layout";
+import "../index.css";
 
 export const config: TemplateConfig = {
   stream: {
