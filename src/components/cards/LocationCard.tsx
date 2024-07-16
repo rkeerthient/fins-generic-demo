@@ -75,7 +75,7 @@ const LocationCard = ({ result }: CardProps<Location>) => {
               </p>
             </p>
           </section>
-          <section className="pointer-events-none flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
+          <section className=" flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
             <Cta
               buttonText="Get In Touch"
               style="primary"
