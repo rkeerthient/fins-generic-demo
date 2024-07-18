@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 import HoursText from "./HoursText";
 import { getDirectionsUrl } from "./cards/LocationCard";
 import Cta from "./cta";
-type LocCardProps = {
-  data: LocCardData;
-};
 
 type LocCardData = {
   name: string;
