@@ -13,7 +13,6 @@ import Loader from "../Loader";
 
 const ProfessionalPage = ({ verticalKey }: PageProps) => {
   const { isLoaded } = useVerticalSearch(verticalKey) || false;
-  console.log(verticalKey);
 
   return (
     <>

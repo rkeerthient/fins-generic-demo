@@ -1,13 +1,10 @@
-import { CardProps } from "@yext/search-ui-react";
-import { BsClock, BsGlobe, BsPin } from "react-icons/bs";
-import { CiPhone } from "react-icons/ci";
-import { LiaDirectionsSolid } from "react-icons/lia";
-import HoursText from "../HoursText";
-import { useLocationsContext } from "../../common/LocationsContext";
-import { useEffect, useRef } from "react";
-import { Location } from "../../types/locations";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import { CardProps } from "@yext/search-ui-react";
+import { useEffect, useRef } from "react";
+import { useLocationsContext } from "../../common/LocationsContext";
+import { Location } from "../../types/locations";
 import Cta from "../cta";
+import HoursText from "../HoursText";
 
 const LocationCard = ({ result }: CardProps<Location>) => {
   const { setSelectedLocationId, selectedLocationId } = useLocationsContext();
@@ -16,7 +13,6 @@ const LocationCard = ({ result }: CardProps<Location>) => {
   const { name, distance, index } = result;
   const { slug, landingPageUrl, address, id, hours, timezone, mainPhone } =
     result.rawData;
-  console.log(JSON.stringify(hours));
 
   useEffect(() => {
     if (selectedLocationId === result.id) {

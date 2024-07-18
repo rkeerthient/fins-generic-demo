@@ -18,6 +18,8 @@ import OurInsights from "../components/ourInsights";
 import PageLayout from "../components/page-layout";
 import "../index.css";
 import RelatedFaqs from "../components/relatedFaqs";
+import HeroBanner from "../components/HeroBanner";
+import GetInTouchBanner from "../components/getInTouchBanner";
 
 export const config: TemplateConfig = {
   stream: {
@@ -102,7 +104,6 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
     c_featuredArticles,
     c_featuredFAQs,
   } = document;
-
   return (
     <>
       <PageLayout _site={document._site}>
@@ -122,6 +123,8 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
           showNextPrev={true}
           showIndicators={true}
         ></Slider>
+        <GetInTouchBanner />
+
         <section className="centered-container py-10 space-y-8">
           <a id="insights"></a>
           <h2 className="text-4xl font-medium text-center">Insights</h2>

@@ -25,7 +25,7 @@ const NearByLocations = () => {
   useEffect(() => {
     const getLocNearMe = async () => {
       const req = await fetch(
-        `https://liveapi.yext.com/v2/accounts/me/search/vertical/query?input=locations%20near%20me&version=STAGING&locale=en&api_key=52bb27bee04e1f1940659991522dc98d&yextUserId=5962398203434714233&verticalKey=locations&experienceKey=fins_universal-search&referrerPageUrl=https%3A%2F%2Fwww.yext.com%2Fs%2F&v=20220701`
+        `https://liveapi.yext.com/v2/accounts/me/search/vertical/query?verticalKey=locations&input=locations%20near%20me&version=PRODUCTION&locale=en&api_key=${import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY}&experienceKey=fins_universal-search&v=20220701&limit=3`
       );
       const resp = await req.json();
       const _nearbyLocations: LocCardData[] = resp.response.results
@@ -52,9 +52,7 @@ const NearByLocations = () => {
     getLocNearMe();
   }, []);
 
-  useEffect(() => {
-    console.log(JSON.stringify(nearbyLocations));
-  }, [nearbyLocations]);
+  useEffect(() => {}, [nearbyLocations]);
 
   return (
     <>

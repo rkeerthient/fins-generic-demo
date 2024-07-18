@@ -17,8 +17,7 @@ type FAQProps = {
 };
 
 const RelatedFaqs = ({ faqs }: RelatedFAQProps) => {
-  console.log(JSON.stringify(faqs));
-
+ 
   return (
     <>
       {faqs.map((item, index: number) => (

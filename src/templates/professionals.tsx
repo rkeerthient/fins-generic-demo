@@ -111,7 +111,6 @@ const Professionals = ({ document }: TemplateProps) => {
         <a id="details"></a>
         <h2 className="text-4xl font-medium text-center">My Details</h2>
         <Details document={document} />
-        {/* <Articles articles={document.c_linkedInsightsArticles} /> */}
       </section>
       <section className="centered-container py-10 space-y-8">
         <a id="insights"></a>

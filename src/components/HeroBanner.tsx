@@ -21,7 +21,7 @@ const HeroBanner = ({ document, isProfessional = false }: HeroBannerProps) => {
   } = document;
   return (
     <>
-      <article
+      <section
         aria-label="Hero section"
         className="w-full md:h-[600px] relative"
       >
@@ -68,7 +68,7 @@ const HeroBanner = ({ document, isProfessional = false }: HeroBannerProps) => {
             </article>
           </section>
         </article>
-      </article>
+      </section>
     </>
   );
 };

@@ -51,7 +51,7 @@ const verticals: verticalInterface[] = [
 
 const SearchPage = () => {
   const { queryPrompts } = useTypingEffect(
-    import.meta.env.YEXT_PUBLIC_SEARCG_API_KEY,
+    import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY,
     import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
   );
 

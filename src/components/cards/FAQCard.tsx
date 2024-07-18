@@ -19,8 +19,6 @@ const renderHTMLContent = (htmlContent: { __html: string } | undefined) => {
 };
 
 const FAQCard = ({ result }: CardProps<Faq>) => {
-  console.log(JSON.stringify(result));
-
   const { question, answerV2 } = result.rawData;
   const html: string = answerV2?.html;
   const htmlContent = useMemo(() => {

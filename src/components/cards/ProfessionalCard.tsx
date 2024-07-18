@@ -22,8 +22,7 @@ const ProfessionalCard = ({ result }: CardProps<any>) => {
     fins_jobTitle,
     slug,
   } = result.rawData;
-  console.log(slug);
-
+ 
   return (
     <article className="border rounded-lg">
       <header className="relative flex bg-white p-4">
