@@ -38,19 +38,6 @@ const FAQCard = ({ result }: CardProps<Faq>) => {
           </DisclosureButton>
           <DisclosurePanel className="mt-2 text-sm/5 /50 flex flex-col text-secondary">
             {renderHTMLContent(htmlContent)}
-            {/* <LexicalRichText serializedAST={JSON.stringify(answerV2.json)} /> */}
-            {/* <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-start md:items-center pt-4 pb-2">
-              {c_primaryCTA && (
-                <a className="cta" href={c_primaryCTA.link}>
-                  {c_primaryCTA.label}
-                </a>
-              )}
-              {c_secondaryCTA && (
-                <a className="cta" href={c_secondaryCTA.link}>
-                  {c_secondaryCTA.label}
-                </a>
-              )}
-            </div> */}
           </DisclosurePanel>
         </Disclosure>
       </div>

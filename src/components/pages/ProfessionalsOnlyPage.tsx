@@ -15,8 +15,8 @@ import { useTypingEffect } from "../useTypeEffect";
 
 const ProfessionalsOnlyPage = ({ verticalKey }: PageProps) => {
   const { queryPrompts } = useTypingEffect(
-    import.meta.env.YEXT_PUBLIC_API_KEY,
-    import.meta.env.YEXT_PUBLIC_EXP_KEY
+    import.meta.env.YEXT_PUBLIC_SEARCG_API_KEY,
+    import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
   );
   const { isLoaded } = useVerticalSearch(verticalKey) || false;
   return (

@@ -30,11 +30,11 @@ const OurInsights = ({
   return (
     <article className="flex gap-8">
       <section className="flex flex-col gap-2 w-1/2">
-        <InsightsCard _data={_first} showImage={true} lineClamp={3} />
+        <InsightsCard _data={_first} showImage={true} lineClamp={4} />
       </section>
       <article className="flex flex-col gap-4 w-1/2">
         {_rest.map((item, index) => (
-          <InsightsCard _data={item} key={index} />
+          <InsightsCard _data={item} key={index} lineClamp={3} />
         ))}
       </article>
     </article>
@@ -46,19 +46,22 @@ export default OurInsights;
 export const InsightsCard = ({
   _data,
   showImage = false,
-  lineClamp = 2,
+  lineClamp,
 }: InsightsCardProps) => {
   return (
     <section className="flex flex-col gap-2">
       {showImage && (
-        <Image image={_data.primaryPhoto} className="!mb-4"></Image>
+        <Image
+          image={_data.primaryPhoto}
+          className="!mb-4 max-w-[700px] !aspect-video"
+        ></Image>
       )}
       <p className="text-sm">Category | {_data.datePosted}</p>
       <h3 className={`${showImage ? `text-2xl` : `text-lg`} font-semibold`}>
         {_data.name}
       </h3>
       <p
-        className={`line-clamp-${lineClamp} ${showImage ? `text-base` : `text-sm`}`}
+        className={`${lineClamp === 4 ? `line-clamp-4` : `line-clamp-3`} ${showImage ? `text-base` : `text-sm`}`}
       >
         {_data.c_insightsArticleSummary}
       </p>

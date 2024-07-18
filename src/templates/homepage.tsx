@@ -11,10 +11,13 @@ import {
   TemplateRenderProps,
 } from "@yext/pages";
 import Hero from "../components/Hero";
-import ResponsiveSlider from "../components/ResponsiveSlider";
+import Slider from "../components/Slider";
 import Cta from "../components/cta";
+import NearByLocations from "../components/nearByLocations";
+import OurInsights from "../components/ourInsights";
 import PageLayout from "../components/page-layout";
 import "../index.css";
+import RelatedFaqs from "../components/relatedFaqs";
 
 export const config: TemplateConfig = {
   stream: {
@@ -43,7 +46,11 @@ export const config: TemplateConfig = {
       "c_featuredArticles.id",
       "c_featuredArticles.name",
       "c_featuredArticles.slug",
+      "c_featuredArticles.c_insightsArticleSummary",
+      "c_featuredArticles.datePosted",
       "c_featuredArticles.primaryPhoto",
+      "c_featuredFAQs.question",
+      "c_featuredFAQs.answerV2",
     ],
     filter: {
       entityTypes: ["ce_site"],
@@ -93,6 +100,7 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
     c_taxonomyStructure,
     c_heroBanners,
     c_featuredArticles,
+    c_featuredFAQs,
   } = document;
 
   return (
@@ -107,7 +115,31 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
             classNames="px-2 py-1.5 md:px-6 md:py-2.5 text-sm md:text-base rounded-md "
           ></Cta>
         </div>
-        <ResponsiveSlider data={c_featuredServices} />
+        <Slider
+          sliderData={c_featuredServices}
+          duration={1000}
+          animation={"horizontal flip"}
+          showNextPrev={true}
+          showIndicators={true}
+        ></Slider>
+        <section className="centered-container py-10 space-y-8">
+          <a id="insights"></a>
+          <h2 className="text-4xl font-medium text-center">Insights</h2>
+          <OurInsights linkedArticles={c_featuredArticles} />
+        </section>
+
+        <section className="centered-container py-10 space-y-8">
+          <a id="nearbyLocations"></a>
+          <h2 className="text-4xl font-medium text-center">
+            Near by Locations
+          </h2>
+          <NearByLocations />
+        </section>
+        <section className="centered-container py-10 space-y-2">
+          <a id="nearbyLocations"></a>
+          <h2 className="text-4xl font-medium text-center">Featured FAQs </h2>
+          <RelatedFaqs faqs={c_featuredFAQs} />
+        </section>
       </PageLayout>
     </>
   );
