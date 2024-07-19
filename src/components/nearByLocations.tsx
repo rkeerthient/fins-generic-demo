@@ -1,9 +1,10 @@
-import { Coordinate } from "@yext/pages-components";
-import { Address, Hours, VerticalResults } from "@yext/search-headless-react";
+import { Address, Hours } from "@yext/search-headless-react";
 import { useEffect, useState } from "react";
 import HoursText from "./HoursText";
 import { getDirectionsUrl } from "./cards/LocationCard";
 import Cta from "./cta";
+import { PhoneIcon } from "@heroicons/react/24/outline";
+import { FormatAddress, FormatPhoneNumber } from "../common/util";
 
 type LocCardData = {
   name: string;
@@ -49,8 +50,6 @@ const NearByLocations = () => {
     getLocNearMe();
   }, []);
 
-  useEffect(() => {}, [nearbyLocations]);
-
   return (
     <>
       {nearbyLocations && (
@@ -65,25 +64,21 @@ const NearByLocations = () => {
               timezone,
               distance,
             } = item;
+
             return (
-              <section key={item.id} className="py-4 p-4 border text-sm">
-                <h2 className="mb-2  text-base font-bold flex justify-between items-center gap-16">
+              <section
+                key={item.id}
+                className="py-4 p-4 border text-sm space-y-4"
+              >
+                <h2 className=" text-base font-bold flex justify-between items-center gap-16">
                   {name} - {address.city}
-                  <p className="text-gray-400  text-sm">
+                  <p className="text-gray-400 text-sm font-medium">
                     {(distance! / 1609).toFixed(2)} mi
                   </p>
                 </h2>
                 <HoursText hours={hours} timezone={timezone} />
-                <p className="mt-2">{address.line1}</p>
-                <p className="mb-2">
-                  {address.city}, {address.region} {address.postalCode}
-                </p>
-                <p>
-                  {mainPhone
-                    .replace("+1", "")
-                    .replace(/\D+/g, "")
-                    .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
-                </p>
+                <FormatAddress address={address} />
+                <FormatPhoneNumber mainPhone={mainPhone} />
                 <section className="mt-4 flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
                   <Cta
                     buttonText="Get In Touch"

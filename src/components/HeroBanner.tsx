@@ -2,6 +2,7 @@ import { EnvelopeOpenIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { Image } from "@yext/pages-components";
 import { TemplateProps } from "@yext/pages/*";
 import Cta from "./cta";
+import { FormatAddress } from "../common/util";
 export interface HeroBannerProps {
   document: any;
   isProfessional?: boolean;
@@ -42,12 +43,7 @@ const HeroBanner = ({ document, isProfessional = false }: HeroBannerProps) => {
             <article className="flex flex-col gap-2">
               <h2 className="md:text-2xl font-bold text-lg">{name}</h2>
               <p>{fins_jobTitle}</p>
-              <p>
-                {address.line1} {address?.line2}
-              </p>
-              <p>
-                {address.city}, {address.region} {address.postalCode}
-              </p>
+              <FormatAddress address={address} />
               <p className="flex gap-4 items-center">
                 <p className="flex   items-center">
                   <PhoneIcon className="h-4 w-4 mr-1" /> {mainPhone}

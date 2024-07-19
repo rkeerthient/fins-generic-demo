@@ -92,14 +92,7 @@ export const getHeadConfig: GetHeadConfig<
 
 const Homepage: Template<TemplateRenderProps> = ({ document }) => {
   const {
-    id,
-    uid,
-    meta,
-    name,
-    slug,
     c_featuredServices,
-    c_featuredEvents,
-    c_taxonomyStructure,
     c_heroBanners,
     c_featuredArticles,
     c_featuredFAQs,

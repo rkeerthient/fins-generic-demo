@@ -8,6 +8,7 @@ import { Image } from "@yext/pages-components";
 import { CardProps } from "@yext/search-ui-react";
 import HoursText from "../HoursText";
 import Cta from "../cta";
+import { FormatAddress, FormatPhoneNumber } from "../../common/util";
 
 const ProfessionalCard = ({ result }: CardProps<any>) => {
   const { name } = result;
@@ -22,7 +23,7 @@ const ProfessionalCard = ({ result }: CardProps<any>) => {
     fins_jobTitle,
     slug,
   } = result.rawData;
- 
+
   return (
     <article className="border rounded-lg">
       <header className="relative flex bg-white p-4">
@@ -52,24 +53,9 @@ const ProfessionalCard = ({ result }: CardProps<any>) => {
             )}
           </section>
           <address className="text-[#333333] pointer-events-none flex gap-24 justify-center md:justify-start leading-loose items-center text-sm">
+            <FormatAddress address={address} />
             <p className="flex flex-col">
-              <span>{address.line1}</span>
-              <span>
-                {address.city}, {address.region} {address.postalCode}
-              </span>
-            </p>
-            <p className="flex flex-col">
-              <span className="flex items-center">
-                <PhoneIcon className="h-4 w-4 text-primary" />
-                {mainPhone && (
-                  <span className="ml-2">
-                    {mainPhone
-                      .replace("+1", "")
-                      .replace(/\D+/g, "")
-                      .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
-                  </span>
-                )}
-              </span>
+              <FormatPhoneNumber mainPhone={mainPhone} />
 
               <span className="flex items-center text-[#333333]">
                 <EnvelopeIcon className="h-4 w-4 text-primary" />

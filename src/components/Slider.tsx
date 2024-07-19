@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Image } from "@yext/pages-components";
 import { Transition } from "semantic-ui-react";
 import Cta from "./cta";
@@ -29,7 +29,7 @@ const Slider = ({
   const interval = useRef<ReturnType<typeof setInterval> | null>(null);
   const [elements, setElements] = useState<ElementDefinition[]>([]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const newElements: ElementDefinition[] = sliderData.map((item) => ({
       render: () => buildCard(item),
     }));

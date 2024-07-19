@@ -1,16 +1,14 @@
 import {
   Result,
-  UniversalLimit,
   useSearchActions,
   VerticalResults as VR,
 } from "@yext/search-headless-react";
 import { SearchBar } from "@yext/search-ui-react";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocationsContext } from "../common/LocationsContext";
 import FAQPage from "./pages/FAQPage";
 import Locator from "./pages/LocationsPage";
 import ProfessionalPage from "./pages/ProfessionalPage";
-import ServicePage from "./pages/ServicePage";
 import UniversalPage from "./pages/UniversalPage";
 import { useTypingEffect } from "./useTypeEffect";
 type verticalInterface = {
@@ -112,7 +110,7 @@ const SearchPage = () => {
     history.pushState(null, "", "?" + searchParams.toString());
   }, [currentVertical]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const verticalParam = searchParams.get("vertical");
     const queryString = searchParams.get("query");

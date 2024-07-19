@@ -6,7 +6,7 @@ import {
   StandardSection,
   UniversalResults,
 } from "@yext/search-ui-react";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Mapboxuniv from "../Mapboxuniv";
 import FAQCard from "../cards/FAQCard";
 import LocationCard from "../cards/LocationCard";
@@ -21,7 +21,7 @@ const UniversalPage = () => {
     file_1: 4,
     aha_idea: 4,
   };
-  useLayoutEffect(() => {
+  useEffect(() => {
     setIsLoaded(false);
     searchActions.setUniversal();
     searchActions.setUniversalLimit(universalLimit);

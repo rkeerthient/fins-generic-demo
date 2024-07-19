@@ -1,15 +1,12 @@
 import { Result } from "@yext/search-headless-react";
 import { LngLatLike, Popup, Map } from "mapbox-gl";
 import { useState, useRef, useEffect } from "react";
-import { Coordinate } from "@yext/pages-components";
 import { FaLocationPin } from "react-icons/fa6";
 import { renderToString } from "react-dom/server";
-import { LiaDirectionsSolid } from "react-icons/lia";
-import { BsGlobe } from "react-icons/bs";
 import { getDirectionsUrl } from "./cards/LocationCard";
 import Cta from "./cta";
-import { Location, LocationType } from "../types/locations";
-import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { Coordinate, Location } from "../types/locations";
+import { FormatEmail, FormatPhoneNumber } from "../common/util";
 
 const transformToMapboxCoord = (
   coordinate: Coordinate
@@ -45,22 +42,8 @@ const getLocationHTML = (location: Location, index: any) => {
       </a>
       <p>{line1}</p>
       <p>{`${city}, ${region}, ${postalCode}`}</p>
-      <p className="flex items-center">
-        <PhoneIcon className="h-4 w-4 text-primary" />
-        {mainPhone && (
-          <span className="ml-2">
-            {mainPhone
-              .replace("+1", "")
-              .replace(/\D+/g, "")
-              .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
-          </span>
-        )}
-      </p>
-
-      <p className="flex items-center text-[#333333]">
-        <EnvelopeIcon className="h-4 w-4 text-primary" />
-        <span className="ml-2">capital-nyc@capital.com</span>
-      </p>
+      <FormatPhoneNumber mainPhone={mainPhone} />
+      <FormatEmail />
       <section className="pointer-events-none flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
         <Cta
           buttonText="Get In Touch"
@@ -84,11 +67,11 @@ const getLocationHTML = (location: Location, index: any) => {
 
 export interface MapPinProps {
   mapbox: Map;
-  result: Result<LocationType>;
+  result: Result<Location>;
   index: number;
   selectedLocationId?: string;
   selectedLocationFromContext?: string;
-  setSelectedLocationId?: (value: string) => void;
+  setSelectedLocationId: (value: string) => void;
 }
 
 const MapPin = ({
