@@ -34,13 +34,16 @@ export const FormatAddress = ({ address }: UtilsProps) => {
   return (
     <>
       {address && (
-        <address className="flex items-center not-italic" aria-label="Address">
+        <address
+          className="flex mx-auto md:mx-0 items-center not-italic"
+          aria-label="Address"
+        >
           <h2 className="sr-only">Address</h2>
           <MapPinIcon
             className="h-4 w-4 -mt-4 text-primary"
             aria-hidden="true"
           />
-          <span className="ml-2">
+          <span className=" ml-2">
             <p>{address.line1}</p>
             <p>
               {address.city}, {address.region} {address.postalCode}

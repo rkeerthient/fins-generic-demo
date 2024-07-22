@@ -93,7 +93,7 @@ const Slider = ({
   const buildCard = (data: any) => {
     const { fins_servicesImage, name, id, slug, c_serviceDescription } = data;
     return (
-      <article className="bg-white border [&:not(:first-child)]:ml-8 flex flex-col gap-4 pb-6 h-[490px] w-[490px]">
+      <article className="bg-white border [&:not(:first-child)]:ml-8 flex flex-col gap-4 pb-6 h-[490px] w-full md:w-[490px]">
         <Image image={fins_servicesImage} className="!h-[250px]"></Image>
         <h3 className="px-4 text-xl font-bold ">{name}</h3>
         <p className=" px-4">{c_serviceDescription}</p>
@@ -118,12 +118,42 @@ const Slider = ({
       <h1 id="services-heading" className="sr-only">
         Our Services
       </h1>
-      <div className="flex ">
+      <div className="hidden md:flex  ">
         {[
           currentIndex,
           (currentIndex + 1) % elements.length,
           (currentIndex + 2) % elements.length,
         ].map((index) => (
+          <Transition
+            key={index}
+            transitionOnMount={true}
+            visible={true}
+            duration={1000}
+            animation={animation}
+          >
+            {elements[index]?.render()}
+          </Transition>
+        ))}
+        <div className="carousel-indicators">
+          {showIndicators &&
+            elements.map((element, index) => (
+              <a key={index}>
+                <span
+                  onClick={() => goToSlide(index)}
+                  color={currentIndex === index ? "black" : "grey"}
+                />
+              </a>
+            ))}
+        </div>
+        {showNextPrev && (
+          <ChevronRightIcon className="h-4 w-4" onClick={prevClicked} />
+        )}
+        {showNextPrev && (
+          <ChevronLeftIcon className="h-4 w-4" onClick={nextClicked} />
+        )}
+      </div>
+      <div className="flex md:hidden">
+        {[currentIndex].map((index) => (
           <Transition
             key={index}
             transitionOnMount={true}

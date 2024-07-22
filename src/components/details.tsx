@@ -12,7 +12,7 @@ const Details = ({ document }: any) => {
   const _languages = ["English", "French", "Spanish"];
   return (
     <section
-      className="grid grid-cols-3 justify-between gap-8"
+      className="grid grid-cols-1 md:grid-cols-3 justify-between gap-8"
       aria-labelledby="wealth-manager-details"
     >
       <h1 id="wealth-manager-details" className="sr-only">

@@ -53,7 +53,7 @@ const NearByLocations = () => {
   return (
     <>
       {nearbyLocations && (
-        <article className="flex w-full justify-between gap-8">
+        <article className="flex flex-col md:flex-row w-full justify-between gap-8">
           {nearbyLocations.map((item: LocCardData) => {
             const {
               name,

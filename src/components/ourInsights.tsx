@@ -28,16 +28,25 @@ const OurInsights = ({
   const _rest: InsightsProps[] = linkedArticles.slice(1);
 
   return (
-    <article className="flex gap-8">
-      <section className="flex flex-col gap-2 w-1/2">
-        <InsightsCard _data={_first} showImage={true} lineClamp={4} />
-      </section>
-      <article className="flex flex-col gap-4 w-1/2">
-        {_rest.map((item, index) => (
-          <InsightsCard _data={item} key={index} lineClamp={3} />
-        ))}
+    <>
+      <article className="hidden md:flex gap-8">
+        <section className="flex flex-col gap-2 w-1/2">
+          <InsightsCard _data={_first} showImage={true} lineClamp={4} />
+        </section>
+        <article className="flex flex-col gap-4 w-1/2">
+          {_rest.map((item, index) => (
+            <InsightsCard _data={item} key={index} lineClamp={3} />
+          ))}
+        </article>
       </article>
-    </article>
+      <article className="flex gap-8">
+        <article className="flex flex-col gap-4 w-full md:hidden ">
+          {linkedArticles.map((item, index) => (
+            <InsightsCard _data={item} key={index} lineClamp={3} />
+          ))}
+        </article>
+      </article>
+    </>
   );
 };
 
