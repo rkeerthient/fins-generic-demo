@@ -14,6 +14,8 @@ import UniversalPage from "./pages/UniversalPage";
 import { useTypingEffect } from "./useTypeEffect";
 import SearchNav from "./SearchNav";
 import InsightsPage from "./pages/InsightsPage";
+import ServicesPage from "./pages/ServicesPage";
+import DocumentPage from "./pages/DocumentPage";
 export type verticalInterface = {
   name: string;
   key: string;
@@ -173,6 +175,10 @@ const SearchPage = () => {
             <ProfessionalPage verticalKey={currentVertical.key} />
           ) : currentVertical.key === "insights_articles" ? (
             <InsightsPage verticalKey={currentVertical.key} />
+          ) : currentVertical.key === "services" ? (
+            <ServicesPage verticalKey={currentVertical.key} />
+          ) : currentVertical.key === "documents" ? (
+            <DocumentPage verticalKey={currentVertical.key} />
           ) : currentVertical.key === "locations" ? (
             <Locator verticalKey={currentVertical.key} />
           ) : (
