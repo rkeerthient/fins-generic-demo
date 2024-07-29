@@ -29,12 +29,14 @@ export const config: TemplateConfig = {
       "name",
       "description",
       "slug",
+      "mainPhone",
       "c_addressRegionDisplayName",
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
       "dm_directoryParents.meta",
       "dm_directoryChildren.name",
       "dm_directoryChildren.slug",
+      "dm_directoryChildren.mainPhone",
       "dm_directoryChildren.dm_childEntityIds",
       "dm_childEntityIds",
     ],
@@ -97,6 +99,7 @@ const State: Template<TemplateRenderProps> = ({
     dm_directoryParents,
     dm_directoryChildren,
   } = document;
+  console.log(JSON.stringify(dm_directoryChildren));
 
   return (
     <>
@@ -107,7 +110,7 @@ const State: Template<TemplateRenderProps> = ({
         <div className="centered-container">
           <div className="mx-auto max-w-7xl flex flex-row font-bold p-6 lg:px-8">
             <a
-              href={"/index.html"}
+              href={"/root.html"}
               className="text-brand-primary hover:text-brand-hover"
             >
               Home

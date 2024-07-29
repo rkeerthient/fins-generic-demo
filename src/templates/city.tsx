@@ -8,7 +8,6 @@
  * template for every eligible entity in your Knowledge Graph.
  */
 
-import * as React from "react";
 import {
   GetHeadConfig,
   GetPath,
@@ -20,11 +19,10 @@ import {
   TemplateRenderProps,
   TransformProps,
 } from "@yext/pages";
-import { isProduction } from "@yext/pages/util";
-import "../index.css";
 import DirectoryCityGrid from "../components/DirectoryCityGrid";
 import DirectoryHero from "../components/DirectoryHero";
 import PageLayout from "../components/page-layout";
+import "../index.css";
 
 export const config: TemplateConfig = {
   stream: {
@@ -39,6 +37,9 @@ export const config: TemplateConfig = {
       "name",
       "description",
       "slug",
+      "mainPhone",
+      "hours",
+      "timezone",
       "c_addressRegionDisplayName",
       "dm_directoryParents.name",
       "dm_directoryParents.slug",

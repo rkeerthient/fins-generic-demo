@@ -26,6 +26,7 @@ export const config: TemplateConfig = {
       "slug",
       "dm_directoryChildren.name",
       "dm_directoryChildren.slug",
+      "dm_directoryChildren.mainPhone",
       "dm_directoryChildren.c_addressRegionDisplayName",
       "dm_directoryChildren.dm_childEntityIds",
     ],

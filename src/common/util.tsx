@@ -9,6 +9,7 @@ type UtilsProps = {
   mainPhone?: string;
   address?: Address;
   emails?: string[];
+  isDirectory?: boolean;
 };
 
 export const FormatPhoneNumber = ({ mainPhone }: UtilsProps) => {
@@ -30,12 +31,12 @@ export const FormatPhoneNumber = ({ mainPhone }: UtilsProps) => {
   );
 };
 
-export const FormatAddress = ({ address }: UtilsProps) => {
+export const FormatAddress = ({ address, isDirectory = false }: UtilsProps) => {
   return (
     <>
       {address && (
         <address
-          className="flex md:mx-auto mr-auto items-center not-italic"
+          className={`${isDirectory ? `mr-auto` : `md:mx-auto mr-auto `} flex items-center not-italic`}
           aria-label="Address"
         >
           <h2 className="sr-only">Address</h2>
