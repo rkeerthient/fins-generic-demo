@@ -75,14 +75,15 @@ const Index: Template<TemplateRenderProps> = ({
     <>
       <PageLayout _site={document._site}>
         <DirectoryHero pageTitle={``} />
-        <div className="centered-container">
-          <div className="section space-y-14 px-10">
+        <article className="centered-container">
+          <section className="section space-y-14 px-5 md:px-10 ">
+            <h1 className="sr-only">Directory Home</h1>
             <DirectoryRootGrid
               directoryChildren={dm_directoryChildren}
               relativePrefixToRoot={relativePrefixToRoot}
             />
-          </div>
-        </div>
+          </section>
+        </article>
       </PageLayout>
     </>
   );

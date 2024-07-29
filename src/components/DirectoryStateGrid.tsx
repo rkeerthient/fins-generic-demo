@@ -40,7 +40,7 @@ const DirectoryStateGrid = ({
   }
   return (
     <>
-      <article className="section space-y-14 px-10">
+      <article className="section space-y-14 px-5 md:px-10 ">
         <section className="space-y-6">
           {name && (
             <h1 className="text-3xl font-semibold text-center">

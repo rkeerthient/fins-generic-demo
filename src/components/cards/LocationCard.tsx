@@ -39,23 +39,23 @@ const LocationCard = ({ result }: CardProps<Location>) => {
             {name}
             <p className="ml-auto">{(distance! / 1609).toFixed(2)} mi</p>
           </h2>
-          <p className="!text-sm">
+          <article className="!text-sm">
             {hours ? (
               <HoursText timezone={timezone} hours={hours} />
             ) : (
               <p>Fill in your hours</p>
             )}
-          </p>
+          </article>
           <section className="text-[#333333]   flex flex-col md:flex-row  md:gap-24 justify-center md:justify-start  leading-loose md:items-center text-sm  ">
             <FormatAddress address={address} />
-            <p className="flex flex-col ">
+            <article className="flex flex-col ">
               <FormatPhoneNumber mainPhone={mainPhone} />
 
               <p className="flex items-center text-[#333333]">
                 <EnvelopeIcon className="h-4 w-4 text-primary" />
                 <span className="ml-2">capital-nyc@capital.com</span>
               </p>
-            </p>
+            </article>
           </section>
           <section className=" flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
             <Cta

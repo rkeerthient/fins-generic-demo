@@ -106,8 +106,9 @@ const State: Template<TemplateRenderProps> = ({
         <DirectoryHero
           pageTitle={`Capital Bank in ${c_addressRegionDisplayName}`}
         />
-        <div className="centered-container">
-          <div className="mx-auto max-w-7xl flex flex-row font-bold p-6 lg:px-8">
+        <article className="centered-container">
+          <section className="mx-auto max-w-7xl flex flex-row font-bold p-6 lg:px-8">
+            <h1 className="sr-only">Directory States Home</h1>
             <a
               href={"/root.html"}
               className="text-brand-primary hover:text-brand-hover"
@@ -118,7 +119,7 @@ const State: Template<TemplateRenderProps> = ({
             <a href={"#"} className="text-brand-primary hover:text-brand-hover">
               {name}
             </a>
-          </div>
+          </section>
           <DirectoryStateGrid
             name={
               c_addressRegionDisplayName ? c_addressRegionDisplayName : name
@@ -127,7 +128,7 @@ const State: Template<TemplateRenderProps> = ({
             directoryChildren={dm_directoryChildren}
             relativePrefixToRoot={relativePrefixToRoot}
           />
-        </div>
+        </article>
       </PageLayout>
       {/* This component displays a link to the entity that represents the given page in the Knowledge Graph*/}
       {/* {!isProduction(siteDomain) && <EditTool data={document} />} */}

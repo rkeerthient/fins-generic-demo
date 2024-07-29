@@ -45,23 +45,23 @@ const ProfessionalCard = ({ result }: CardProps<any>) => {
           <p className="pointer-events-none block font-medium text-black">
             {fins_jobTitle}
           </p>
-          <section className="!text-sm">
+          <article className="!text-sm">
             {hours ? (
               <HoursText timezone={timezone} hours={hours} />
             ) : (
               <p>Fill in your hours</p>
             )}
-          </section>
+          </article>
           <address className="text-[#333333] pointer-events-none flex flex-col md:flex-row md:gap-24 justify-center md:justify-start leading-loose md:items-center text-sm">
             <FormatAddress address={address} />
-            <p className="flex flex-col">
+            <article className="flex flex-col">
               <FormatPhoneNumber mainPhone={mainPhone} />
 
               <span className="flex items-center text-[#333333]">
                 <EnvelopeIcon className="h-4 w-4 text-primary" />
                 {emails && <span className="ml-2">{emails[0]}</span>}
               </span>
-            </p>
+            </article>
           </address>
           <nav className=" flex flex-col md:flex-row gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
             <Cta

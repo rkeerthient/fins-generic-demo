@@ -36,7 +36,7 @@ const HoursText = ({ hours, timezone }: HoursTextProps) => {
         status: "Closed perm",
         text: `Closed`,
       };
-    var startTime =
+    const startTime =
       (hours[currentDay.toLowerCase()].openIntervals[0].start.split(":")[0] ===
       "00"
         ? 24
@@ -45,14 +45,15 @@ const HoursText = ({ hours, timezone }: HoursTextProps) => {
           )[0]) *
         60 +
       hours[currentDay.toLowerCase()].openIntervals[0].start.split(":")[1];
-    var endTime =
+    const endTime =
       (hours[currentDay.toLowerCase()].openIntervals[0].end.split(":")[0] ===
       "00"
         ? 24
         : hours[currentDay.toLowerCase()].openIntervals[0].end.split(":")[0]) *
         60 +
       hours[currentDay.toLowerCase()].openIntervals[0].end.split(":")[1];
-    var currently = currentTime.split(":")[0] * 60 + currentTime.split(":")[1];
+    const currently =
+      currentTime.split(":")[0] * 60 + currentTime.split(":")[1];
     if (
       hours[currentDay.toLowerCase()].openIntervals[0].start == "00:00" &&
       hours[currentDay.toLowerCase()].openIntervals[0].end == "23:59"
@@ -74,7 +75,7 @@ const HoursText = ({ hours, timezone }: HoursTextProps) => {
       };
   };
   const getTomorrow = () => {
-    var date = new Date();
+    const date = new Date();
     date.setDate(date.getDate() + 1);
     return date.toLocaleString("en-us", { weekday: "long" });
   };
@@ -94,43 +95,36 @@ const HoursText = ({ hours, timezone }: HoursTextProps) => {
   };
 
   const getDayName = (hours: any, timezone: any) => {
-    let currentDay = new Date().toLocaleDateString("en-US", {
+    const currentDay = new Date().toLocaleDateString("en-US", {
       weekday: "long",
       timeZone: timezone,
     });
-    let currentTime = timeNow();
+    const currentTime = timeNow();
     return getStatus(currentDay, currentTime, hours);
   };
   const timeNow = () => {
-    var d = new Date(),
+    const d = new Date(),
       h = (d.getHours() < 10 ? "0" : "") + d.getHours(),
       m = (d.getMinutes() < 10 ? "0" : "") + d.getMinutes();
     return h + ":" + m;
   };
   const res = getDayName(hours, timezone);
+  console.log(JSON.stringify(res));
+
   return (
-    <div className="hero  w-full">
-      <div className="hero-row flex">
-        <div
+    <>
+      {res.status !== "Closed perm" && (
+        <p
           className={
             res.status.includes("Open")
               ? "text-green-600 Hero-hoursToday flex gap-1 items-center w-max "
               : "text-red-600 Hero-hoursToday flex gap-1 items-center w-max "
           }
         >
-          <p className="">
-            {res.status.toLowerCase() === "open now"
-              ? "Open Now - "
-              : res.status.toLowerCase() === "closed"
-                ? "Closed  - "
-                : res.status.toLowerCase() === "closed perm"
-                  ? "Closed"
-                  : ""}
-          </p>
-          {res.status !== "Closed perm" && <p className="">{res.text}</p>}
-        </div>
-      </div>
-    </div>
+          {res.text}
+        </p>
+      )}
+    </>
   );
 };
 

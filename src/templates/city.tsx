@@ -117,8 +117,9 @@ const City: Template<TemplateRenderProps> = ({
         <DirectoryHero
           pageTitle={`Capital Bank in ${name}, ${dm_directoryParents[1].name}`}
         />
-        <div className="centered-container">
-          <div className="mx-auto max-w-7xl flex flex-row font-bold p-6 lg:px-8">
+        <article className="centered-container">
+          <section className="mx-auto max-w-7xl flex flex-row font-bold p-6 lg:px-8">
+            <h1 className="sr-only">Directory Cities Home</h1>
             <a
               href={"/root.html"}
               className="text-brand-primary hover:text-brand-hover"
@@ -136,14 +137,14 @@ const City: Template<TemplateRenderProps> = ({
             <a href={"#"} className="text-brand-primary hover:text-brand-hover">
               {name}
             </a>
-          </div>
+          </section>
           <DirectoryCityGrid
             name={`${name}, ${dm_directoryParents[1].name}`}
             description={description}
             directoryChildren={dm_directoryChildren}
             relativePrefixToRoot={relativePrefixToRoot}
           />
-        </div>
+        </article>
       </PageLayout>
       {/* {!isProduction(siteDomain) && <EditTool data={document} />} */}
     </>
