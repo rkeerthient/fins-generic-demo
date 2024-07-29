@@ -6,12 +6,13 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { CiSearch } from "react-icons/ci";
 import { FaBars } from "react-icons/fa6";
 import { SearchBar } from "@yext/search-ui-react";
 import { useTypingEffect } from "./useTypeEffect";
+
 type NavProps = {
   name?: string;
   slug?: string;
@@ -29,12 +30,13 @@ const _searchBar = () => {
   );
 };
 const Header = ({ _site }: any) => {
-  const { queryPrompts } = useTypingEffect(
-    import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY,
-    import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
-  );
+  // const { queryPrompts } = useTypingEffect(
+  //   import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY,
+  //   import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
+  // );
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [isSearchPage, setIsSearchPage] = useState<boolean>(false);
   const {
     c_primaryNav,
     c_secondaryNav,
@@ -42,6 +44,12 @@ const Header = ({ _site }: any) => {
     c_topRightNav,
     c_headerLogo,
   } = _site;
+
+  useEffect(() => {
+    const pathname = window.location.pathname;
+    console.log(pathname);
+  }, []);
+
   return (
     <>
       <header className="p-6 justify-between items-center w-full max-w-screen-3xl bg-primary text-white md:flex flex-col gap-4 hidden ">
@@ -104,7 +112,7 @@ const Header = ({ _site }: any) => {
               customCssClasses={{
                 searchBarContainer: `w-2/4 h-8`,
                 searchButton: `text-black`,
-                inputElement: "demo",
+                // inputElement: "demo",
               }}
             />
           </div>

@@ -1,5 +1,6 @@
 import {
   Result,
+  UniversalLimit,
   useSearchActions,
   VerticalResults as VR,
 } from "@yext/search-headless-react";
@@ -12,6 +13,7 @@ import ProfessionalPage from "./pages/ProfessionalPage";
 import UniversalPage from "./pages/UniversalPage";
 import { useTypingEffect } from "./useTypeEffect";
 import SearchNav from "./SearchNav";
+import InsightsPage from "./pages/InsightsPage";
 export type verticalInterface = {
   name: string;
   key: string;
@@ -46,13 +48,18 @@ export const verticalNavItems: verticalInterface[] = [
     name: "Documents",
     key: "documents",
   },
+
+  {
+    name: "Insights",
+    key: "insights_articles",
+  },
 ];
 
 const SearchPage = () => {
-  const { queryPrompts } = useTypingEffect(
-    import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY,
-    import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
-  );
+  // const { queryPrompts } = useTypingEffect(
+  //   import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY,
+  //   import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
+  // );
 
   const context = useLocationsContext();
   const [results, setResults] = useState<
@@ -63,12 +70,12 @@ const SearchPage = () => {
     name: "All",
     key: "all",
   });
-  // const universalLimit: UniversalLimit = {
-  //   faqs: 4,
-  //   healthcare_facilities: 4,
-  //   healthcare_professionals: 4,
-  //   specialties: 4,
-  // };
+  const universalLimit: UniversalLimit = {
+    faqs: 4,
+    healthcare_facilities: 4,
+    healthcare_professionals: 4,
+    specialties: 4,
+  };
 
   // useEffect(() => {
   //   if (!results) return;
@@ -88,7 +95,7 @@ const SearchPage = () => {
   const executeSearch = () => {
     if (currentVertical.key === "all") {
       searchActions.setUniversal();
-      // searchActions.setUniversalLimit(universalLimit);
+      searchActions.setUniversalLimit(universalLimit);
       searchActions.executeUniversalQuery().then((res: any) => {
         setResults(res?.verticalResults);
       });
@@ -148,7 +155,7 @@ const SearchPage = () => {
           <div className="px-8 pt-8">
             <SearchBar
               onSearch={handleSearch}
-              customCssClasses={{ inputElement: "demo " }}
+              // customCssClasses={{ inputElement: "demo " }}
             ></SearchBar>
           </div>
           <SearchNav
@@ -164,6 +171,8 @@ const SearchPage = () => {
             <FAQPage verticalKey={currentVertical.key} />
           ) : currentVertical.key === "financial_professionals" ? (
             <ProfessionalPage verticalKey={currentVertical.key} />
+          ) : currentVertical.key === "insights_articles" ? (
+            <InsightsPage verticalKey={currentVertical.key} />
           ) : currentVertical.key === "locations" ? (
             <Locator verticalKey={currentVertical.key} />
           ) : (
