@@ -75,7 +75,7 @@ export const getHeadConfig: GetHeadConfig<
   TemplateRenderProps
 > = (): HeadConfig => {
   return {
-    title: "Cook Children's | Search",
+    title: "Capital Fins Bank | Homepage",
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
     tags: [

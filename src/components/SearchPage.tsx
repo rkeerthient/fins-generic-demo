@@ -16,6 +16,7 @@ import SearchNav from "./SearchNav";
 import InsightsPage from "./pages/InsightsPage";
 import ServicesPage from "./pages/ServicesPage";
 import DocumentPage from "./pages/DocumentPage";
+import ProductsPage from "./pages/ProductsPage";
 export type verticalInterface = {
   name: string;
   key: string;
@@ -78,21 +79,6 @@ const SearchPage = () => {
     healthcare_professionals: 4,
     specialties: 4,
   };
-
-  // useEffect(() => {
-  //   if (!results) return;
-  //   const ids: any[] = [];
-
-  //   if (currentVertical.key === "healthcare_professionals") {
-  //     results.forEach((item: any) => ids.push(item.rawData.npi));
-  //   } else if (currentVertical.key === "all") {
-  //     results.forEach(({ verticalKey, results: nestedResults }: any) => {
-  //       if (verticalKey === "healthcare_professionals") {
-  //         nestedResults.forEach((item: any) => ids.push(item.rawData.npi));
-  //       }
-  //     });
-  //   }
-  // }, [results]);
 
   const executeSearch = () => {
     if (currentVertical.key === "all") {
@@ -181,6 +167,8 @@ const SearchPage = () => {
             <DocumentPage verticalKey={currentVertical.key} />
           ) : currentVertical.key === "locations" ? (
             <Locator verticalKey={currentVertical.key} />
+          ) : currentVertical.key === "financial_products" ? (
+            <ProductsPage verticalKey={currentVertical.key} />
           ) : (
             <UniversalPage />
           ))}

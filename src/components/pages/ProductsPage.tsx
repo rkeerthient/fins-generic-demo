@@ -6,11 +6,11 @@ import {
   VerticalResults,
 } from "@yext/search-ui-react";
 import Loader from "../Loader";
-import ServicesCard from "../cards/ServicesCard";
 import { useVerticalSearch } from "../useVerticalSearch";
 import { PageProps } from "./FAQPage";
+import ProductCard from "../cards/ProductCard";
 
-const ServicesPage = ({ verticalKey }: PageProps) => {
+const ProductsPage = ({ verticalKey }: PageProps) => {
   const { isLoaded } = useVerticalSearch(verticalKey) || false;
 
   return (
@@ -23,7 +23,7 @@ const ServicesPage = ({ verticalKey }: PageProps) => {
               <AppliedFilters />
             </div>
             <VerticalResults
-              CardComponent={ServicesCard}
+              CardComponent={ProductCard}
               customCssClasses={{
                 verticalResultsContainer:
                   "grid grid-cols-1 md:grid-cols-4 gap-8",
@@ -41,4 +41,4 @@ const ServicesPage = ({ verticalKey }: PageProps) => {
   );
 };
 
-export default ServicesPage;
+export default ProductsPage;

@@ -36,6 +36,7 @@ const InsightsPage = ({ verticalKey }: PageProps) => {
                   "grid grid-cols-1 md:grid-cols-4 gap-8",
               }}
             />
+            <p className="my-8"></p>
             <Pagination />
             <Geolocation />
           </div>

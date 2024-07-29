@@ -43,6 +43,7 @@ const ProfessionalsOnlyPage = ({ verticalKey }: PageProps) => {
                   "grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8",
               }}
             />
+            <p className="my-8"></p>
             <Pagination />
             <Geolocation />
           </div>

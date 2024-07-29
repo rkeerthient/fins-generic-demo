@@ -29,6 +29,7 @@ const DocumentPage = ({ verticalKey }: PageProps) => {
                 verticalResultsContainer: "flex flex-col gap-8",
               }}
             />
+            <p className="my-8"></p>
             <Pagination />
             <Geolocation />
           </div>
