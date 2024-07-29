@@ -175,12 +175,12 @@ const Slider = ({
               </a>
             ))}
         </div>
-        {showNextPrev && (
+        {/* {showNextPrev && (
           <ChevronRightIcon className="h-4 w-4" onClick={prevClicked} />
         )}
         {showNextPrev && (
           <ChevronLeftIcon className="h-4 w-4" onClick={nextClicked} />
-        )}
+        )} */}
       </div>
     </section>
   );
