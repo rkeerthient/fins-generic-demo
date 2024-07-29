@@ -11,6 +11,7 @@ import { XMarkIcon } from "@heroicons/react/20/solid";
 import { CiSearch } from "react-icons/ci";
 import { FaBars } from "react-icons/fa6";
 import { SearchBar } from "@yext/search-ui-react";
+import { useTypingEffect } from "./useTypeEffect";
 type NavProps = {
   name?: string;
   slug?: string;
@@ -28,6 +29,10 @@ const _searchBar = () => {
   );
 };
 const Header = ({ _site }: any) => {
+  const { queryPrompts } = useTypingEffect(
+    import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY,
+    import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
+  );
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const {
@@ -79,8 +84,10 @@ const Header = ({ _site }: any) => {
             Primary Navigation
           </h2>
 
-          <div className="flex items-center">
-            <Image image={c_headerLogo!} width={259} layout="fixed" />
+          <div className="flex items-center gap-4 w-full justify-between">
+            <a href="/homepage">
+              <Image image={c_headerLogo!} width={259} layout="fixed" />
+            </a>
             <ul
               className="flex items-center ml-4"
               aria-label="Primary navigation"
@@ -93,18 +100,27 @@ const Header = ({ _site }: any) => {
                 </li>
               ))}
             </ul>
+            <SearchBar
+              customCssClasses={{
+                searchBarContainer: `w-2/4 h-8`,
+                searchButton: `text-black`,
+                inputElement: "demo",
+              }}
+            />
           </div>
         </nav>
       </header>
       <header className="p-6 justify-between items-center w-full max-w-screen-3xl bg-primary text-white md:hidden h-20 flex ">
         <div className="flex justify-between items-center font-bold w-full">
           <div className="ml-2">
-            <Image
-              image={c_headerLogo!}
-              width={150}
-              className="!h-auto"
-              layout="fixed"
-            />
+            <a href="/homepage">
+              <Image
+                image={c_headerLogo!}
+                width={150}
+                className="!h-auto"
+                layout="fixed"
+              />
+            </a>
           </div>
           <div className="flex gap-4">
             <CiSearch
