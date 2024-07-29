@@ -30,7 +30,7 @@ const LocationCard = ({ result }: CardProps<Location>) => {
       id={id}
       onClick={() => setSelectedLocationId(id)}
     >
-      <section className="relative flex bg-white  p-4">
+      <section className="relative flex flex-col md:flex-row bg-white  p-4">
         <section className="px-2 flex flex-col gap-3 w-full">
           <h2 className="flex items-center ">
             <span className="mr-2 text-xs  w-6 h-6 rounded-full bg-primary text-white flex justify-center items-center">
@@ -46,7 +46,7 @@ const LocationCard = ({ result }: CardProps<Location>) => {
               <p>Fill in your hours</p>
             )}
           </p>
-          <section className="text-[#333333] pointer-events-none flex gap-24 justify-center md:justify-start  leading-loose items-center text-sm  ">
+          <section className="text-[#333333]   flex flex-col md:flex-row  md:gap-24 justify-center md:justify-start  leading-loose md:items-center text-sm  ">
             <FormatAddress address={address} />
             <p className="flex flex-col ">
               <FormatPhoneNumber mainPhone={mainPhone} />
@@ -62,14 +62,14 @@ const LocationCard = ({ result }: CardProps<Location>) => {
               buttonText="Get In Touch"
               style="primary"
               url={getDirectionsUrl(address)}
-              classNames=" md:px-4  md:py-1  md:text-sm rounded-md"
+              classNames=" md:px-4  py-1 px-2  md:text-sm rounded-md"
             />
 
             <Cta
               buttonText={"View Page"}
               style="secondary"
               url={`/${slug}`}
-              classNames=" md:px-4  md:py-1  md:text-sm rounded-md"
+              classNames=" md:px-4  px-2 py-1  md:text-sm rounded-md"
             />
           </section>
         </section>

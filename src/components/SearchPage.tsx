@@ -23,7 +23,7 @@ export const verticalNavItems: verticalInterface[] = [
     key: "all",
   },
   {
-    name: "Financial Professionals",
+    name: "Professionals",
     key: "financial_professionals",
   },
   {
@@ -39,7 +39,7 @@ export const verticalNavItems: verticalInterface[] = [
     key: "services",
   },
   {
-    name: "Financial Products",
+    name: "Products",
     key: "financial_products",
   },
   {

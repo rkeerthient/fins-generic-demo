@@ -17,13 +17,13 @@ const ProfessionalPage = ({ verticalKey }: PageProps) => {
   return (
     <>
       {isLoaded ? (
-        <div className="flex flex-row gap-2 mt-4 w-full px-14 ">
-          <div className="w-1/5">
+        <div className="flex flex-row gap-2 mt-4 w-full md:px-14 px-4 ">
+          {/* <div className="w-1/5">
             <Facets
               customCssClasses={{ facetsContainer: "ml-8 mr-4 " }}
             ></Facets>
-          </div>
-          <div className="flex-grow w-4/5">
+          </div> */}
+          <div className="flex-grow md:w-4/5 w-full">
             <div className="flex flex-col items-baseline  ">
               <ResultsCount />
               <AppliedFilters />

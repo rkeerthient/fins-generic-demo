@@ -35,7 +35,7 @@ export const FormatAddress = ({ address }: UtilsProps) => {
     <>
       {address && (
         <address
-          className="flex mx-auto md:mx-0 items-center not-italic"
+          className="flex md:mx-auto mr-auto items-center not-italic"
           aria-label="Address"
         >
           <h2 className="sr-only">Address</h2>

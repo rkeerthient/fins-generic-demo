@@ -66,8 +66,8 @@ const LocationsPage = ({ verticalKey }: PageProps) => {
   return (
     <>
       {isLoaded ? (
-        <div className="flex flex-row max-w-screen-2xl mx-auto px-16">
-          <div className="flex flex-col w-2/5 p-4 relative">
+        <div className="flex flex-row max-w-screen-2xl mx-auto px-4 md:px-16">
+          <div className="flex flex-col w-full md:w-2/5 p-4 relative">
             <>
               <div>
                 <ResultsCount />
@@ -91,7 +91,7 @@ const LocationsPage = ({ verticalKey }: PageProps) => {
               </div>
             </>
           </div>
-          <div className=" w-3/5 h-screen">
+          <div className=" w-3/5 h-screen hidden md:block">
             <MapboxMap
               mapboxOptions={{
                 zoom: 4,
