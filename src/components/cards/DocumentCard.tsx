@@ -1,15 +1,6 @@
-import {
-  CheckIcon,
-  EnvelopeIcon,
-  PhoneIcon,
-  XMarkIcon,
-} from "@heroicons/react/20/solid";
-import { Image } from "@yext/pages-components";
 import { CardProps } from "@yext/search-ui-react";
-import HoursText from "../HoursText";
-import Cta from "../cta";
-import { FormatAddress, FormatPhoneNumber } from "../../common/util";
 import { FaRegFilePdf } from "react-icons/fa6";
+import Cta from "../cta";
 
 const DocumentCard = ({ result }: CardProps<any>) => {
   const {

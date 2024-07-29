@@ -11,8 +11,6 @@ export const useVerticalSearch = (vertical: string) => {
         setIsLoaded(false);
         searchActions.setVertical(vertical);
         searchActions.executeVerticalQuery().then((res) => {
-          console.log(JSON.stringify(res));
-
           setIsLoaded(true);
         });
       }

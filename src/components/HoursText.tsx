@@ -109,7 +109,6 @@ const HoursText = ({ hours, timezone }: HoursTextProps) => {
     return h + ":" + m;
   };
   const res = getDayName(hours, timezone);
-  console.log(JSON.stringify(res));
 
   return (
     <>

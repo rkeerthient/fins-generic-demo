@@ -45,11 +45,6 @@ const Header = ({ _site }: any) => {
     c_headerLogo,
   } = _site;
 
-  useEffect(() => {
-    const pathname = window.location.pathname;
-    console.log(pathname);
-  }, []);
-
   return (
     <>
       <header className="p-6 justify-between items-center w-full max-w-screen-3xl bg-primary text-white md:flex flex-col gap-4 hidden ">
