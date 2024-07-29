@@ -8,8 +8,8 @@ interface CtaProps {
 const Cta = ({ buttonText, style, url, classNames = "" }: CtaProps) => {
   const styleClasses =
     style === "primary"
-      ? "bg-primary text-white w-fit"
-      : "border-primary text-primary border w-fit bg-white";
+      ? "bg-primary text-white hover:bg-white hover:border-primary hover:text-primary w-fit hover:border"
+      : "border-primary text-primary border border-primary hover:bg-primary hover:text-white  w-fit bg-white";
 
   return (
     <a

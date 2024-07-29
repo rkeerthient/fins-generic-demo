@@ -11,20 +11,18 @@ import Mapboxuniv from "../Mapboxuniv";
 import FAQCard from "../cards/FAQCard";
 import LocationCard from "../cards/LocationCard";
 import ProfessionalCard from "../cards/ProfessionalCard";
-import ServicesCard from "../cards/ServicesCard";
 import Loader from "../Loader";
+import DocumentCard from "../cards/DocumentCard";
+import ServicesCard from "../cards/ServicesCard";
+import ProfessionalCardUniv from "../cards/ProfessionalCardUniv";
 
 const UniversalPage = () => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const searchActions = useSearchActions();
-  const universalLimit: UniversalLimit = {
-    file_1: 4,
-    aha_idea: 4,
-  };
+
   useEffect(() => {
     setIsLoaded(false);
     searchActions.setUniversal();
-    searchActions.setUniversalLimit(universalLimit);
     searchActions.executeUniversalQuery().then((res) => setIsLoaded(true));
   }, []);
 
@@ -101,19 +99,24 @@ const UniversalPage = () => {
                   CardComponent: FAQCard,
                   SectionComponent: FlexSection,
                 },
-                healthcare_facilities: {
-                  label: "Healthcare Facilities",
+                services: {
+                  label: "Services",
+                  CardComponent: ServicesCard,
+                  SectionComponent: Grid4Section,
+                },
+                locations: {
+                  label: "Locations",
                   CardComponent: LocationCard,
                   SectionComponent: MapSection,
                 },
-                healthcare_professionals: {
-                  label: "Healthcare Professionals",
-                  CardComponent: ProfessionalCard,
+                financial_professionals: {
+                  label: "Professionals",
+                  CardComponent: ProfessionalCardUniv,
                   SectionComponent: Grid4Section,
                 },
-                specialties: {
-                  label: "Services",
-                  CardComponent: ServicesCard,
+                documents: {
+                  label: "Documents",
+                  CardComponent: DocumentCard,
                   SectionComponent: FlexSection,
                 },
                 links: {
@@ -121,15 +124,15 @@ const UniversalPage = () => {
                   CardComponent: undefined,
                   SectionComponent: HiddenSection,
                 },
-                file_1: {
-                  label: "Files",
-                  CardComponent: StandardCard,
-                  SectionComponent: StandardSection,
+                cities: {
+                  label: "",
+                  CardComponent: undefined,
+                  SectionComponent: HiddenSection,
                 },
-                aha_idea: {
-                  label: "Ideas",
-                  CardComponent: StandardCard,
-                  SectionComponent: StandardSection,
+                financial_products: {
+                  label: "",
+                  CardComponent: undefined,
+                  SectionComponent: HiddenSection,
                 },
               }}
             />

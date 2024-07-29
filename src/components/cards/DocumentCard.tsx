@@ -20,7 +20,7 @@ const DocumentCard = ({ result }: CardProps<any>) => {
 
   return (
     <article className="border rounded-lg">
-      <header className="relative flex bg-white p-4 gap-4">
+      <header className="relative flex flex-col md:flex-row bg-white md:p-4 p-2 gap-4 w-full">
         <FaRegFilePdf className="w-24 h-24" />
 
         <section className="px-2 flex flex-col gap-3">
@@ -34,7 +34,7 @@ const DocumentCard = ({ result }: CardProps<any>) => {
           </h2>
           <p>File type - {mimeType}</p>
           <p>Size - {size}kb</p>
-          {s_snippet && <p className="italic">{s_snippet}</p>}
+          {s_snippet && <p className="italic break-all">{s_snippet}</p>}
           <article className=" flex flex-col md:flex-row gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
             <Cta
               buttonText="Learn more"
