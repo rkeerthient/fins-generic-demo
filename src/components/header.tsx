@@ -195,7 +195,9 @@ const Header = ({ _site }: any) => {
                     >
                       {c_topRightNav.map((item: NavProps, index: number) => (
                         <li key={index} className=" mb-4">
-                          <a href="#">{item.name}</a>
+                          <a href={`${item.slug ? `/${item.slug}` : `#`}`}>
+                            {item.name}
+                          </a>
                         </li>
                       ))}
                     </ul>
