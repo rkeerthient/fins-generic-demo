@@ -99,7 +99,6 @@ const State: Template<TemplateRenderProps> = ({
     dm_directoryParents,
     dm_directoryChildren,
   } = document;
-  console.log(JSON.stringify(dm_directoryChildren));
 
   return (
     <>

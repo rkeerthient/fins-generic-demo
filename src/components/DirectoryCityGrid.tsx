@@ -28,8 +28,6 @@ const DirectoryCityGrid = ({
   directoryChildren,
   relativePrefixToRoot,
 }: DirectoryGridProps) => {
-  console.log(JSON.stringify(directoryChildren));
-
   let childrenDivs;
 
   if (directoryChildren) {

@@ -49,6 +49,8 @@ export const config: TemplateConfig = {
       "dm_directoryChildren.address",
       "dm_directoryChildren.mainPhone",
       "dm_directoryChildren.slug",
+      "dm_directoryChildren.hours",
+      "dm_directoryChildren.timezone",
     ],
     localization: {
       locales: ["en"],
