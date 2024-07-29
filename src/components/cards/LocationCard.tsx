@@ -2,7 +2,7 @@ import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { CardProps } from "@yext/search-ui-react";
 import { useEffect, useRef } from "react";
 import { useLocationsContext } from "../../common/LocationsContext";
-import { Location } from "../../types/locations";
+import Location from "../../types/locations";
 import Cta from "../cta";
 import HoursText from "../HoursText";
 import { FormatAddress, FormatPhoneNumber } from "../../common/util";

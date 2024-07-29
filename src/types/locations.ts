@@ -125,6 +125,30 @@ export interface GoogleEntityRelationship {
 	placeId: string,
 }
 
+export enum PickupAndDeliveryServices {
+	IN_STORE_PICKUP = "In-Store Pickup",
+	CURBSIDE_PICKUP = "Curbside Pickup",
+	PICKUP_NOT_OFFERED = "Pickup Not Offered",
+	DELIVERY = "Delivery",
+	SAME_DAY_DELIVERY = "Same Day Delivery",
+	NO_CONTACT_DELIVERY = "No-Contact Delivery",
+	DELIVERY_NOT_OFFERED = "Delivery Not Offered",
+}
+
+export enum Type_1 {
+	POSTAL_CODE = "Postal Code",
+	REGION = "State/Region",
+	COUNTY = "County",
+	CITY = "City",
+	SUBLOCALITY = "Sublocality",
+}
+
+export interface ServiceAreaPlaces {
+	name?: string,
+	type?: Type_1,
+	googlePlaceId?: string,
+}
+
 export interface Address {
 	line1?: string,
 	line2?: string,
@@ -168,7 +192,7 @@ export interface Fins_secondaryCTA {
 	link?: string,
 }
 
-export enum Type_1 {
+export enum Type_2 {
 	NONE = "None",
 	BOOK_NOW = "Book Now",
 	CALL_NOW = "Call Now",
@@ -187,7 +211,7 @@ export enum Type_1 {
 }
 
 export interface FacebookCallToAction {
-	type: Type_1,
+	type: Type_2,
 	value?: string,
 }
 
@@ -203,154 +227,6 @@ export enum LocationType {
 	ATM = "ATM",
 	RESTAURANT = "Restaurant",
 	HOTEL = "Hotel",
-}
-
-export interface WebsiteUrl {
-	url?: string,
-	displayUrl?: string,
-	preferDisplayUrl?: boolean,
-}
-
-export interface Atm {
-	accessHours?: Hours,
-	appleActionLinks?: AppleActionLinks[],
-	appleBusinessConnectLinkedAccount?: any,
-	appleBusinessDescription?: string,
-	appleBusinessId?: string,
-	appleBusinessIdDqe?: string,
-	appleCompanyId?: string,
-	appleCompanyIdDqe?: string,
-	appleCoverPhoto?: Image,
-	bingParentLocation?: EntityReference,
-	bingRelationshipType?: BingRelationshipType,
-	bingWebsiteOverride?: string,
-	driveThroughHours?: Hours,
-	facebookAbout?: string,
-	facebookWebsiteOverride?: string,
-	frequentlyAskedQuestions?: FrequentlyAskedQuestions[],
-	geomodifier?: string,
-	googleEntityRelationship?: GoogleEntityRelationship,
-	googleMyBusinessLabels?: string[],
-	googlePlaceId?: string,
-	googleShortName?: string,
-	holidayHoursConversationEnabled?: boolean,
-	impressum?: string,
-	landingPageUrl?: string,
-	neighborhood?: string,
-	nudgeEnabled?: boolean,
-	phoneticName?: string,
-	primaryConversationContact?: any,
-	reviewResponseConversationEnabled?: boolean,
-	slug?: string,
-	what3WordsAddress?: string,
-	yelpWebsiteOverride?: string,
-	additionalHoursText?: string,
-	address: Address,
-	alternatePhone?: any,
-	description?: string,
-	hours?: Hours,
-	logo?: ComplexImage,
-	name: string,
-	categories?: any,
-	cityCoordinate?: Coordinate,
-	closed?: boolean,
-	dm_directoryParents?: EntityReference[],
-	fins_primaryCTA?: Fins_primaryCTA,
-	fins_relatedFaqs?: EntityReference[],
-	fins_relatedProducts?: EntityReference[],
-	fins_relatedServices?: EntityReference[],
-	fins_secondaryCTA?: Fins_secondaryCTA,
-	displayCoordinate?: Coordinate,
-	dropoffCoordinate?: Coordinate,
-	facebookOverrideCity?: string,
-	facebookCoverPhoto?: Image,
-	facebookCallToAction?: FacebookCallToAction,
-	facebookDescriptor?: string,
-	facebookLinkedAccount?: any,
-	facebookName?: string,
-	facebookPageUrl?: string,
-	facebookParentPageId?: string,
-	facebookProfilePhoto?: Image,
-	facebookStoreId?: string,
-	facebookVanityUrl?: string,
-	fax?: any,
-	featuredMessage?: FeaturedMessage,
-	photoGallery?: ComplexImage[],
-	geocodedCoordinate?: Coordinate,
-	gmbLinkedAccount?: any,
-	googleAccountId?: string,
-	googleAttributes?: any,
-	googleCoverPhoto?: Image,
-	googleProfilePhoto?: Image,
-	googleWebsiteOverride?: string,
-	isoRegionCode?: string,
-	keywords?: string[],
-	localPhone?: any,
-	locatedIn?: EntityReference,
-	locationType?: LocationType,
-	mainPhone?: any,
-	mobilePhone?: any,
-	phones?: any,
-	pickupCoordinate?: Coordinate,
-	routableCoordinate?: Coordinate,
-	id: string,
-	timezone?: any,
-	tollFreePhone?: any,
-	ttyPhone?: any,
-	walkableCoordinate?: Coordinate,
-	websiteUrl?: WebsiteUrl,
-	yextDisplayCoordinate?: Coordinate,
-	yextDropoffCoordinate?: Coordinate,
-	yextPickupCoordinate?: Coordinate,
-	yextRoutableCoordinate?: Coordinate,
-	yextWalkableCoordinate?: Coordinate,
-}
-
-export enum PickupAndDeliveryServices {
-	IN_STORE_PICKUP = "In-Store Pickup",
-	CURBSIDE_PICKUP = "Curbside Pickup",
-	PICKUP_NOT_OFFERED = "Pickup Not Offered",
-	DELIVERY = "Delivery",
-	SAME_DAY_DELIVERY = "Same Day Delivery",
-	NO_CONTACT_DELIVERY = "No-Contact Delivery",
-	DELIVERY_NOT_OFFERED = "Delivery Not Offered",
-}
-
-export enum Type_2 {
-	POSTAL_CODE = "Postal Code",
-	REGION = "State/Region",
-	COUNTY = "County",
-	CITY = "City",
-	SUBLOCALITY = "Sublocality",
-}
-
-export interface ServiceAreaPlaces {
-	name?: string,
-	type?: Type_2,
-	googlePlaceId?: string,
-}
-
-export enum Type_3 {
-	NONE = "None",
-	BOOK_NOW = "Book Now",
-	CALL_NOW = "Call Now",
-	CONTACT_US = "Contact Us",
-	SEND_MESSAGE = "Send Message",
-	USE_APP = "Use App",
-	PLAY_GAME = "Play Game",
-	SHOP_NOW = "Shop Now",
-	SIGN_UP = "Sign Up",
-	WATCH_VIDEO = "Watch Video",
-	SEND_EMAIL = "Send Email",
-	LEARN_MORE = "Learn More",
-	PURCHASE_GIFT_CARDS = "Purchase Gift Cards",
-	ORDER_NOW = "Order Now",
-	FOLLOW_PAGE = "Follow Page",
-}
-
-export interface FacebookCallToAction_1 {
-	type: Type_3,
-	value?: string,
 }
 
 export interface MenuUrl {
@@ -499,13 +375,19 @@ export interface UberTripBranding {
 	description: string,
 }
 
+export interface WebsiteUrl {
+	url?: string,
+	displayUrl?: string,
+	preferDisplayUrl?: boolean,
+}
+
 export interface ComplexVideo {
 	url: string,
 	video?: string,
 	description?: string,
 }
 
-export interface Location {
+export default interface Location {
 	accessHours?: Hours,
 	appleActionLinks?: AppleActionLinks[],
 	appleBusinessConnectLinkedAccount?: any,
@@ -591,7 +473,7 @@ export interface Location {
 	emails?: string[],
 	facebookOverrideCity?: string,
 	facebookCoverPhoto?: Image,
-	facebookCallToAction?: FacebookCallToAction_1,
+	facebookCallToAction?: FacebookCallToAction,
 	facebookDescriptor?: string,
 	facebookEmail?: string,
 	facebookLinkedAccount?: any,

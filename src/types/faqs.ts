@@ -19,6 +19,11 @@ export interface ComplexImage {
 	clickthroughUrl?: string,
 }
 
+export interface EntityReference {
+	entityId: string,
+	name: string,
+}
+
 export enum LinkType {
 	OTHER = "Other",
 	URL = "URL",
@@ -30,11 +35,6 @@ export interface Fins_primaryCTA {
 	label?: string,
 	linkType?: LinkType,
 	link?: string,
-}
-
-export interface EntityReference {
-	entityId: string,
-	name: string,
 }
 
 export interface Fins_secondaryCTA {
@@ -53,6 +53,7 @@ export default interface Faq {
 	logo?: ComplexImage,
 	name: string,
 	fins_faqCategory?: string[],
+	c_featuredFAQs?: EntityReference[],
 	fins_primaryCTA?: Fins_primaryCTA,
 	fins_relatedLocations?: EntityReference[],
 	fins_relatedProducts?: EntityReference[],
