@@ -5,7 +5,7 @@ import { FaLocationPin } from "react-icons/fa6";
 import { renderToString } from "react-dom/server";
 import { getDirectionsUrl } from "./cards/LocationCard";
 import Cta from "./cta";
-import { Coordinate, Location } from "../types/locations";
+import Location, { Coordinate } from "../types/locations";
 import { FormatEmail, FormatPhoneNumber } from "../common/util";
 
 const transformToMapboxCoord = (
