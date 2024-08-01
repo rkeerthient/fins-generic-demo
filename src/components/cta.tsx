@@ -3,6 +3,7 @@ interface CtaProps {
   style: "primary" | "secondary";
   url: string;
   classNames?: string;
+  type?: string;
 }
 
 const Cta = ({ buttonText, style, url, classNames = "" }: CtaProps) => {
