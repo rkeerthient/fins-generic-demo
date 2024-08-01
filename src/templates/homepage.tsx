@@ -13,13 +13,12 @@ import {
 import Hero from "../components/Hero";
 import Slider from "../components/Slider";
 import Cta from "../components/cta";
+import GetInTouchBanner from "../components/getInTouchBanner";
 import NearByLocations from "../components/nearByLocations";
 import OurInsights from "../components/ourInsights";
 import PageLayout from "../components/page-layout";
-import "../index.css";
 import RelatedFaqs from "../components/relatedFaqs";
-import HeroBanner from "../components/HeroBanner";
-import GetInTouchBanner from "../components/getInTouchBanner";
+import "../index.css";
 
 export const config: TemplateConfig = {
   stream: {
