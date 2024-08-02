@@ -22,21 +22,21 @@ const ProfessionalCardUniv = ({ result }: CardProps<any>) => {
     emails,
     fins_jobTitle,
     slug,
-  } = result.rawData;
+  } = result.rawData || result;
 
   return (
     <article className="border rounded-lg">
-      <header className="relative flex flex-col bg-white p-4">
+      <header className="relative flex flex-col bg-white">
         <figure className="group aspect-square block overflow-hidden bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 bottom-12  w-full">
           {headshot && (
             <Image
               image={headshot!}
-              className="pointer-events-none !aspect-square !w-full !max-w-none !object-top rounded-lg  "
+              className="pointer-events-none !aspect-square !w-full !max-w-none !object-top rounded-t-lg "
             />
           )}
         </figure>
 
-        <section className="px-2 flex flex-col gap-3">
+        <section className="px-2 flex flex-col gap-3  p-4">
           <h2>
             <a href={landingPageUrl} className="text-black text-lg font-bold">
               {name}

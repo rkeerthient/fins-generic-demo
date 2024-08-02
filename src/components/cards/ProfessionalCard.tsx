@@ -9,8 +9,9 @@ import { CardProps } from "@yext/search-ui-react";
 import HoursText from "../HoursText";
 import Cta from "../cta";
 import { FormatAddress, FormatPhoneNumber } from "../../common/util";
+import FinancialProfessional from "../../types/financial_professionals";
 
-const ProfessionalCard = ({ result }: CardProps<any>) => {
+const ProfessionalCard = ({ result }: CardProps<FinancialProfessional>) => {
   const { name } = result;
   const {
     address,

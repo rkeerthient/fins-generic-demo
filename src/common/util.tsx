@@ -71,3 +71,17 @@ export const FormatEmail = ({ emails }: UtilsProps) => {
     </>
   );
 };
+
+export const formatDate = (dateString: string) => {
+  if (dateString) {
+    const myDate = new Date(dateString);
+
+    const day = myDate.getDate() + 1;
+    myDate.setDate(day);
+    return myDate.toLocaleDateString("en-US", {
+      month: "long",
+      day: "2-digit",
+      year: "numeric",
+    });
+  }
+};

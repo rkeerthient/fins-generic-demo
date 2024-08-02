@@ -41,6 +41,7 @@ export const config: TemplateConfig = {
       "c_relatedFPsAndTeams.mainPhone",
       "c_relatedFPsAndTeams.emails",
       "c_relatedFPsAndTeams.headshot",
+      "c_relatedFPsAndTeams.id",
       "c_relatedFPsAndTeams.fins_jobTitle",
       "c_relatedFPsAndTeams.slug",
       "c_linkedInsightsArticles.name",
