@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { verticalInterface, verticalNavItems } from "./SearchPage";
+import { VerticalInterface, verticalNavItems } from "./SearchPage";
 
 type SearchNavProps = {
-  currentVertical: verticalInterface;
-  setCurrentVertical: (currentVertical: verticalInterface) => void;
+  currentVertical: VerticalInterface;
+  setCurrentVertical: (currentVertical: VerticalInterface) => void;
 };
 
 const SearchNav = ({ currentVertical, setCurrentVertical }: SearchNavProps) => {
