@@ -101,33 +101,38 @@ const SearchPage = () => {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    executeSearch();
-    if (currentVertical?.key.toLowerCase() !== "all") {
-      searchParams.set("vertical", currentVertical.key);
-    } else {
-      searchParams.delete("vertical");
-    }
-    history.pushState(null, "", "?" + searchParams.toString());
-  }, [currentVertical]);
-
-  useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
     const verticalParam = searchParams.get("vertical");
     const queryString = searchParams.get("query");
 
+    let matchedVertical: verticalInterface | undefined;
     if (verticalParam) {
-      const matchedVertical = verticalNavItems.find(
+      matchedVertical = verticalNavItems.find(
         (item) => item.key.toLowerCase() === verticalParam.toLowerCase()
       );
-      if (matchedVertical) {
-        setCurrentVertical(matchedVertical);
-      }
+    }
+
+    if (matchedVertical) {
+      setCurrentVertical(matchedVertical);
+    } else {
+      setCurrentVertical(
+        verticalNavItems.find((item) => item.key.toLowerCase() === "all")!
+      );
     }
 
     if (queryString) {
       searchActions.setQuery(queryString);
     }
   }, []);
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (currentVertical?.key.toLowerCase() !== "all") {
+      searchParams.set("vertical", currentVertical.key);
+    } else {
+      searchParams.delete("vertical");
+    }
+    window.history.pushState(null, "", "?" + searchParams.toString());
+    executeSearch();
+  }, [currentVertical]);
 
   const handleSearch = ({ query }: any) => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -151,6 +156,7 @@ const SearchPage = () => {
             ></SearchBar>
           </div>
           <SearchNav
+            currentVertical={currentVertical}
             setCurrentVertical={(vertical: verticalInterface) =>
               setCurrentVertical(vertical)
             }
