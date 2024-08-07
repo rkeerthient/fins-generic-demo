@@ -63,7 +63,11 @@ const SearchPage = () => {
   //   import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY,
   //   import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
   // );
-
+  /**
+   *  Search Queries
+   * http://localhost:5173/search.html?query=management+details&vertical=faqs
+   * http://localhost:5173/search.html?query=what+is+credit+score&vertical=services
+   */
   const context = useLocationsContext();
   const [results, setResults] = useState<
     (VR[] | Result<Record<string, unknown>>)[]
