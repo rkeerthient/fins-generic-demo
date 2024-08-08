@@ -16,7 +16,9 @@ import InsightsPage from "./pages/InsightsPage";
 import ServicesPage from "./pages/ServicesPage";
 import DocumentPage from "./pages/DocumentPage";
 import ProductsPage from "./pages/ProductsPage";
-
+import { useTypingEffect } from "../common/useTypeEffect";
+import { useTypingEffectNew } from "../common/useTypeEffectNew";
+import { twMerge } from "tailwind-merge";
 export type VerticalInterface = {
   name: string;
   key: string;
@@ -54,6 +56,9 @@ const UNIVERSAL_LIMIT: UniversalLimit = {
 const getPageComponent = (key: string) => PAGE_COMPONENTS[key] || UniversalPage;
 
 const SearchPage = () => {
+  const { queryPrompts } = useTypingEffectNew();
+  const [isDesktop, setIsDesktop] = useState(false);
+
   const context = useLocationsContext();
   const [results, setResults] = useState<
     (VR[] | Result<Record<string, unknown>> | undefined)[]
@@ -63,6 +68,16 @@ const SearchPage = () => {
     verticalNavItems[0]
   );
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window !== "undefined") {
+        setIsDesktop(window.innerWidth >= 768);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const executeSearch = useCallback(() => {
     if (currentVertical.key === "all") {
       searchActions.setUniversal();
@@ -128,7 +143,15 @@ const SearchPage = () => {
           <h2 className="sr-only">Search Section</h2>
           <section className="px-8 pt-8">
             <h2 className="sr-only">Search Bar</h2>
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar
+              onSearch={handleSearch}
+              customCssClasses={{
+                inputElement: twMerge(
+                  "demo",
+                  isDesktop ? "desktop-search-bar-new" : "mobile-search-bar-new"
+                ),
+              }}
+            />
           </section>
           <nav>
             <h2 className="sr-only">Navigation</h2>

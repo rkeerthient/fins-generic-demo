@@ -63,10 +63,7 @@ const Header = ({ _site }: any) => {
     c_topRightNav,
     c_headerLogo,
   } = _site;
-  const { queryPrompts } = useTypingEffect(
-    import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY,
-    import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
-  );
+  const { queryPrompts } = useTypingEffect();
 
   return (
     <>

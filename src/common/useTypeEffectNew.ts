@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export const useTypingEffect = () => {
+export const useTypingEffectNew = () => {
   const [queryPrompts, setQueryPrompts] = useState<string[]>([]);
   const timerRef = useRef<number | null>(null);
   const indexRef = useRef(0);
@@ -9,8 +9,8 @@ export const useTypingEffect = () => {
   const getVisibleElement = () => {
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
     const selector = isMobile
-      ? ".demo.mobile-search-bar"
-      : ".demo.desktop-search-bar";
+      ? ".demo.mobile-search-bar-new"
+      : ".demo.desktop-search-bar-new";
     return document.querySelector(selector) as HTMLInputElement;
   };
 
