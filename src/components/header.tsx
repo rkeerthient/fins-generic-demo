@@ -6,7 +6,7 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { CiSearch } from "react-icons/ci";
 import { FaBars } from "react-icons/fa6";
@@ -18,22 +18,28 @@ type NavProps = {
   slug?: string;
   relatedServices?: EntityReference[];
 };
-const _searchBar = () => {
+const SearchBarComponent = ({ id }: { id: string }) => {
   return (
     <SearchBar
+      onSearch={handleSearch}
       customCssClasses={{
-        searchBarContainer: "w-full !-mb-2",
+        searchBarContainer: "w-full !-mb-2 md:w-2/4 md:h-12",
         searchButton: "text-primary",
-        inputElement: "!h-9 md:h-11",
+        inputElement: `!h-9 md:!h-11 demo ${id}`,
       }}
     />
   );
 };
+
+const handleSearch: onSearchFunc = (searchEventData) => {
+  const { query } = searchEventData;
+  window.location.href = `/search.html?query=${query}`;
+};
 const Header = ({ _site }: any) => {
-  // const { queryPrompts } = useTypingEffect(
-  //   import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY,
-  //   import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
-  // );
+  const { queryPrompts } = useTypingEffect(
+    import.meta.env.YEXT_PUBLIC_SEARCH_API_KEY,
+    import.meta.env.YEXT_PUBLIC_SEARCH_EXP_KEY
+  );
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isSearchPage, setIsSearchPage] = useState<boolean>(false);
@@ -44,11 +50,6 @@ const Header = ({ _site }: any) => {
     c_topRightNav,
     c_headerLogo,
   } = _site;
-
-  const handleSearch: onSearchFunc = (searchEventData) => {
-    const { query } = searchEventData;
-    window.location.href = `/search.html?query=${query}`;
-  };
 
   return (
     <>
@@ -108,14 +109,7 @@ const Header = ({ _site }: any) => {
                 </li>
               ))}
             </ul>
-            <SearchBar
-              onSearch={handleSearch}
-              customCssClasses={{
-                searchBarContainer: `w-2/4 h-8`,
-                searchButton: `text-black`,
-                // inputElement: "demo",
-              }}
-            />
+            <SearchBarComponent id="desktop-search-bar" />
           </div>
         </nav>
       </header>
@@ -259,7 +253,7 @@ const Header = ({ _site }: any) => {
                 leaveTo="translate-x-full"
               >
                 <DialogPanel className="w-full bg-white p-6 text-white flex border items-center">
-                  <_searchBar />
+                  <SearchBarComponent id="mobile-search-bar" />
                   <button
                     className="text-white flex justify-end ml-2"
                     onClick={() => setIsSearchOpen(false)}

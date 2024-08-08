@@ -4,14 +4,26 @@ export const useTypingEffect = (apiKey: string, expKey: string) => {
   const [queryPrompts, setQueryPrompts] = useState<string[]>([]);
   const timerRef = useRef<number | null>(null);
   const indexRef = useRef(0);
+  const [isTyping, setIsTyping] = useState<boolean>(false);
+
+  const getVisibleElement = () => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const selector = isMobile
+      ? ".demo.mobile-search-bar"
+      : ".demo.desktop-search-bar";
+    return document.querySelector(selector) as HTMLInputElement;
+  };
 
   const typingEffect = () => {
+    setIsTyping(true);
     const word = queryPrompts[indexRef.current].split("");
     const loopTyping = () => {
       if (word.length > 0) {
-        const ele = document.querySelector(".demo") as HTMLInputElement;
-        ele.placeholder += word.shift();
-        timerRef.current = setTimeout(loopTyping, 100);
+        const ele = getVisibleElement();
+        if (ele) {
+          ele.placeholder += word.shift();
+        }
+        timerRef.current = window.setTimeout(loopTyping, 100);
       } else {
         deletingEffect();
       }
@@ -24,9 +36,11 @@ export const useTypingEffect = (apiKey: string, expKey: string) => {
     const loopDeleting = () => {
       if (word.length > 0) {
         word.pop();
-        const ele = document.querySelector(".demo") as HTMLInputElement;
-        ele.placeholder = word.join("");
-        timerRef.current = setTimeout(loopDeleting, 65);
+        const ele = getVisibleElement();
+        if (ele) {
+          ele.placeholder = word.join("");
+        }
+        timerRef.current = window.setTimeout(loopDeleting, 65);
       } else {
         indexRef.current = (indexRef.current + 1) % queryPrompts.length;
         typingEffect();
@@ -58,10 +72,18 @@ export const useTypingEffect = (apiKey: string, expKey: string) => {
   }, []);
 
   useEffect(() => {
-    if (queryPrompts.length > 0) {
+    if (queryPrompts.length > 0 && !isTyping) {
       typingEffect();
     }
   }, [queryPrompts]);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
 
   return { queryPrompts };
 };
