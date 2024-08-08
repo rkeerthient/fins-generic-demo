@@ -111,7 +111,7 @@ const Header = ({ _site }: any) => {
               Primary Navigation
             </h2>
 
-            <div className="flex items-center gap-4 w-full justify-between">
+            <div className="flex items-center gap-4 w-full justify-start">
               <a href="/homepage">
                 <Image image={c_headerLogo!} width={259} layout="fixed" />
               </a>

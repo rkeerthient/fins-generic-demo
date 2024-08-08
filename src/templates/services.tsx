@@ -80,10 +80,9 @@ const Services = ({ document }: TemplateProps) => {
   const indexOfLastRecord = currentPage * recordsPerPage;
 
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-  const currentRecords = document.c_primaryFPs.slice(
-    indexOfFirstRecord,
-    indexOfLastRecord
-  );
+  const currentRecords =
+    document.c_primaryFPs &&
+    document.c_primaryFPs.slice(indexOfFirstRecord, indexOfLastRecord);
   const nPages = Math.ceil(document.c_primaryFPs.length / recordsPerPage);
 
   return (
