@@ -11,7 +11,7 @@ import ProfessionalCard from "../cards/ProfessionalCard";
 import { useVerticalSearch } from "../useVerticalSearch";
 import { PageProps } from "./FAQPage";
 import Loader from "../Loader";
-import { useTypingEffect } from "../useTypeEffect";
+import { useTypingEffect } from "../../common/useTypeEffect";
 
 const ProfessionalsOnlyPage = ({ verticalKey }: PageProps) => {
   const { queryPrompts } = useTypingEffect(
