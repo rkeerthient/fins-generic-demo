@@ -6,18 +6,13 @@ import {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import InsightsAndServicesHeroBanner from "../components/InsightsAndServicesHeroBanner";
-import PageLayout from "../components/page-layout";
-import "../index.css";
-import Markdown from "react-markdown";
-import ChildProducts from "../components/childProducts";
-import OurTeam from "../components/ourTeam";
 import { useState } from "react";
-import {
-  ArrowLongLeftIcon,
-  ArrowLongRightIcon,
-} from "@heroicons/react/24/outline";
+import ChildProducts from "../components/childProducts";
+import InsightsAndServicesHeroBanner from "../components/InsightsAndServicesHeroBanner";
+import OurTeam from "../components/ourTeam";
+import PageLayout from "../components/page-layout";
 import Pagination from "../components/Pagination";
+import "../index.css";
 
 export const config: TemplateConfig = {
   stream: {
