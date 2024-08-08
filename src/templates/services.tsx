@@ -83,7 +83,9 @@ const Services = ({ document }: TemplateProps) => {
   const currentRecords =
     document.c_primaryFPs &&
     document.c_primaryFPs.slice(indexOfFirstRecord, indexOfLastRecord);
-  const nPages = Math.ceil(document.c_primaryFPs.length / recordsPerPage);
+  const nPages =
+    document.c_primaryFPs &&
+    Math.ceil(document.c_primaryFPs.length / recordsPerPage);
 
   return (
     <PageLayout _site={document._site}>
