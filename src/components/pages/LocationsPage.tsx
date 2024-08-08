@@ -76,7 +76,7 @@ const LocationsPage = ({ verticalKey }: PageProps) => {
                   CardComponent={LocationCard}
                   customCssClasses={{
                     verticalResultsContainer:
-                      "flex flex-col gap-4 h-[95vh] overflow-scroll ",
+                      "flex flex-col gap-4 h-[95vh] md:overflow-scroll ",
                   }}
                 />
               </div>

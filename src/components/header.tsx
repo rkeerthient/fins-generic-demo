@@ -27,16 +27,14 @@ export const SearchBarComponent = ({
 }) => {
   return (
     <>
-      {!isSearchPage && (
-        <SearchBar
-          onSearch={handleSearch}
-          customCssClasses={{
-            searchBarContainer: "w-full !-mb-2 md:w-2/4 md:h-12",
-            searchButton: "text-primary",
-            inputElement: `!h-9 md:!h-11 demo ${id}`,
-          }}
-        />
-      )}
+      <SearchBar
+        onSearch={handleSearch}
+        customCssClasses={{
+          searchBarContainer: "w-full !-mb-2 md:w-2/4 md:h-12",
+          searchButton: "text-primary",
+          inputElement: `!h-9 md:!h-11 demo ${id}`,
+        }}
+      />
     </>
   );
 };
@@ -92,7 +90,12 @@ const Header = ({ _site }: any) => {
               <ul className="flex" aria-label="Top right navigation">
                 {c_topRightNav.map((item: NavProps, index: number) => (
                   <li key={index} className="text-sm ml-4">
-                    <a className="hover:underline" href="#">
+                    <a
+                      className="hover:underline"
+                      href={
+                        item.slug ? `/${item.slug.replaceAll("/", "?")}` : "#"
+                      }
+                    >
                       {item.name}
                     </a>
                   </li>
@@ -124,10 +127,12 @@ const Header = ({ _site }: any) => {
                   </li>
                 ))}
               </ul>
-              <SearchBarComponent
-                id="desktop-search-bar"
-                isSearchPage={isSearchPage}
-              />
+              {!isSearchPage && (
+                <SearchBarComponent
+                  id="desktop-search-bar"
+                  isSearchPage={isSearchPage}
+                />
+              )}
             </div>
           </nav>
         </header>
@@ -144,10 +149,12 @@ const Header = ({ _site }: any) => {
               </a>
             </div>
             <div className="flex gap-4">
-              <CiSearch
-                className="h-5 w-5"
-                onClick={() => setIsSearchOpen(true)}
-              />
+              {!isSearchPage && (
+                <CiSearch
+                  className="h-5 w-5"
+                  onClick={() => setIsSearchOpen(true)}
+                />
+              )}
               <FaBars className="h-5 w-5" onClick={() => setIsMenuOpen(true)} />
             </div>
           </div>
@@ -197,7 +204,7 @@ const Header = ({ _site }: any) => {
                         aria-label="Top left navigation"
                       >
                         {c_topLeftNav.map((item: NavProps, index: number) => (
-                          <li key={index} className="  mb-4">
+                          <li key={index} className=" mb-4">
                             <a href="#">{item.name}</a>
                           </li>
                         ))}
@@ -213,7 +220,13 @@ const Header = ({ _site }: any) => {
                       >
                         {c_topRightNav.map((item: NavProps, index: number) => (
                           <li key={index} className=" mb-4">
-                            <a href={`${item.slug ? `/${item.slug}` : `#`}`}>
+                            <a
+                              href={
+                                item.slug
+                                  ? `/${item.slug.replaceAll("/", "?")}`
+                                  : "#"
+                              }
+                            >
                               {item.name}
                             </a>
                           </li>
