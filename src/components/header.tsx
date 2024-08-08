@@ -31,7 +31,7 @@ export const SearchBarComponent = ({
       <SearchBar
         onSearch={handleSearch}
         customCssClasses={{
-          searchBarContainer: "w-full !-mb-2 md:w-2/4 md:h-12",
+          searchBarContainer: "w-full !-mb-2 md:flex-1 md:h-12",
           searchButton: "text-primary",
           inputElement: `!h-9 md:!h-11 demo ${id}`,
         }}
@@ -73,8 +73,16 @@ const Header = ({ _site }: any) => {
         >
           <h2 id="top-left-nav" className="sr-only">
             Top Left Navigation
-          </h2>
-          <NavMenu isPrimary={true} menuItems={c_topLeftNav} />
+          </h2>{" "}
+          <ul className="flex items-center" aria-label="Primary navigation">
+            {c_primaryNav.map((item: NavProps, index: number) => (
+              <li key={index} className="ml-4 ">
+                <a className="hover:underline" href="#">
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
           <nav aria-labelledby="top-right-nav">
             <h2 id="top-right-nav" className="sr-only">
               Top Right Navigation
@@ -109,18 +117,8 @@ const Header = ({ _site }: any) => {
             <a href="/homepage">
               <Image image={c_headerLogo!} width={259} layout="fixed" />
             </a>
-            <ul
-              className="flex items-center ml-4"
-              aria-label="Primary navigation"
-            >
-              {c_primaryNav.map((item: NavProps, index: number) => (
-                <li key={index} className="ml-4 ">
-                  <a className="hover:underline" href="#">
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <NavMenu isPrimary={true} menuItems={c_topLeftNav} />
+
             {!isSearchPage && (
               <SearchBarComponent
                 id="desktop-search-bar"
