@@ -10,7 +10,7 @@ import { Fragment, useEffect, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { CiSearch } from "react-icons/ci";
 import { FaBars } from "react-icons/fa6";
-import { SearchBar } from "@yext/search-ui-react";
+import { onSearchFunc, SearchBar } from "@yext/search-ui-react";
 import { useTypingEffect } from "./useTypeEffect";
 
 type NavProps = {
@@ -44,6 +44,11 @@ const Header = ({ _site }: any) => {
     c_topRightNav,
     c_headerLogo,
   } = _site;
+
+  const handleSearch: onSearchFunc = (searchEventData) => {
+    const { query } = searchEventData;
+    window.location.href = `/search.html?query=${query}`;
+  };
 
   return (
     <>
@@ -104,6 +109,7 @@ const Header = ({ _site }: any) => {
               ))}
             </ul>
             <SearchBar
+              onSearch={handleSearch}
               customCssClasses={{
                 searchBarContainer: `w-2/4 h-8`,
                 searchButton: `text-black`,
