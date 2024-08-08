@@ -1,8 +1,9 @@
 export interface DirectoryHeroProps {
   pageTitle: string;
+  description?: string;
 }
 
-const DirectoryHero = ({ pageTitle }: DirectoryHeroProps) => {
+const DirectoryHero = ({ pageTitle, description }: DirectoryHeroProps) => {
   return (
     <section className="relative bg-gray-800 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
       <h1 className="sr-only">Directory Header</h1>
@@ -22,7 +23,8 @@ const DirectoryHero = ({ pageTitle }: DirectoryHeroProps) => {
           {pageTitle}
         </h2>
         <p className="mt-3 text-xl text-white">
-          {`Explore a world of banking solutions, from accounts and loans to investment insights. We're committed to your financial success, providing secure, user-friendly access to our services. Discover your path to a brighter financial future right here.`}
+          {description ||
+            `Explore a world of banking solutions, from accounts and loans to investment insights. We're committed to your financial success, providing secure, user-friendly access to our services. Discover your path to a brighter financial future right here.`}
         </p>
       </section>
     </section>
