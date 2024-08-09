@@ -13,6 +13,7 @@ import { FaBars } from "react-icons/fa6";
 import { onSearchFunc, SearchBar } from "@yext/search-ui-react";
 import { useTypingEffect } from "../common/useTypeEffect";
 import NavMenu from "./NavMenu";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 type NavProps = {
   name?: string;
@@ -196,8 +197,9 @@ const Header = ({ _site }: any) => {
                       aria-label="Top left navigation"
                     >
                       {c_topLeftNav.map((item: NavProps, index: number) => (
-                        <li key={index} className=" mb-4">
-                          <a href="#">{item.name}</a>
+                        <li key={index} className=" mb-4 flex justify-between w-full">
+                          <a href="#">{item.name} </a>
+                          {item.relatedServices && item.relatedServices?.length >= 1 && <ChevronRightIcon className="h-4 w-4"/>}
                         </li>
                       ))}
                     </ul>
