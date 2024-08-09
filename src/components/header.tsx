@@ -76,7 +76,7 @@ const Header = ({ _site }: any) => {
           </h2>{" "}
           <ul className="flex items-center" aria-label="Primary navigation">
             {c_primaryNav.map((item: NavProps, index: number) => (
-              <li key={index} className="ml-4 ">
+              <li key={index} className="ml-4 text-sm ">
                 <a className="hover:underline" href="#">
                   {item.name}
                 </a>
