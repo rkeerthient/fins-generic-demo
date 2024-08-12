@@ -1,10 +1,9 @@
 import { Address, Hours } from "@yext/search-headless-react";
 import { useEffect, useState } from "react";
-import HoursText from "./HoursText";
-import { getDirectionsUrl } from "./cards/LocationCard";
-import Cta from "./cta";
-import { PhoneIcon } from "@heroicons/react/24/outline";
 import { FormatAddress, FormatPhoneNumber } from "../common/util";
+import HoursText from "./HoursText";
+import Cta from "./cta";
+import { getDirectionsUrl } from "./cards/LocationCard";
 
 type LocCardData = {
   name: string;
@@ -81,12 +80,11 @@ const NearByLocations = () => {
                 <FormatPhoneNumber mainPhone={mainPhone} />
                 <nav className=" flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
                   <Cta
-                    buttonText="Get In Touch"
+                    buttonText="Get Directions"
                     style="primary"
-                    url=""
+                    url={getDirectionsUrl(address)}
                     classNames="md:px-4 md:py-1 md:text-sm rounded-md px-2 py-1"
                   />
-
                   <Cta
                     buttonText={"View Page"}
                     style="secondary"
@@ -94,7 +92,6 @@ const NearByLocations = () => {
                     classNames="md:px-4 md:py-1 md:text-sm rounded-md px-2 py-1"
                   />
                 </nav>
-
               </section>
             );
           })}

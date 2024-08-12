@@ -59,18 +59,20 @@ const LocationCard = ({ result }: CardProps<Location>) => {
           </section>
           <section className=" flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
             <Cta
-              buttonText="Get In Touch"
+              buttonText="Get Directions"
               style="primary"
               url={getDirectionsUrl(address)}
               classNames=" md:px-4  py-1 px-2  md:text-sm rounded-md"
             />
 
-            <Cta
-              buttonText={"View Page"}
-              style="secondary"
-              url={`/${slug}`}
-              classNames=" md:px-4  px-2 py-1  md:text-sm rounded-md"
-            />
+            {name !== "Capital Bank ATM" && (
+              <Cta
+                buttonText={"View Page"}
+                style="secondary"
+                url={`/${slug}`}
+                classNames=" md:px-4  px-2 py-1  md:text-sm rounded-md"
+              />
+            )}
           </section>
         </section>
       </section>

@@ -34,7 +34,9 @@ const HeroBanner = ({ document, isProfessional = false }: HeroBannerProps) => {
           className=" !absolute !h-full !max-w-none"
         />
         <article className=" w-full absolute bg-black bg-opacity-75 flex items-center md:justify-center flex-col h-full text-white top-0 left-0 z-2">
-          <section className="md:p-8 md:ml-16  w-full md:w-1/2 flex flex-col md:flex-row gap-4 md:gap-4 mx-6 my-12 p-4   text-white justify-center  md:text-left text-center">
+          <section
+            className={`md:p-8 md:ml-16  w-full ${isProfessional ? `md:w-1/2` : `md:w-fit`} flex flex-col md:flex-row gap-4 md:gap-4 mx-6 my-12 p-4   text-white justify-center  md:text-left text-center`}
+          >
             {isProfessional && (
               <Image
                 image={headshot}

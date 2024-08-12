@@ -46,7 +46,7 @@ const getLocationHTML = (location: Location, index: any) => {
       <FormatEmail />
       <section className="pointer-events-none flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
         <Cta
-          buttonText="Get In Touch"
+          buttonText="Get Directions"
           style="primary"
           url={getDirectionsUrl(address)}
           classNames=" md:px-4  md:py-1  md:text-sm rounded-md"
