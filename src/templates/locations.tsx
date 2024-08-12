@@ -41,6 +41,8 @@ export const config: TemplateConfig = {
       "c_relatedFPsAndTeams.mainPhone",
       "c_relatedFPsAndTeams.emails",
       "c_relatedFPsAndTeams.headshot",
+      "c_relatedFPsAndTeams.hours",
+      "c_relatedFPsAndTeams.timezone",
       "c_relatedFPsAndTeams.id",
       "c_relatedFPsAndTeams.fins_jobTitle",
       "c_relatedFPsAndTeams.slug",
@@ -78,6 +80,10 @@ const Locations = ({ document, __meta }: TemplateProps) => {
 
   const InPageNavItems = [
     {
+      name: "About me",
+      navId: "aboutMe",
+    },
+    {
       name: "Services",
       navId: "services",
     },
@@ -101,6 +107,8 @@ const Locations = ({ document, __meta }: TemplateProps) => {
   return (
     <PageLayout _site={document._site}>
       <HeroBanner document={document} isProfessional={false} />
+
+      <InpageNav navItems={InPageNavItems}></InpageNav>
       <article className="centered-container flex md:flex-row flex-col justify-center items-center py-16 gap-8 px-4 md:px-0">
         <img
           src={
@@ -109,40 +117,52 @@ const Locations = ({ document, __meta }: TemplateProps) => {
           className="w-full md:w-[200.59px] aspect-[3/4] rounded-lg object-center object-cover"
         />
         <section className="flex flex-col items-left gap-6">
-          <h2 className="text-2xl font-bold text-blue-950">Joseph Adams</h2>
-          <p className="text-blue-950 text-base font-bold">Regional Director</p>
-          <p className="text-zinc-800 text-base font-normal underline">
+          <a id="aboutMe"></a>
+          <h2 className="text-2xl font-bold ">Joseph Adams</h2>
+          <p className="  text-base font-bold">Regional Director</p>
+          <p className=" text-base font-normal underline">
             jadams@capitalbank.com
           </p>
-          <p className="text-zinc-800 text-base font-normal">
-            {document.description}
+          <p className="  text-base font-normal">
+            {document.description.length <= 60
+              ? `Welcome to Capital Bank, where your financial goals become our mission. At Capital Bank, we offer a comprehensive range of services to meet your banking needs. From retail banking solutions designed for your everyday transactions to mortgage and lending services to help you achieve your dream home, we've got you covered. Our dedicated team of experts specializes in wealth management, ensuring your financial future is secure and prosperous. For businesses, our business banking services provide tailored solutions to fuel your growth and success. At Capital Bank, we are committed to delivering excellence in banking, putting you on the path to financial success.`
+              : document.description}
           </p>
         </section>
       </article>
-      <InpageNav navItems={InPageNavItems}></InpageNav>
-      <section className="centered-container py-10 space-y-8">
+      <section className="bg-white px-8  py-2 md:px-32  md:py-8 ">
         <a id="insights"></a>
-        <h2 className="text-2xl md:text-[34px] font-medium text-center">Insights</h2>
-        <OurInsights linkedArticles={document.c_linkedInsightsArticles} />
+        <section className="centered-container flex flex-col gap-4 md:gap-8">
+          <h2 className="text-2xl md:text-[34px] ont-medium text-center">
+            Near by Locations
+          </h2>
+          <OurInsights linkedArticles={document.c_linkedInsightsArticles} />
+        </section>
       </section>
-      <section className="centered-container py-10 space-y-8">
-        <a id="letstalk"></a>
-        <h2 className="text-2xl md:text-[34px] font-medium text-center">Lets Talk</h2>
-        <LetsTalk
-          description={document.description}
-          phone={document.mainPhone}
-          emails={document.emails}
-          geoCodedCoordinate={document.geocodedCoordinate}
-        />
-      </section>
-      <section className="centered-container py-10 space-y-8">
+      <section className=" px-8  py-2 md:px-32  md:py-8 ">
         <a id="team"></a>
-        <h2 className="text-2xl md:text-[34px] font-medium text-center">
-          Our {document.address.city} Team
-        </h2>
-        {document.c_relatedFPsAndTeams && (
-          <OurTeam teamMembers={document.c_relatedFPsAndTeams} />
-        )}
+        <section className="centered-container flex flex-col gap-4 md:gap-8">
+          <h2 className="text-2xl md:text-[34px] ont-medium text-center">
+            Our {document.address.city} Team
+          </h2>
+          {document.c_relatedFPsAndTeams && (
+            <OurTeam teamMembers={document.c_relatedFPsAndTeams} />
+          )}
+        </section>
+      </section>
+      <section className="bg-white px-8  py-2 md:px-32  md:py-8 ">
+        <a id="insights"></a>
+        <section className="centered-container flex flex-col gap-4 md:gap-8">
+          <h2 className="text-2xl md:text-[34px] ont-medium text-center">
+            Lets Talk
+          </h2>
+          <LetsTalk
+            description={document.description}
+            phone={document.mainPhone}
+            emails={document.emails}
+            geoCodedCoordinate={document.geocodedCoordinate}
+          />
+        </section>
       </section>
     </PageLayout>
   );

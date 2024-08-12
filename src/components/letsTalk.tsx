@@ -22,7 +22,11 @@ const LetsTalk = ({
   return (
     <article className="flex flex-col-reverse md:flex-row gap-4 md:gap-8">
       <article className="md:w-1/2 flex flex-col gap-2 md:gap-8 my-auto">
-        <p>{description}</p>
+        <p>
+          {description.length <= 65
+            ? `We feel a deep responsibility to our clients. We are committed to helping you protect and grow your assets, and in many cases, prepare families and heirs for the transfer of wealth to future generations. We know how hard you are working to achieve your goals, and we will work with you to help your wealth support your continued prosperity over time.`
+            : description}
+        </p>
         <p className="flex flex-col md:flex-row gap-4 items-center">
           <FormatPhoneNumber mainPhone={phone} />
           <FormatEmail email={emails[0]} />
