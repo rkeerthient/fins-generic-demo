@@ -14,7 +14,7 @@ type ProductsProps = {
 
 const ChildProducts = ({ products }: ProductsProps) => {
   return (
-    <article className="grid grid-cols-4 gap-4">
+    <article className="grid grid-cols-1 md:grid-cols-4 gap-4">
       {products
         .filter((item) => item.name !== "Find a Business Banker")
         .map((item) => {

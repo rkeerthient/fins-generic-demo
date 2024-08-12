@@ -4,7 +4,7 @@ import ProfessionalCardUniv from "./cards/ProfessionalCardUniv";
 
 const OurTeam = ({ teamMembers }: any) => {
   return (
-    <ul role="list" className="grid grid-cols-1 gap-6 md:grid-cols-4">
+    <ul role="list" className="grid grid-cols-1 gap-2 md:grid-cols-4">
       {teamMembers
         .filter(
           (teamMember: any) => teamMember.c_individualOrTeam === "INDIVIDUAL"

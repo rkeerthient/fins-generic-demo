@@ -84,23 +84,30 @@ const Services = ({ document }: TemplateProps) => {
 
   return (
     <PageLayout _site={document._site}>
-      <div className="bg-primary-bg">
+      <section className="w-full flex flex-col justify-center items-center text-center mx-auto bg-white">
+        <h2 className="sr-only">{document.name} Page</h2>
         <InsightsAndServicesHeroBanner document={document} isInsights={false} />
-        <article className="max-w-4xl mx-auto pt-24 prose ">
+      </section>
+      <section className="bg-primary-bg flex flex-col justify-center items-center text-center mx-auto  ">
+        <h2 className="sr-only">Article body</h2>
+        <article className=" centered-container md:py-8 py-4 prose ">
           <p>{document.c_serviceLongDescription}</p>
         </article>
-      </div>
+      </section>
       {document.c_childProducts && (
-        <section className=" centered-container mt-4">
-          <h2 className="text-3xl flex justify-center mb-4 font-bold">
-            Related Products
-          </h2>
-          <ChildProducts products={document.c_childProducts}></ChildProducts>
+        <section className="bg-white px-8  py-2 md:px-32  md:py-8 ">
+          <h2 className="sr-only">Related products</h2>
+          <section className="centered-container flex flex-col gap-4 md:gap-8">
+            <h2 className="text-2xl md:text-[34px] font-medium text-center">
+              Related Products
+            </h2>
+            <ChildProducts products={document.c_childProducts}></ChildProducts>
+          </section>
         </section>
       )}
       {document.c_primaryFPs && (
-        <section className=" centered-container mt-4">
-          <h2 className="text-3xl flex justify-center mb-4 font-bold">
+        <section className="px-8  py-2 md:px-24 md:py-8 bg-primary-bg centered-container flex flex-col gap-4 md:gap-8">
+          <h2 className="text-2xl md:text-[34px] font-medium text-center">
             Related Professionals
           </h2>
           <OurTeam teamMembers={currentRecords} />

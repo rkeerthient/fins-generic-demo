@@ -1,8 +1,6 @@
-import { EnvelopeOpenIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { Image } from "@yext/pages-components";
-import { TemplateProps } from "@yext/pages/*";
-import Cta from "./cta";
 import { FormatAddress, FormatEmail, FormatPhoneNumber } from "../common/util";
+import Cta from "./cta";
 export interface HeroBannerProps {
   document: any;
   isProfessional?: boolean;
