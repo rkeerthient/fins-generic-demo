@@ -54,7 +54,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 const Insights = ({ document }: TemplateProps) => {
   return (
     <PageLayout _site={document._site}>
-      <section className="w-full flex flex-col justify-center items-center text-center mx-auto   px-4  py-2 md:px-32  md:py-8 ">
+      <section className="w-full flex flex-col justify-center items-center text-center mx-auto  px-4  py-2 md:px-32  md:py-8 ">
         <h2 className="sr-only">{document.name} Page</h2>
         <InsightsAndServicesHeroBanner document={document} isInsights={true} />
       </section>

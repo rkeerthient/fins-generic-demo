@@ -9,10 +9,10 @@ import {
 import { useState } from "react";
 import ChildProducts from "../components/childProducts";
 import InsightsAndServicesHeroBanner from "../components/InsightsAndServicesHeroBanner";
-import OurTeam from "../components/ourTeam";
 import PageLayout from "../components/page-layout";
 import Pagination from "../components/Pagination";
 import "../index.css";
+import { OurTeam, OurTeamMobile } from "../components/ourTeam";
 
 export const config: TemplateConfig = {
   stream: {
@@ -110,13 +110,17 @@ const Services = ({ document }: TemplateProps) => {
           <h2 className="text-2xl md:text-[34px] font-medium text-center">
             Related Professionals
           </h2>
-          <OurTeam teamMembers={currentRecords} />
-
-          <Pagination
-            nPages={nPages}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
+          <article className="md:hidden block">
+            <OurTeamMobile teamMembers={currentRecords} name={document.name} />
+          </article>
+          <article className="hidden md:block">
+            <OurTeam teamMembers={currentRecords} />{" "}
+            <Pagination
+              nPages={nPages}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
+          </article>
         </section>
       )}
     </PageLayout>
