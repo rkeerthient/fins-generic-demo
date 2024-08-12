@@ -36,14 +36,14 @@ const ServicesCard = ({ result }: CardProps<any>) => {
             {c_serviceDescription}
           </p>
 
-          <article className=" flex flex-col md:flex-row gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
+          <nav className=" flex flex-col md:flex-row gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
             <Cta
               buttonText="Learn more"
               style="secondary"
               url={`/${slug}`}
               classNames="md:px-4 md:py-1 md:text-sm rounded-md px-2 py-1"
             />
-          </article>
+          </nav>
         </section>
       </header>
     </article>

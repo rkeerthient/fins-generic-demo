@@ -54,12 +54,18 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 const Insights = ({ document }: TemplateProps) => {
   return (
     <PageLayout _site={document._site}>
-      <div className="bg-white">
+      <section className="w-full flex flex-col justify-center items-center text-center mx-auto   px-4  py-2 md:px-32  md:py-8 ">
+        <h2 className="sr-only">{document.name} Page</h2>
         <InsightsAndServicesHeroBanner document={document} isInsights={true} />
-        <article className="max-w-4xl mx-auto pt-24 prose ">
-          <Markdown>{document.c_insightsArticleBody.markdown}</Markdown>
+      </section>
+      <section className="bg-white flex flex-col justify-center items-center text-center mx-auto  ">
+        <h2 className="sr-only">Article body</h2>
+        <article className=" centered-container  px-4  py-2 md:px-32  md:py-8 prose ">
+          <Markdown className="text-left">
+            {document.c_insightsArticleBody.markdown}
+          </Markdown>
         </article>
-      </div>
+      </section>
     </PageLayout>
   );
 };

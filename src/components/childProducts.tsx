@@ -1,5 +1,6 @@
 import { Image } from "@yext/pages-components";
 import { Image as _Image } from "@yext/types";
+import Cta from "./cta";
 
 type ProductProps = {
   name: string;
@@ -20,9 +21,17 @@ const ChildProducts = ({ products }: ProductsProps) => {
         .map((item) => {
           const { name, id, slug, c_serviceDescription } = item;
           return (
-            <section className="flex flex-col border p-4" key={id}>
+            <section className="flex flex-col border p-4 gap-4" key={id}>
               <h2 className="text-lg font-medium">{name}</h2>
-              <p className="text-sm">{c_serviceDescription}</p>
+              <p className="text-sm md:h-24">{c_serviceDescription}</p>
+              <nav className=" flex flex-col md:flex-row gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
+                <Cta
+                  buttonText="Learn more"
+                  style="secondary"
+                  url={`/${slug}`}
+                  classNames="md:px-4 md:py-1 md:text-sm rounded-md px-2 py-1"
+                />
+              </nav>
             </section>
           );
         })}

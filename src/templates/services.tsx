@@ -42,6 +42,7 @@ export const config: TemplateConfig = {
       "c_primaryFPs.fins_jobTitle",
       "c_primaryFPs.slug",
       "c_primaryFPs.id",
+      "c_primaryFPs.address",
     ],
   },
 };
@@ -67,9 +68,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   };
 };
 const Services = ({ document }: TemplateProps) => {
-  const [visibleProfessionals, setVisibleProfessionals] = useState(0);
-  const [loading, setLoading] = useState(true);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(12);
   const indexOfLastRecord = currentPage * recordsPerPage;
@@ -84,18 +82,20 @@ const Services = ({ document }: TemplateProps) => {
 
   return (
     <PageLayout _site={document._site}>
-      <section className="w-full flex flex-col justify-center items-center text-center mx-auto bg-white">
+      <section className="w-full flex flex-col justify-center items-center text-center mx-auto bg-white  px-4  py-2 md:px-32  md:py-8 ">
         <h2 className="sr-only">{document.name} Page</h2>
         <InsightsAndServicesHeroBanner document={document} isInsights={false} />
       </section>
       <section className="bg-primary-bg flex flex-col justify-center items-center text-center mx-auto  ">
         <h2 className="sr-only">Article body</h2>
         <article className=" centered-container md:py-8 py-4 prose ">
-          <p>{document.c_serviceLongDescription}</p>
+          <p className="text-left md:text-center">
+            {document.c_serviceLongDescription}
+          </p>
         </article>
       </section>
       {document.c_childProducts && (
-        <section className="bg-white px-8  py-2 md:px-32  md:py-8 ">
+        <section className="bg-white px-8 py-2 md:px-32  md:py-8 ">
           <h2 className="sr-only">Related products</h2>
           <section className="centered-container flex flex-col gap-4 md:gap-8">
             <h2 className="text-2xl md:text-[34px] font-medium text-center">
