@@ -8,7 +8,7 @@ import { Address } from "../types/locations";
 type UtilsProps = {
   mainPhone?: string;
   address?: Address;
-  emails?: string[];
+  email?: string;
   isDirectory?: boolean;
 };
 
@@ -36,7 +36,7 @@ export const FormatAddress = ({ address, isDirectory = false }: UtilsProps) => {
     <>
       {address && (
         <address
-          className={`${isDirectory ? `mr-auto` : `md:mx-auto mr-auto `} flex items-center not-italic`}
+          className={`${isDirectory ? `mr-auto` : `mx-auto md:mr-auto md:ml-0 `} flex items-center not-italic`}
           aria-label="Address"
         >
           <h2 className="sr-only">Address</h2>
@@ -56,18 +56,14 @@ export const FormatAddress = ({ address, isDirectory = false }: UtilsProps) => {
   );
 };
 
-export const FormatEmail = ({ emails }: UtilsProps) => {
+export const FormatEmail = ({ email }: UtilsProps) => {
   return (
     <>
-      {emails && (
-        <address className="flex items-center not-italic">
-          <h2 className="sr-only">Email</h2>
-          <EnvelopeIcon className="h-4 w-4 text-primary" />
-          <span className="ml-2">
-            {emails.length >= 1 ? emails[0] : `capital-nyc@capital.com`}
-          </span>
-        </address>
-      )}
+      <address className="flex items-center not-italic">
+        <h2 className="sr-only">Email</h2>
+        <EnvelopeIcon className="h-4 w-4 text-primary" />
+        <span className="ml-2">{email || "capitalfins@capitalfins.com"}</span>
+      </address>
     </>
   );
 };

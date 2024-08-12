@@ -17,35 +17,35 @@ const InpageNav = ({ navItems }: InpageNavProps) => {
       <ul className="hidden md:flex justify-center gap-10 py-4 bg-white">
         {navItems.map((item, index) => (
           <li key={index}>
-            <a href={`#${item.navId}`}>{item.name}</a>{" "}
+            <a href={`#${item.navId}`}>{item.name}</a>
           </li>
         ))}
       </ul>
-      <ul className="md:hidden flex flex-col justify-center px-4 md:px-0 md:gap-10 py-4 bg-white">
+      <ul className="md:hidden flex flex-col justify-center px-4 py-4 bg-white">
         <li className="flex justify-between items-center">
           <div
             onClick={() => setIsSubNavOpen(true)}
             className="hover:cursor-pointer flex-1"
           >
-            Navigate to{" "}
+            Navigate to
           </div>
           <XMarkIcon
             className="h-4 w-4 hover:cursor-pointer"
             onClick={() => setIsSubNavOpen(false)}
           />
         </li>
-        <hr className="my-4" />
+        <hr className="mt-4" />
         {isSubNavOpen && (
           <span
-            className="bg-white  rounded py-4 mt-4 transition-all"
+            className="bg-white  rounded py-2  transition-all"
             style={{ opacity: isSubNavOpen ? 1 : 0 }}
           >
             {navItems.map((item, index) => (
               <span key={index}>
-                <li>
+                <li className="text-sm">
                   <a href={`#${item.navId}`}>{item.name}</a>
                 </li>
-                <hr className="my-4" />
+                <hr className="my-2" />
               </span>
             ))}
           </span>

@@ -122,7 +122,7 @@ const DayRow = (props: DayRow) => {
       {!day.isClosed && (
         <td className="pr-1">
           <span>
-            {convertTo12HourFormat(day.openIntervals[0].start, true)} -{" "}
+            {convertTo12HourFormat(day.openIntervals[0].start, true)} -
             {convertTo12HourFormat(day.openIntervals[0].end, true)}
           </span>
         </td>

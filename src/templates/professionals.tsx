@@ -102,30 +102,46 @@ const Professionals = ({ document }: TemplateProps) => {
       <HeroBanner document={document} isProfessional={true} />
       <InpageNav navItems={InPageNavItems}></InpageNav>
 
-      <section className="centered-container py-10 space-y-8">
+      <section className="bg-primary-bg centered-container px-8  py-2 md:px-32  md:py-8 flex flex-col gap-4 md:gap-8">
+        <h2 className="sr-only">About me</h2>
         <a id="about"></a>
-        <h2 className="text-2xl md:text-[34px] font-medium text-center">About {name}</h2>
-        <p>{document.c_fPBio}</p>
+        <h2 className="text-2xl md:text-[34px] font-medium text-center">
+          About {name}
+        </h2>
+        <p className="text-base">{document.c_fPBio}</p>
       </section>
-      <section className="white-centered-container py-10 space-y-8  ">
-        <a id="details"></a>
-        <h2 className="text-2xl md:text-[34px] font-medium text-center">My Details</h2>
-        <Details document={document} />
+      <section className="bg-white px-8  py-2 md:px-32  md:py-8 ">
+        <h2 className="sr-only">My Details</h2>
+        <section className="centered-container flex flex-col gap-4 md:gap-8">
+          <a id="details"></a>
+          <h2 className="text-2xl md:text-[34px] font-medium text-center">
+            My Details
+          </h2>
+          <Details document={document} />
+        </section>
       </section>
-      <section className="centered-container py-10 space-y-8">
+      <section className="bg-primary-bg  px-8  py-2 md:px-32  md:py-8 flex flex-col gap-4 md:gap-8 centered-container">
+        <h2 className="sr-only">Insights</h2>
         <a id="insights"></a>
-        <h2 className="text-2xl md:text-[34px] font-medium text-center">Insights</h2>
+        <h2 className="text-2xl md:text-[34px] font-medium text-center">
+          Insights
+        </h2>
         <OurInsights linkedArticles={document.c_linkedInsightsArticles} />
       </section>
-      <section className="centered-container py-10 space-y-8">
+      <section className="bg-white px-8  py-2 md:px-32  md:py-8 ">
+        <h2 className="sr-only">Lets talk</h2>
         <a id="letstalk"></a>
-        <h2 className="text-2xl md:text-[34px] font-medium text-center">Lets Talk</h2>
-        <LetsTalk
-          description={document.description}
-          phone={document.mainPhone}
-          emails={document.emails}
-          geoCodedCoordinate={document.geocodedCoordinate}
-        />
+        <section className="centered-container flex flex-col gap-4 md:gap-8">
+          <h2 className="text-2xl md:text-[34px] font-medium text-center">
+            Lets Talk
+          </h2>
+          <LetsTalk
+            description={document.description}
+            phone={document.mainPhone}
+            emails={document.emails}
+            geoCodedCoordinate={document.geocodedCoordinate}
+          />
+        </section>
       </section>
     </PageLayout>
   );

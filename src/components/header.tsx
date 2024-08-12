@@ -85,7 +85,7 @@ const Header = ({ _site }: any) => {
         >
           <h2 id="top-left-nav" className="sr-only">
             Top Left Navigation
-          </h2>{" "}
+          </h2>
           <ul className="flex items-center" aria-label="Primary navigation">
             {c_primaryNav.map((item: NavProps, index: number) => (
               <li key={index} className="ml-4 text-sm ">

@@ -2,6 +2,7 @@ import { EnvelopeOpenIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { GoogleMaps, LocationMap } from "@yext/pages-components";
 import StaticMap from "./static-map";
 import Cta from "./cta";
+import { FormatEmail, FormatPhoneNumber } from "../common/util";
 export interface Coordinate {
   latitude: string;
   longitude: string;
@@ -19,21 +20,17 @@ const LetsTalk = ({
   geoCodedCoordinate,
 }: LetsTalkProps) => {
   return (
-    <article className="flex flex-col-reverse md:flex-row gap-8">
-      <article className="md:w-1/2 flex flex-col gap-8 my-auto">
+    <article className="flex flex-col-reverse md:flex-row gap-4 md:gap-8">
+      <article className="md:w-1/2 flex flex-col gap-2 md:gap-8 my-auto">
         <p>{description}</p>
         <p className="flex flex-col md:flex-row gap-4 items-center">
-          <p className="flex items-center">
-            <PhoneIcon className="h-4 w-4 mr-1" /> {phone}
-          </p>
-
-          <p className="flex  items-center md:ml-16">
-            <EnvelopeOpenIcon className="h-4 w-4 mr-1" /> {emails[0]}
-          </p>
+          <FormatPhoneNumber mainPhone={phone} />
+          <FormatEmail email={emails[0]} />
         </p>
+
         <Cta
           buttonText={"Request an Appointment"}
-          style={"secondary"}
+          style={"primary"}
           url={""}
           classNames="mx-auto md:mx-0 w-fit px-2 py-1.5 md:px-4 md:py-2  text-sm md:text-base rounded-md mt-4"
         ></Cta>

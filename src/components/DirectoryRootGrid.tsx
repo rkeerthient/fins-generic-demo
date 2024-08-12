@@ -30,7 +30,7 @@ const DirectoryRootGrid = ({
       >
         {child.c_addressRegionDisplayName
           ? child.c_addressRegionDisplayName
-          : child.name}{" "}
+          : child.name}
         ({child.dm_childEntityIds?.length || 0})
       </a>
     </article>
