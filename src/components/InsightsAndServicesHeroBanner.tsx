@@ -31,7 +31,7 @@ const InsightsAndServicesHeroBanner = ({
             <header className="  flex justify-center items-center my-auto h-full">
               <div className="mx-auto max-w-2xl md:mx-0 md:max-w-xl">
                 <h1
-                  className={`font-bold tracking-tight ${isInsights ? `md:text-4xl` : `md:text-6xl`}`}
+                  className={`font-bold tracking-tight ${isInsights ? `md:text-[34px]` : `md:text-6xl`}`}
                 >
                   {name}
                 </h1>

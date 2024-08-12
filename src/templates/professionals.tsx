@@ -104,22 +104,22 @@ const Professionals = ({ document }: TemplateProps) => {
 
       <section className="centered-container py-10 space-y-8">
         <a id="about"></a>
-        <h2 className="text-4xl font-medium text-center">About {name}</h2>
+        <h2 className="text-2xl md:text-[34px] font-medium text-center">About {name}</h2>
         <p>{document.c_fPBio}</p>
       </section>
       <section className="white-centered-container py-10 space-y-8  ">
         <a id="details"></a>
-        <h2 className="text-4xl font-medium text-center">My Details</h2>
+        <h2 className="text-2xl md:text-[34px] font-medium text-center">My Details</h2>
         <Details document={document} />
       </section>
       <section className="centered-container py-10 space-y-8">
         <a id="insights"></a>
-        <h2 className="text-4xl font-medium text-center">Insights</h2>
+        <h2 className="text-2xl md:text-[34px] font-medium text-center">Insights</h2>
         <OurInsights linkedArticles={document.c_linkedInsightsArticles} />
       </section>
       <section className="centered-container py-10 space-y-8">
         <a id="letstalk"></a>
-        <h2 className="text-4xl font-medium text-center">Lets Talk</h2>
+        <h2 className="text-2xl md:text-[34px] font-medium text-center">Lets Talk</h2>
         <LetsTalk
           description={document.description}
           phone={document.mainPhone}

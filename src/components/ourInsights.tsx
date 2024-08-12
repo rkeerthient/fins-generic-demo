@@ -1,5 +1,6 @@
 import { Image } from "@yext/pages-components";
 import { Image as _Image } from "../types/site";
+import { formatDate } from "../common/util";
 
 type InsightsProps = {
   name: string;
@@ -40,7 +41,7 @@ const OurInsights = ({
         </article>
       </article>
       <article className="flex gap-8">
-        <article className="flex flex-col gap-4 w-full md:hidden ">
+        <article className="flex flex-col gap-4 w-[96%] justify-between items-center mx-auto md:hidden ">
           {linkedArticles.map((item, index) => (
             <InsightsCard _data={item} key={index} lineClamp={3} />
           ))}
@@ -65,7 +66,7 @@ export const InsightsCard = ({
           className="!mb-4 max-w-[700px] !aspect-video"
         ></Image>
       )}
-      <p className="text-sm">Category | {_data.datePosted}</p>
+      <p className="text-sm">{formatDate(_data.datePosted)}</p>
       <h3 className={`${showImage ? `text-2xl` : `text-lg`} font-semibold`}>
         {_data.name}
       </h3>
@@ -75,7 +76,7 @@ export const InsightsCard = ({
         {_data.c_insightsArticleSummary}
       </p>
       <a
-        className={`${showImage ? `text-base` : `text-sm`}  flex gap-1 items-center hover:cursor-pointer mt-4 text-primary`}
+        className={`${showImage ? `text-base` : `text-sm`}  font-medium flex gap-1 items-center hover:cursor-pointer hover:underline mt-4 text-primary`}
       >
         Read more
         <svg

@@ -79,21 +79,22 @@ const NearByLocations = () => {
                 <HoursText hours={hours} timezone={timezone} />
                 <FormatAddress address={address} />
                 <FormatPhoneNumber mainPhone={mainPhone} />
-                <section className="mt-4 flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
+                <nav className=" flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
                   <Cta
                     buttonText="Get In Touch"
                     style="primary"
-                    url={getDirectionsUrl(address)}
-                    classNames="md:px-4  md:py-1  md:text-sm rounded-md"
+                    url=""
+                    classNames="md:px-4 md:py-1 md:text-sm rounded-md px-2 py-1"
                   />
 
                   <Cta
                     buttonText={"View Page"}
                     style="secondary"
                     url={`/${slug}`}
-                    classNames="md:px-4  md:py-1  md:text-sm rounded-md"
+                    classNames="md:px-4 md:py-1 md:text-sm rounded-md px-2 py-1"
                   />
-                </section>
+                </nav>
+
               </section>
             );
           })}

@@ -17,7 +17,7 @@ type FAQProps = {
 };
 
 const RelatedFaqs = ({ faqs }: RelatedFAQProps) => {
- 
+
   return (
     <>
       {faqs.map((item, index: number) => (
@@ -35,17 +35,17 @@ export default RelatedFaqs;
 const FAQAccordion = ({ question, answerV2 }: FAQProps) => {
   return (
     <section className="mx-auto w-full divide-y">
-      <Disclosure as="h3" className="px-6 py-3" defaultOpen={false}>
+      <Disclosure as="h3" className="px-6 " defaultOpen={false}>
         <DisclosureButton className="group flex w-full items-center justify-between">
-          <span className="text-left text-lg font-medium group-data-[hover]:/80">
+          <span className="text-left text-base md:text-lg font-medium group-data-[hover]:/80">
             {question}
           </span>
-          <ChevronDownIcon className="size-5 fill-black/60 group-data-[hover]:fill-black/50 group-data-[open]:rotate-180" />
+          <ChevronDownIcon className="size-5 text-primary fill-primary group-data-[hover]:fill-primary/50 group-data-[open]:rotate-180" />
         </DisclosureButton>
-        <div className="overflow-hidden py-2">
+        <div className="overflow-hidden">
           <DisclosurePanel
             transition
-            className="origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0"
+            className="origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0 text-sm md:text-base"
           >
             <LexicalRichText serializedAST={JSON.stringify(answerV2.json)} />
           </DisclosurePanel>

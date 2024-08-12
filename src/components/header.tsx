@@ -64,7 +64,18 @@ const Header = ({ _site }: any) => {
     c_headerLogo,
   } = _site;
   const { queryPrompts } = useTypingEffect();
+  const [isSecondaryPanelOpen, setIsSecondaryPanelOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState<NavProps | null>(null);
 
+  const handleItemClick = (item: NavProps) => {
+    setActiveItem(item);
+    setIsSecondaryPanelOpen(true);
+  };
+
+  const closeSecondaryPanel = () => {
+    setIsSecondaryPanelOpen(false);
+    setActiveItem(null);
+  };
   return (
     <>
       <header className="p-6 justify-between items-center w-full max-w-screen-3xl bg-primary text-white md:flex flex-col gap-4 hidden ">
@@ -192,14 +203,18 @@ const Header = ({ _site }: any) => {
                     <h2 id="drawer-top-left-nav" className="sr-only">
                       Top Left Navigation
                     </h2>
-                    <ul
-                      className="flex flex-col"
-                      aria-label="Top left navigation"
-                    >
+                    <ul className="flex flex-col" aria-label="Top left navigation">
                       {c_topLeftNav.map((item: NavProps, index: number) => (
-                        <li key={index} className=" mb-4 flex justify-between w-full">
-                          <a href="#">{item.name} </a>
-                          {item.relatedServices && item.relatedServices?.length >= 1 && <ChevronRightIcon className="h-4 w-4"/>}
+                        <li key={index} className="mb-4 flex justify-between w-full">
+                          <a
+                            href="#"
+                            onClick={() => handleItemClick(item)}
+                          >
+                            {item.name}
+                          </a>
+                          {item.relatedServices && item.relatedServices.length >= 1 && (
+                            <ChevronRightIcon className="h-4 w-4" />
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -244,6 +259,38 @@ const Header = ({ _site }: any) => {
                   </nav>
                 </DialogPanel>
               </TransitionChild>
+              {isSecondaryPanelOpen && (
+                <TransitionChild
+                  as={Fragment}
+                  enter="transition-transform ease-in-out duration-500"
+                  enterFrom="-translate-x-full"
+                  enterTo="translate-x-0"
+                  leave="transition-transform ease-in-out duration-500"
+                  leaveFrom="translate-x-0"
+                  leaveTo="-translate-x-full"
+                >
+                  <DialogPanel className="w-full bg-secondary p-6 text-white">
+                    <button
+                      className="text-white mb-4 flex justify-end ml-auto"
+                      onClick={closeSecondaryPanel}
+                    >
+                      <XMarkIcon className="h-6 w-6" />
+                    </button>
+                    {activeItem && (
+                      <div>
+                        <h2 className="text-lg mb-4">{activeItem.name} - Related Services</h2>
+                        <ul>
+                          {activeItem.relatedServices?.map((service, idx) => (
+                            <li key={idx} className="mb-2">
+                              {service.name}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </DialogPanel>
+                </TransitionChild>
+              )}
             </div>
           </Dialog>
         </Transition>

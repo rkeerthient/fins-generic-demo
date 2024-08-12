@@ -3,11 +3,11 @@ import { C_heroBanners } from "../types/site";
 import Cta from "./cta";
 
 const Hero = ({ c_heroBanners }: any) => {
-   const c_heroBanner: C_heroBanners = c_heroBanners[0];
+  const c_heroBanner: C_heroBanners = c_heroBanners[0];
   const {
     cTA: { label, linkType, link },
   } = c_heroBanners[0];
- 
+
   return (
     <div
       aria-label="Hero section"
@@ -22,7 +22,7 @@ const Hero = ({ c_heroBanners }: any) => {
       <section className="bg-white md:p-8 md:ml-16 border rounded-md w-full md:w-1/3 flex flex-col gap-2 md:gap-4 mx-6 my-12 p-4 z-10">
         <h2 className="md:text-2xl font-bold text-lg">{c_heroBanner.name}</h2>
         <p className="md:text-base text-[12px] ">{c_heroBanner.description}</p>
-        <Cta
+        <Cta type={"Guided search"}
           buttonText={label}
           url={link}
           style="primary"

@@ -191,7 +191,7 @@ export const ServiceCard = ({ data }: any) => {
   return (
     <article className="bg-white border [&:not(:first-child)]:ml-8 flex flex-col gap-4 pb-6 h-[490px] w-[490px]">
       <Image image={fins_servicesImage} className="!h-[250px]"></Image>
-      <h3 className="px-4 text-xl font-bold ">{name}</h3>
+      <h3 className="px-4 text-2xl font-bold ">{name}</h3>
       <p className=" px-4">{c_serviceDescription}</p>
       <Cta
         buttonText={"Learn more"}

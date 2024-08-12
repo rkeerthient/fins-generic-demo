@@ -122,12 +122,12 @@ const Locations = ({ document, __meta }: TemplateProps) => {
       <InpageNav navItems={InPageNavItems}></InpageNav>
       <section className="centered-container py-10 space-y-8">
         <a id="insights"></a>
-        <h2 className="text-4xl font-medium text-center">Insights</h2>
+        <h2 className="text-2xl md:text-[34px] font-medium text-center">Insights</h2>
         <OurInsights linkedArticles={document.c_linkedInsightsArticles} />
       </section>
       <section className="centered-container py-10 space-y-8">
         <a id="letstalk"></a>
-        <h2 className="text-4xl font-medium text-center">Lets Talk</h2>
+        <h2 className="text-2xl md:text-[34px] font-medium text-center">Lets Talk</h2>
         <LetsTalk
           description={document.description}
           phone={document.mainPhone}
@@ -137,7 +137,7 @@ const Locations = ({ document, __meta }: TemplateProps) => {
       </section>
       <section className="centered-container py-10 space-y-8">
         <a id="team"></a>
-        <h2 className="text-4xl font-medium text-center">
+        <h2 className="text-2xl md:text-[34px] font-medium text-center">
           Our {document.address.city} Team
         </h2>
         {document.c_relatedFPsAndTeams && (

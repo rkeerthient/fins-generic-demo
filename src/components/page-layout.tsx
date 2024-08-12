@@ -10,17 +10,19 @@ import { ChatHeadlessProvider } from "@yext/chat-headless-react";
 import { ChatPopUp } from "@yext/chat-ui-react";
 import "@yext/chat-ui-react/bundle.css";
 import Hero from "./Hero";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   _site?: any;
   children?: React.ReactNode;
+  className?: string
 };
-const PageLayout = ({ _site, children }: Props) => {
+const PageLayout = ({ _site, children, className }: Props) => {
   const { c_heroBanners } = _site;
 
   return (
     <SearchHeadlessProvider searcher={provideHeadless(searchConfig)}>
-      <div className="min-h-screen bg-primary-bg">
+      <div className={twMerge("min-h-screen bg-primary-bg", className)}>
         <Header _site={_site} />
         <LocationsProvider>{children}</LocationsProvider>
         <Footer _site={_site}></Footer>
