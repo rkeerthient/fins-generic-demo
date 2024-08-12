@@ -81,7 +81,7 @@ export const getHeadConfig: GetHeadConfig<
         type: "meta",
         attributes: {
           name: "description",
-          content: "Static page example meta description.",
+          content: "Capital fins home page",
         },
       },
     ],

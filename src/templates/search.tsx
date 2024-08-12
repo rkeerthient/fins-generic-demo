@@ -1,6 +1,3 @@
-/**
- * This is an example of how to create a static template that uses getStaticProps to retrieve data.
- */
 import {
   GetHeadConfig,
   HeadConfig,
@@ -32,7 +29,7 @@ export const getHeadConfig: GetHeadConfig<
         type: "meta",
         attributes: {
           name: "description",
-          content: "Static page example meta description.",
+          content: "Capital fins Search",
         },
       },
     ],
