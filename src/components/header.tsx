@@ -18,6 +18,7 @@ type NavProps = {
   name?: string;
   slug?: string;
   relatedServices?: RelatedService[];
+  c_childProducts?: childProducts[];
 };
 
 export interface RelatedService {
@@ -76,41 +77,23 @@ const Header = ({ _site }: any) => {
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isSearchPage, setIsSearchPage] = useState<boolean>(false);
   const [previousMenus, setPreviousMenus] = useState<NavProps[][]>([]);
-  const [hasSubMenu, setHasSubMenu] = useState<boolean>(false);
 
-  const handleMenuClick = (service: any, type: string) => {
+  const handleMenuClick = (service: any) => {
     setPreviousMenus((prev) => [...prev, menuItems as NavProps[]]);
+    const relatedServices = service.relatedServices || [];
+    const childProducts = service.c_childProducts || [];
 
-    let newMenuItems: NavProps[] = [];
-    let hasSubMenu = false;
+    const newMenuItems: NavProps[] =
+      relatedServices.length >= 2
+        ? relatedServices
+        : relatedServices?.[0]?.c_childProducts || childProducts;
 
-    if (type === "main") {
-      newMenuItems =
-        service.relatedServices?.length >= 2
-          ? service.relatedServices
-          : service.relatedServices?.[0]?.c_childProducts || [];
-
-      hasSubMenu = service.relatedServices?.length >= 2;
-    } else {
-      newMenuItems = service.c_childProducts || [];
-      hasSubMenu = newMenuItems.some((item: any) => Array.isArray(item));
-    }
     setMenuItems(newMenuItems);
-    setHasSubMenu(hasSubMenu);
   };
 
   const handleBackClick = () => {
     const previous = previousMenus.pop();
-
     if (previous) {
-      previousMenus.length === 0
-        ? setHasSubMenu(false)
-        : setHasSubMenu(
-            previous.some((item: any) =>
-              Array.isArray(item.c_childProducts || item.relatedServices)
-            )
-          );
-
       setMenuItems(previous);
     }
   };
@@ -274,21 +257,16 @@ const Header = ({ _site }: any) => {
                             >
                               {item.name}
                             </a>
-                            {hasSubMenu && (
+                            {((item.relatedServices?.length ?? 0) ||
+                              (item.c_childProducts?.length ?? 0) >= 2 ||
+                              item.c_childProducts?.some((child: any) =>
+                                Array.isArray(child)
+                              )) && (
                               <ChevronRightIcon
                                 className="h-4 w-4"
-                                onClick={() => {
-                                  handleMenuClick(item, "sub");
-                                }}
+                                onClick={() => handleMenuClick(item)}
                               />
                             )}
-                            {item.relatedServices &&
-                              item.relatedServices.length >= 1 && (
-                                <ChevronRightIcon
-                                  className="h-4 w-4"
-                                  onClick={() => handleMenuClick(item, "main")}
-                                />
-                              )}
                           </li>
                         ))}
                       </ul>
