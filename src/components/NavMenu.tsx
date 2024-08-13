@@ -25,9 +25,10 @@ const NavMenu = ({ menuItems, isPrimary = false }: any) => {
               return (
                 <li
                   onMouseEnter={() => setHoveredItem(subIndex)}
-                  className={`border-l-4 border-transparent px-1  bg-primary   hover:border-white hover:border-l-4 w-[200px] ${hoveredItem === subIndex &&
+                  className={`border-l-4 border-transparent px-1  bg-primary   hover:border-white hover:border-l-4 w-[200px] ${
+                    hoveredItem === subIndex &&
                     `bg-[#E1E5E8] border-[#10172a] border-l-4 `
-                    }`}
+                  }`}
                   key={subIndex}
                 >
                   <button
@@ -36,8 +37,9 @@ const NavMenu = ({ menuItems, isPrimary = false }: any) => {
                     className="border-none z-50 text-left bg-transparent leading-copy text-mid-gray px-4 py-2 relative sans-serif whistespace-break-spaces flex justify-between items-center w-full"
                   >
                     <a
-                      href={`/${(subItem.slug && buildLink(subItem.slug)) || `#`
-                        }`}
+                      href={`/${
+                        (subItem.slug && buildLink(subItem.slug)) || `#`
+                      }`}
                     >
                       {subItem.name}
                     </a>
@@ -60,8 +62,9 @@ const NavMenu = ({ menuItems, isPrimary = false }: any) => {
                     className="border-none z-50 text-left bg-transparent leading-copy text-mid-gray px-4 py-2 relative sans-serif whitespace-break-spaces"
                   >
                     <a
-                      href={`/${(subItem.slug && buildLink(subItem.slug)) || `#`
-                        }`}
+                      href={`/${
+                        (subItem.slug && buildLink(subItem.slug)) || `#`
+                      }`}
                     >
                       {subItem.name}
                     </a>
@@ -84,9 +87,7 @@ const NavMenu = ({ menuItems, isPrimary = false }: any) => {
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
         >
-          <section className={`relative z-50 ${!isPrimary && `text-sm`}`}
-          >
-
+          <section className={`relative z-50 ${!isPrimary && `text-sm`}`}>
             <a
               className=" flex items-center no-underline desktop-header-trigger leading-title font-bold text-navy secondary-nav-flyout-trigger px-1 rounded-full transition-all duration-100 ease-in-out"
               href={`/${item.slug || `#`}`}
@@ -122,8 +123,9 @@ const NavMenu = ({ menuItems, isPrimary = false }: any) => {
                             >
                               <a
                                 className="text-white no-underline subcategory-item-link break-all"
-                                href={`/${(item.slug && buildLink(item.slug)) || `#`
-                                  }`}
+                                href={`/${
+                                  (item.slug && buildLink(item.slug)) || `#`
+                                }`}
                               >
                                 {item.name}
                               </a>
@@ -135,7 +137,6 @@ const NavMenu = ({ menuItems, isPrimary = false }: any) => {
                   )}
                 </div>
               )}
-
           </section>
         </li>
       ))}
