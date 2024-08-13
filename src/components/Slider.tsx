@@ -134,23 +134,21 @@ const Slider = ({
             {elements[index]?.render()}
           </Transition>
         ))}
-        <div className="carousel-indicators">
-          {showIndicators &&
-            elements.map((element, index) => (
-              <a key={index}>
-                <span
-                  onClick={() => goToSlide(index)}
-                  color={currentIndex === index ? "black" : "grey"}
-                />
-              </a>
-            ))}
-        </div>
-        {showNextPrev && (
+        {showIndicators &&
+          elements.map((element, index) => (
+            <a key={index}>
+              <span
+                onClick={() => goToSlide(index)}
+                color={currentIndex === index ? "black" : "grey"}
+              />
+            </a>
+          ))}
+        {/* {showNextPrev && (
           <ChevronRightIcon className="h-4 w-4" onClick={prevClicked} />
         )}
         {showNextPrev && (
           <ChevronLeftIcon className="h-4 w-4" onClick={nextClicked} />
-        )}
+        )} */}
       </div>
       <div className="flex md:hidden">
         {[currentIndex].map((index) => (

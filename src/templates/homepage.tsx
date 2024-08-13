@@ -65,8 +65,9 @@ export const config: TemplateConfig = {
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
   return document.slug
     ? document.slug
-    : `${document.locale}/${document.address.region}/${document.address.city}/${document.address.line1
-    }-${document.id.toString()}`;
+    : `${document.locale}/${document.address.region}/${document.address.city}/${
+        document.address.line1
+      }-${document.id.toString()}`;
 };
 
 export const getHeadConfig: GetHeadConfig<
@@ -115,7 +116,7 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
           </h2>
           <Slider
             sliderData={c_featuredServices}
-            duration={1000}
+            duration={2500}
             animation={"horizontal flip"}
             showNextPrev={true}
             showIndicators={true}
