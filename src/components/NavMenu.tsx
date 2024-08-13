@@ -15,8 +15,6 @@ const NavMenu = ({ menuItems, isPrimary = false }: any) => {
   };
 
   const generateSubMenu = (item: any) => {
-    console.log(JSON.stringify(item));
-
     return (
       <>
         {item.length >= 2 ? (

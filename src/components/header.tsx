@@ -1,25 +1,36 @@
-import { Image } from "@yext/pages-components";
-import { EntityReference } from "../types/site";
 import {
   Dialog,
   DialogPanel,
   Transition,
   TransitionChild,
 } from "@headlessui/react";
-import { Fragment, useEffect, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import { Image } from "@yext/pages-components";
+import { onSearchFunc, SearchBar } from "@yext/search-ui-react";
+import { Fragment, useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FaBars } from "react-icons/fa6";
-import { onSearchFunc, SearchBar } from "@yext/search-ui-react";
 import { useTypingEffect } from "../common/useTypeEffect";
 import NavMenu from "./NavMenu";
-import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 type NavProps = {
   name?: string;
   slug?: string;
-  relatedServices?: EntityReference[];
+  relatedServices?: RelatedService[];
 };
+
+export interface RelatedService {
+  c_childProducts?: childProducts[];
+  name: string;
+  slug: string;
+}
+
+type childProducts = {
+  name: string;
+  slug: string;
+};
+
 export const SearchBarComponent = ({
   id,
   isSearchPage,
@@ -46,16 +57,7 @@ const handleSearch: onSearchFunc = (searchEventData) => {
   window.location.href = `/search.html?query=${query}`;
 };
 const Header = ({ _site }: any) => {
-  useEffect(() => {
-    const currLocation = window.location.pathname;
-    currLocation.includes("search")
-      ? setIsSearchPage(true)
-      : setIsSearchPage(false);
-  }, []);
-
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
-  const [isSearchPage, setIsSearchPage] = useState<boolean>(false);
+  const { queryPrompts } = useTypingEffect();
   const {
     c_primaryNav,
     c_secondaryNav,
@@ -63,7 +65,55 @@ const Header = ({ _site }: any) => {
     c_topRightNav,
     c_headerLogo,
   } = _site;
-  const { queryPrompts } = useTypingEffect();
+  useEffect(() => {
+    const currLocation = window.location.pathname;
+    currLocation.includes("search")
+      ? setIsSearchPage(true)
+      : setIsSearchPage(false);
+  }, []);
+  const [menuItems, setMenuItems] = useState<NavProps[]>();
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [isSearchPage, setIsSearchPage] = useState<boolean>(false);
+  const [previousMenus, setPreviousMenus] = useState<NavProps[][]>([]);
+  const [hasSubMenu, setHasSubMenu] = useState<boolean>(false);
+
+  const handleMenuClick = (service: any, type: string) => {
+    setPreviousMenus((prev) => [...prev, menuItems as NavProps[]]);
+
+    let newMenuItems: NavProps[] = [];
+    let hasSubMenu = false;
+
+    if (type === "main") {
+      newMenuItems =
+        service.relatedServices?.length >= 2
+          ? service.relatedServices
+          : service.relatedServices?.[0]?.c_childProducts || [];
+
+      hasSubMenu = service.relatedServices?.length >= 2;
+    } else {
+      newMenuItems = service.c_childProducts || [];
+      hasSubMenu = newMenuItems.some((item: any) => Array.isArray(item));
+    }
+
+    setMenuItems(newMenuItems);
+    setHasSubMenu(hasSubMenu);
+  };
+
+  const handleBackClick = () => {
+    const previous = previousMenus.pop();
+    if (previous) {
+      setMenuItems(previous);
+    }
+  };
+
+  useEffect(() => {
+    setMenuItems([...c_topLeftNav, ...c_primaryNav, ...c_topRightNav]);
+  }, []);
+
+  useEffect(() => {
+    console.log(JSON.stringify(menuItems));
+  }, [menuItems]);
 
   return (
     <>
@@ -188,66 +238,59 @@ const Header = ({ _site }: any) => {
                   >
                     <XMarkIcon className="h-6 w-6" />
                   </button>
-                  <nav aria-labelledby="drawer-top-left-nav">
-                    <h2 id="drawer-top-left-nav" className="sr-only">
-                      Top Left Navigation
-                    </h2>
-                    <ul
-                      className="flex flex-col"
-                      aria-label="Top left navigation"
-                    >
-                      {c_topLeftNav.map((item: NavProps, index: number) => (
-                        <li
-                          key={index}
-                          className="mb-4 flex justify-between w-full"
-                        >
-                          <a href="#">{item.name}</a>
-                          {item.relatedServices &&
-                            item.relatedServices.length >= 1 && (
-                              <ChevronRightIcon className="h-4 w-4" />
-                            )}
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-                  <nav aria-labelledby="drawer-top-right-nav">
-                    <h2 id="drawer-top-right-nav" className="sr-only">
-                      Top Right Navigation
-                    </h2>
-                    <ul
-                      className="flex flex-col"
-                      aria-label="Top right navigation"
-                    >
-                      {c_topRightNav.map((item: NavProps, index: number) => (
-                        <li key={index} className=" mb-4">
-                          <a
-                            href={
-                              item.slug
-                                ? `/${item.slug.includes("search") ? item.slug.replaceAll("/", "?") : item.slug}`
-                                : "#"
-                            }
+                  {menuItems && (
+                    <nav aria-labelledby="drawer-top-right-nav">
+                      <h2 id="drawer-top-right-nav" className="sr-only">
+                        Top Right Navigation
+                      </h2>
+                      <ul
+                        className="flex flex-col"
+                        aria-label="Top right navigation"
+                      >
+                        {previousMenus.length > 0 && (
+                          <button
+                            onClick={handleBackClick}
+                            className="mb-4 flex items-center"
                           >
-                            {item.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-                  <nav aria-labelledby="drawer-primary-nav">
-                    <h2 id="drawer-primary-nav" className="sr-only">
-                      Primary Navigation
-                    </h2>
-                    <ul
-                      className="flex flex-col"
-                      aria-label="Primary navigation"
-                    >
-                      {c_primaryNav.map((item: NavProps, index: number) => (
-                        <li key={index} className=" mb-4">
-                          <a href="#">{item.name}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
+                            <ChevronLeftIcon className="w-5 h-5 mr-2" />
+                            Back
+                          </button>
+                        )}
+                        {menuItems.map((item: NavProps, index: number) => (
+                          <li
+                            key={index}
+                            className="flex justify-between items-center mb-4"
+                          >
+                            <a
+                              href={
+                                item.slug
+                                  ? `/${item.slug.includes("search") ? item.slug.replaceAll("/", "?") : item.slug}`
+                                  : "#"
+                              }
+                            >
+                              {item.name}
+                            </a>
+                            {hasSubMenu && (
+                              <ChevronRightIcon
+                                className="h-4 w-4"
+                                onClick={() => {
+                                  console.log(`enteed`);
+                                  handleMenuClick(item, "sub");
+                                }}
+                              />
+                            )}
+                            {item.relatedServices &&
+                              item.relatedServices.length >= 1 && (
+                                <ChevronRightIcon
+                                  className="h-4 w-4"
+                                  onClick={() => handleMenuClick(item, "main")}
+                                />
+                              )}
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
+                  )}
                 </DialogPanel>
               </TransitionChild>
             </div>
