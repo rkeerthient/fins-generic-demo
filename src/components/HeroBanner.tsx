@@ -18,7 +18,6 @@ const HeroBanner = ({ document, isProfessional = false }: HeroBannerProps) => {
     fins_jobTitle,
     emails,
   } = document;
-  console.log(JSON.stringify(emails));
 
   return (
     <>

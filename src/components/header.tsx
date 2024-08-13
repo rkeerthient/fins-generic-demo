@@ -95,14 +95,22 @@ const Header = ({ _site }: any) => {
       newMenuItems = service.c_childProducts || [];
       hasSubMenu = newMenuItems.some((item: any) => Array.isArray(item));
     }
-
     setMenuItems(newMenuItems);
     setHasSubMenu(hasSubMenu);
   };
 
   const handleBackClick = () => {
     const previous = previousMenus.pop();
+
     if (previous) {
+      previousMenus.length === 0
+        ? setHasSubMenu(false)
+        : setHasSubMenu(
+            previous.some((item: any) =>
+              Array.isArray(item.c_childProducts || item.relatedServices)
+            )
+          );
+
       setMenuItems(previous);
     }
   };
@@ -110,10 +118,6 @@ const Header = ({ _site }: any) => {
   useEffect(() => {
     setMenuItems([...c_topLeftNav, ...c_primaryNav, ...c_topRightNav]);
   }, []);
-
-  useEffect(() => {
-    console.log(JSON.stringify(menuItems));
-  }, [menuItems]);
 
   return (
     <>
@@ -274,7 +278,6 @@ const Header = ({ _site }: any) => {
                               <ChevronRightIcon
                                 className="h-4 w-4"
                                 onClick={() => {
-                                  console.log(`enteed`);
                                   handleMenuClick(item, "sub");
                                 }}
                               />
