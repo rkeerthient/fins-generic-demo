@@ -72,7 +72,12 @@ const Header = ({ _site }: any) => {
       ? setIsSearchPage(true)
       : setIsSearchPage(false);
   }, []);
-  const [menuItems, setMenuItems] = useState<NavProps[]>();
+  const initMenuItems = [...c_topLeftNav, ...c_primaryNav, ...c_topRightNav];
+  const [menuItems, setMenuItems] = useState<NavProps[]>([
+    ...c_topLeftNav,
+    ...c_primaryNav,
+    ...c_topRightNav,
+  ]);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isSearchPage, setIsSearchPage] = useState<boolean>(false);
@@ -97,10 +102,6 @@ const Header = ({ _site }: any) => {
       setMenuItems(previous);
     }
   };
-
-  useEffect(() => {
-    setMenuItems([...c_topLeftNav, ...c_primaryNav, ...c_topRightNav]);
-  }, []);
 
   return (
     <>
@@ -218,13 +219,28 @@ const Header = ({ _site }: any) => {
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <DialogPanel className="w-full bg-primary p-6 text-white">
-                  <button
-                    className="text-white mb-4 flex justify-end ml-auto"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <XMarkIcon className="h-6 w-6" />
-                  </button>
+                <DialogPanel className="w-full bg-primary p-6 text-white ">
+                  <aside className="flex justify-between items-center">
+                    {previousMenus.length > 0 && (
+                      <button
+                        onClick={handleBackClick}
+                        className="mb-4 flex items-center"
+                      >
+                        <ChevronLeftIcon className="w-5 h-5 mr-2" />
+                      </button>
+                    )}
+                    <button
+                      className="text-white mb-4 flex justify-end ml-auto"
+                      onClick={() => {
+                        setIsMenuOpen(false),
+                          setPreviousMenus([]),
+                          setMenuItems(initMenuItems);
+                      }}
+                    >
+                      <XMarkIcon className="h-6 w-6" />
+                    </button>
+                  </aside>
+
                   {menuItems && (
                     <nav aria-labelledby="drawer-top-right-nav">
                       <h2 id="drawer-top-right-nav" className="sr-only">
@@ -234,15 +250,6 @@ const Header = ({ _site }: any) => {
                         className="flex flex-col"
                         aria-label="Top right navigation"
                       >
-                        {previousMenus.length > 0 && (
-                          <button
-                            onClick={handleBackClick}
-                            className="mb-4 flex items-center"
-                          >
-                            <ChevronLeftIcon className="w-5 h-5 mr-2" />
-                            Back
-                          </button>
-                        )}
                         {menuItems.map((item: NavProps, index: number) => (
                           <li
                             key={index}
