@@ -11,9 +11,9 @@ import HeroBanner from "../components/HeroBanner";
 import InpageNav from "../components/InpageNav";
 import LetsTalk from "../components/letsTalk";
 import OurInsights from "../components/ourInsights";
-import OurTeam from "../components/ourTeam";
 import PageLayout from "../components/page-layout";
 import "../index.css";
+import { OurTeam } from "../components/ourTeam";
 
 export const config: TemplateConfig = {
   stream: {
