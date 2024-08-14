@@ -1,9 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-[#2E2E2E] font-bold mb-2 leading-tight;
+}
+
+h1 {
+  @apply text-3xl md:text-4xl;
+}
+
+h2 {
+  @apply text-2xl md:text-3xl;
+}
+
+h3 {
+  @apply text-lg md:text-xl font-semibold;
+}
+
+h4 {
+  @apply text-base md:text-lg font-medium;
+}
 
 body {
-  @apply bg-primary-bg;
+  @apply bg-secondary;
 }
 
 .centered-container {

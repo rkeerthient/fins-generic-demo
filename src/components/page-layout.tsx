@@ -15,14 +15,19 @@ import { twMerge } from "tailwind-merge";
 type Props = {
   _site?: any;
   children?: React.ReactNode;
-  className?: string
+  className?: string;
 };
 const PageLayout = ({ _site, children, className }: Props) => {
   const { c_heroBanners } = _site;
 
   return (
     <SearchHeadlessProvider searcher={provideHeadless(searchConfig)}>
-      <div className={twMerge("min-h-screen bg-primary-bg", className)}>
+      <div
+        className={twMerge(
+          "min-h-screen bg-secondary text-secondary-text",
+          className
+        )}
+      >
         <Header _site={_site} />
         <LocationsProvider>{children}</LocationsProvider>
         <Footer _site={_site}></Footer>

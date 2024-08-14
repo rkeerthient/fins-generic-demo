@@ -109,11 +109,8 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
             classNames="px-2 py-1.5 md:px-6 md:py-2.5 text-sm md:text-base rounded-md "
           ></Cta>
         </section>
-        <section className="bg-primary-bg px-8  py-2 md:px-32  md:py-8 flex flex-col gap-4 md:gap-8">
-          <a id="insights"></a>
-          <h2 className="text-2xl md:text-[34px] font-medium text-center ">
-            Our Services
-          </h2>
+        <section className="bg-secondary px-8 py-2 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8">
+          <h2 className="mx-auto">Our Services</h2>
           <Slider
             sliderData={c_featuredServices}
             duration={2500}
@@ -122,29 +119,19 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
             showIndicators={true}
           ></Slider>
         </section>
-
         <GetInTouchBanner />
-        <section className="bg-primary-bg  px-8  py-2 md:px-32  md:py-8 flex flex-col gap-4 md:gap-8 centered-container">
-          <a id="insights"></a>
-          <h2 className="text-2xl md:text-[34px] font-medium text-center ">
-            Insights
-          </h2>
+        <section className="bg-secondary px-8 py-2 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8 centered-container">
+          <h2 className="mx-auto">Insights</h2>
           <OurInsights linkedArticles={c_featuredArticles} />
         </section>
-        <section className="bg-white px-8  py-2 md:px-32  md:py-8 ">
-          <a id="nearbyLocations"></a>
+        <section className="bg-[#FFFFFF] px-8 py-2 md:px-32 md:py-8 ">
           <section className="centered-container flex flex-col gap-4 md:gap-8">
-            <h2 className="text-2xl md:text-[34px] ont-medium text-center">
-              Near by Locations
-            </h2>
+            <h2 className="mx-auto">Near by Locations</h2>
             <NearByLocations />
           </section>
         </section>
-        <section className="px-8  py-2 md:px-32  md:py-8 bg-primary-bg centered-container flex flex-col gap-4   md:gap-8">
-          <a id="Featured FAQs"></a>
-          <h2 className="text-2xl md:text-[34px] font-medium text-center">
-            Featured FAQs
-          </h2>
+        <section className="px-8 py-2 md:px-32 md:py-8 bg-secondary centered-container flex flex-col gap-4  md:gap-8">
+          <h2 className="mx-auto">Featured FAQs</h2>
           <RelatedFaqs faqs={c_featuredFAQs} />
         </section>
       </PageLayout>

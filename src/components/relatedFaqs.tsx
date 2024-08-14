@@ -17,7 +17,6 @@ type FAQProps = {
 };
 
 const RelatedFaqs = ({ faqs }: RelatedFAQProps) => {
-
   return (
     <>
       {faqs.map((item, index: number) => (
@@ -35,11 +34,9 @@ export default RelatedFaqs;
 const FAQAccordion = ({ question, answerV2 }: FAQProps) => {
   return (
     <section className="mx-auto w-full divide-y">
-      <Disclosure as="h3" className="px-6 " defaultOpen={false}>
+      <Disclosure as="section" className="px-6 " defaultOpen={false}>
         <DisclosureButton className="group flex w-full items-center justify-between">
-          <span className="text-left text-base md:text-lg font-medium group-data-[hover]:/80">
-            {question}
-          </span>
+          <h4>{question}</h4>
           <ChevronDownIcon className="size-5 text-primary fill-primary group-data-[hover]:fill-primary/50 group-data-[open]:rotate-180" />
         </DisclosureButton>
         <div className="overflow-hidden">

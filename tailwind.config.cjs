@@ -12,13 +12,27 @@ module.exports = {
     extend: {
       colors: {
         primary: "#D71E28",
-        secondary: "#001f3c",
-        "primary-bg": "#F9FAFB",
-        "primary-light": "var(--primary-color-light, #dbeafe)",
-        "primary-dark": "var(--primary-color-dark, #1e40af)",
-        neutral: "var(--neutral-color, #4b5563)",
-        "neutral-light": "var(--neutral-color-light, #9ca3af)",
-        "neutral-dark": "var(--neutral-color-dark, #1f2937)",
+        secondary: "#FAFAFA",
+        "primary-text": "#2E2E2E",
+        "secondary-text": "#333333",
+        "tertiary-text": "#3D3D3D",
+
+        primaryCTA: {
+          DEFAULT: "#D71E28",
+          hover: "#B1161F",
+        },
+        secondaryCTA: {
+          DEFAULT: "#E67E22",
+          hover: "#CC6D19",
+        },
+        tertiaryCTA: {
+          DEFAULT: "#FFC107",
+          hover: "#E0A800",
+        },
+        accentCTA: {
+          DEFAULT: "#6F42C1",
+          hover: "#563D7C",
+        },
       },
       borderRadius: {
         cta: "var(--cta-border-radius, 1rem)",

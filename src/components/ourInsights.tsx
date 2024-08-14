@@ -67,9 +67,7 @@ export const InsightsCard = ({
         ></Image>
       )}
       <p className="text-sm">{formatDate(_data.datePosted)}</p>
-      <h3 className={`${showImage ? `text-2xl` : `text-lg`} font-semibold`}>
-        {_data.name}
-      </h3>
+      <h3>{_data.name}</h3>
       <p
         className={`${lineClamp === 4 ? `line-clamp-4` : `line-clamp-3`} ${showImage ? `text-base` : `text-sm`}`}
       >

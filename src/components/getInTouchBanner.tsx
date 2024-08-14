@@ -13,16 +13,14 @@ const getInTouchBanner = () => {
         className="!w-full !absolute h-[200px] md:h-full !max-w-none"
       />
       <article className=" w-full absolute bg-black bg-opacity-75 flex items-center justify-center flex-col h-[200px] md:h-full text-white top-0 left-0 z-2">
-        <section className="md:p-8 md:ml-16  w-full md:w-1/3 flex  gap-4 md:gap-4 mx-6 my-12 p-4   text-white">
+        <section className="md:p-8 md:ml-16 justify-center  w-full  flex  gap-4 md:gap-4 mx-6 my-12 p-4   text-white items-center">
           <img
             src="https://a.mktgcdn.com/p/JUivhtB3rL5IfY4Vv86lmCinXDSswh1MGCMoy8_LXvQ/2336x2336.png"
             alt=""
             className="!w-52 rounded-full aspect-square  !h-auto hidden  md:block"
           />
-          <article className="flex flex-col gap-2">
-            <h2 className="md:text-2xl font-bold text-lg">
-              Get in touch with our Wealth expert
-            </h2>
+          <article className="flex flex-col gap-2 text-base">
+            <h2 className="text-white">Get in touch with our Wealth expert</h2>
             <p>Wealth Management Financial Advisor</p>
 
             <Cta

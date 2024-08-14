@@ -93,15 +93,15 @@ const Slider = ({
   const buildCard = (data: any) => {
     const { fins_servicesImage, name, id, slug, c_serviceDescription } = data;
     return (
-      <article className="bg-white border [&:not(:first-child)]:ml-8 flex flex-col gap-4 pb-6 h-[490px] w-full md:w-[490px]">
+      <article className="bg-white border [&:not(:first-child)]:ml-8 flex flex-col pb-6 w-full md:w-1/3">
         <Image image={fins_servicesImage} className="!h-[250px]"></Image>
-        <h3 className="px-4 text-xl font-bold ">{name}</h3>
+        <h3 className="px-4">{name}</h3>
         <p className=" px-4">{c_serviceDescription}</p>
         <Cta
           buttonText={"Learn more"}
           url={slug}
           style="primary"
-          classNames="px-2 py-1.5 md:px-6 md:py-2.5 text-sm md:text-base rounded-md ml-4"
+          classNames="mt-4 px-2 py-1.5 md:px-4 md:py-2 text-sm md:text-base rounded-md ml-4"
         ></Cta>
       </article>
     );
@@ -118,7 +118,7 @@ const Slider = ({
       <h1 id="services-heading" className="sr-only">
         Our Services
       </h1>
-      <div className="hidden md:flex  ">
+      <div className="hidden md:flex">
         {[
           currentIndex,
           (currentIndex + 1) % elements.length,
@@ -184,20 +184,4 @@ const Slider = ({
   );
 };
 
-export const ServiceCard = ({ data }: any) => {
-  const { fins_servicesImage, name, id, slug, c_serviceDescription } = data;
-  return (
-    <article className="bg-white border [&:not(:first-child)]:ml-8 flex flex-col gap-4 pb-6 h-[490px] w-[490px]">
-      <Image image={fins_servicesImage} className="!h-[250px]"></Image>
-      <h3 className="px-4 text-2xl font-bold ">{name}</h3>
-      <p className=" px-4">{c_serviceDescription}</p>
-      <Cta
-        buttonText={"Learn more"}
-        url={slug}
-        style="primary"
-        classNames="px-2 py-1.5 md:px-6 md:py-2.5 text-sm md:text-base rounded-md ml-4"
-      ></Cta>
-    </article>
-  );
-};
 export default Slider;

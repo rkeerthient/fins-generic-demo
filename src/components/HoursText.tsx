@@ -113,15 +113,17 @@ const HoursText = ({ hours, timezone }: HoursTextProps) => {
   return (
     <>
       {res.status !== "Closed perm" && (
-        <p
-          className={
-            res.status.includes("Open")
-              ? "text-green-600 Hero-hoursToday flex gap-1 items-center w-max "
-              : "text-red-600 Hero-hoursToday flex gap-1 items-center w-max "
-          }
-        >
-          {res.text}
-        </p>
+        <>
+          <p
+            className={
+              res.status.includes("Open")
+                ? "text-[#28A745] Hero-hoursToday flex gap-1 items-center w-max "
+                : "text-[#DC3545] Hero-hoursToday flex gap-1 items-center w-max "
+            }
+          >
+            {res.status} - {res.text}
+          </p>
+        </>
       )}
     </>
   );

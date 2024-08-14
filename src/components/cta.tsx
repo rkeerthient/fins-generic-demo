@@ -11,11 +11,12 @@ interface CtaProps {
 const Cta = ({ buttonText, style, url, classNames = "", type }: CtaProps) => {
   const styleClasses =
     style === "primary"
-      ? "bg-primary text-white hover:bg-white hover:border-primary hover:text-primary w-fit hover:border"
-      : "border-primary text-primary border border-primary hover:bg-primary hover:text-white  w-fit bg-white";
+      ? "rounded w-fit bg-primaryCTA hover:bg-primaryCTA-hover text-white font-bold"
+      : "rounded w-fit bg-secondaryCTA hover:bg-secondaryCTA-hover text-white font-bold";
 
   return (
-    <Link eventName={type}
+    <Link
+      eventName={type}
       href={url || "#"}
       className={`${styleClasses} ${classNames} `}
       target="_blank"

@@ -67,14 +67,14 @@ const NearByLocations = () => {
             return (
               <section
                 key={item.id}
-                className="py-4 p-4 border text-sm space-y-4"
+                className="py-4 p-4 border text-sm space-y-4 w-1/3"
               >
-                <h2 className=" text-base font-bold flex justify-between items-center gap-16">
+                <h3 className="flex justify-between items-center">
                   {name} - {address.city}
-                  <p className="text-gray-400 text-sm font-medium">
+                  <p className="text-tertiary-text text-sm font-medium">
                     {(distance! / 1609).toFixed(2)} mi
                   </p>
-                </h2>
+                </h3>
                 <HoursText hours={hours} timezone={timezone} />
                 <FormatAddress address={address} />
                 <FormatPhoneNumber mainPhone={mainPhone} />
@@ -83,13 +83,13 @@ const NearByLocations = () => {
                     buttonText="Get Directions"
                     style="primary"
                     url={getDirectionsUrl(address)}
-                    classNames="md:px-4 md:py-1 md:text-sm rounded-md px-2 py-1"
+                    classNames="md:px-6 md:py-1.5 md:text-sm rounded-md px-2 py-1"
                   />
                   <Cta
                     buttonText={"View Page"}
                     style="secondary"
                     url={`/${slug}`}
-                    classNames="md:px-4 md:py-1 md:text-sm rounded-md px-2 py-1"
+                    classNames="md:px-6 md:py-1.5 md:text-sm rounded-md px-2 py-1"
                   />
                 </nav>
               </section>
