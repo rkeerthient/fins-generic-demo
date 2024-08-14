@@ -86,9 +86,9 @@ const Services = ({ document }: TemplateProps) => {
         <h2 className="sr-only">{document.name} Page</h2>
         <InsightsAndServicesHeroBanner document={document} isInsights={false} />
       </section>
-      <section className="bg-primary-bg flex flex-col justify-center items-center text-center mx-auto  ">
+      <section className="bg-secondary flex flex-col justify-center items-center text-center mx-auto ">
         <h2 className="sr-only">Article body</h2>
-        <article className=" centered-container md:py-8 py-4 prose ">
+        <article className=" centered-container md:py-8 py-4 ">
           <p className="text-left md:text-center">
             {document.c_serviceLongDescription}
           </p>
@@ -106,7 +106,7 @@ const Services = ({ document }: TemplateProps) => {
         </section>
       )}
       {document.c_primaryFPs && (
-        <section className="px-8  py-2 md:px-24 md:py-8 bg-primary-bg centered-container flex flex-col gap-4 md:gap-8">
+        <section className="px-8  py-2 md:px-24 md:py-8 bg-secondary centered-container flex flex-col gap-4 md:gap-8">
           <h2 className="text-2xl md:text-[34px] font-medium text-center">
             Related Professionals
           </h2>

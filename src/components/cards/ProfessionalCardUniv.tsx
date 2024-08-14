@@ -38,7 +38,7 @@ const ProfessionalCardUniv = ({ result }: CardProps<any>) => {
 
         <section className="px-2 flex flex-col gap-3  p-4">
           <h2>
-            <a href={landingPageUrl} className="text-black text-lg font-bold">
+            <a href={landingPageUrl} className="text-lg font-bold">
               {name}
             </a>
           </h2>
