@@ -52,7 +52,7 @@ const HeroBanner = ({ document, isProfessional = false }: HeroBannerProps) => {
               </article>
               <Cta
                 buttonText={"Book an Appointment"}
-                style={"secondary"}
+                style={"primary"}
                 url={""}
                 classNames="mx-auto md:mx-0 w-fit px-2 py-1.5 md:px-4 md:py-2  text-sm md:text-base rounded-md mt-4"
               />
