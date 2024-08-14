@@ -67,9 +67,9 @@ const NearByLocations = () => {
             return (
               <section
                 key={item.id}
-                className="py-4 p-4 border text-sm space-y-4 w-1/3"
+                className="py-4 p-4 border text-sm space-y-2 md:space-y-4 w-full md:w-1/3"
               >
-                <h3 className="flex justify-between items-center">
+                <h3 className="flex gap-2 md:justify-between md:items-center flex-col md:flex-row">
                   {name} - {address.city}
                   <p className="text-tertiary-text text-sm font-medium">
                     {(distance! / 1609).toFixed(2)} mi
@@ -78,7 +78,7 @@ const NearByLocations = () => {
                 <HoursText hours={hours} timezone={timezone} />
                 <FormatAddress address={address} />
                 <FormatPhoneNumber mainPhone={mainPhone} />
-                <nav className=" flex gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
+                <nav className=" flex flex-col md:flex-row gap-2 md:gap-4 justify-center md:justify-start font-medium leading-loose items-center text-sm text-secondary">
                   <Cta
                     buttonText="Get Directions"
                     style="primary"

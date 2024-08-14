@@ -109,7 +109,7 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
             classNames="px-2 py-1.5 md:px-6 md:py-2.5 text-sm md:text-base rounded-md "
           ></Cta>
         </section>
-        <section className="bg-secondary px-8 py-2 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8">
+        <section className="bg-secondary px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8">
           <h2 className="mx-auto">Our Services</h2>
           <Slider
             sliderData={c_featuredServices}
@@ -120,17 +120,17 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
           ></Slider>
         </section>
         <GetInTouchBanner />
-        <section className="bg-secondary px-8 py-2 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8 centered-container">
+        <section className="bg-secondary px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8 centered-container">
           <h2 className="mx-auto">Insights</h2>
           <OurInsights linkedArticles={c_featuredArticles} />
         </section>
-        <section className="bg-[#FFFFFF] px-8 py-2 md:px-32 md:py-8 ">
+        <section className="bg-[#FFFFFF] px-8 py-4 md:px-32 md:py-8 ">
           <section className="centered-container flex flex-col gap-4 md:gap-8">
             <h2 className="mx-auto">Near by Locations</h2>
             <NearByLocations />
           </section>
         </section>
-        <section className="px-8 py-2 md:px-32 md:py-8 bg-secondary centered-container flex flex-col gap-4  md:gap-8">
+        <section className="px-8 py-4 md:px-32 md:py-8 bg-secondary centered-container flex flex-col gap-4  md:gap-8">
           <h2 className="mx-auto">Featured FAQs</h2>
           <RelatedFaqs faqs={c_featuredFAQs} />
         </section>
