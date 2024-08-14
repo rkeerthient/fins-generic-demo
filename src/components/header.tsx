@@ -44,9 +44,10 @@ export const SearchBarComponent = ({
       <SearchBar
         onSearch={handleSearch}
         customCssClasses={{
-          searchBarContainer: "w-full !-mb-2 md:flex-1 md:h-12",
+          searchBarContainer:
+            "w-full text-secondary-text !-mb-2 md:flex-1 md:h-12",
           searchButton: "text-primary",
-          inputElement: `!h-9 md:!h-11 demo ${id}`,
+          inputElement: `!h-9 md:!h-11  demo ${id}`,
         }}
       />
     </>

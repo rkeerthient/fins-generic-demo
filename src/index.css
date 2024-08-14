@@ -27,7 +27,7 @@ h4 {
 }
 
 body {
-  @apply bg-secondary;
+  @apply bg-secondary font-systemui;
 }
 
 .centered-container {

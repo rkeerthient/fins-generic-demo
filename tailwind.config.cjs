@@ -9,6 +9,9 @@ module.exports = {
     ComponentsContentPath,
   ],
   theme: {
+    fontFamily: {
+      systemui: ["system-ui", "sans-serif"],
+    },
     extend: {
       colors: {
         primary: "#D71E28",
