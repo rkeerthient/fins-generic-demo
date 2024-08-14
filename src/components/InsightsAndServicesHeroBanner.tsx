@@ -22,26 +22,20 @@ const InsightsAndServicesHeroBanner = ({
     <>
       <section
         aria-label="Hero section"
-        className={`${isInsights ? `bg-primary-bg` : `bg-white`}`}
+        className={`${isInsights ? `bg-secondary` : `bg-white`}`}
       >
         <h1 className="sr-only">{name}</h1>
         <article className="w-full flex flex-col md:flex-row gap-4 md:gap-16">
           <aside className="w-full md:w-1/2 ">
             <header className="flex justify-center items-center my-auto h-full">
               <div className="mx-auto max-w-2xl md:mx-0 md:max-w-xl">
-                <h1
-                  className={`text-2xl md:text-left leading-7  md:leading-10 font-bold ${isInsights ? `md:text-[34px]` : `md:text-6xl`}`}
-                >
-                  {name}
-                </h1>
+                <h2 className="md:text-left">{name}</h2>
                 {datePosted && (
-                  <p className="mt-4 md:text-left text-base md:text-lg font-semibold">
+                  <p className="mt-2 md:mt-6 md:text-left text-base md:text-lg font-semibold">
                     {formatDate(datePosted)}
                   </p>
                 )}
-                <p
-                  className={`mt-2 md:mt-6 text-left md:text-cennter text-base md:text-lg md:leading-8 text-gray-600 ${isInsights ? `md:text-lg` : `md:text-xl`}`}
-                >
+                <p className={`mt-2 md:mt-6 text-left`}>
                   {c_insightsArticleSummary || c_serviceDescription}
                 </p>
               </div>

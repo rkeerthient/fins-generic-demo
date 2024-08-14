@@ -42,7 +42,7 @@ const HeroBanner = ({ document, isProfessional = false }: HeroBannerProps) => {
               ></Image>
             )}
             <article className="flex flex-col gap-2 w-full">
-              <h2 className="md:text-2xl font-bold text-lg">{name}</h2>
+              <h2 className="text-white">{name}</h2>
               <p>{fins_jobTitle}</p>
               <FormatAddress address={address} />
               <article className="flex gap-2 flex-col md:items-start items-center md:flex-row justify-center md:justify-start">
