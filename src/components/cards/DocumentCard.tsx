@@ -18,7 +18,7 @@ const DocumentCard = ({ result }: CardProps<any>) => {
           <h2>
             <a
               href={`${landingPageUrl}`}
-              className="text-black text-lg font-bold"
+              className="text-lg font-bold"
             >
               {name}
             </a>

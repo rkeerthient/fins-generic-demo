@@ -24,7 +24,7 @@ const SearchNav = ({ currentVertical, setCurrentVertical }: SearchNavProps) => {
             }}
             className={`hover:text-gray-300 hover:cursor-pointer ${
               selected === item.key
-                ? `text-black border-b border-primary`
+                ? `border-b border-primary`
                 : `text-[#777777]`
             }`}
           >

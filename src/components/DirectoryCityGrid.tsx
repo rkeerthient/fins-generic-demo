@@ -86,9 +86,9 @@ const DirectoryCityGrid = ({
   }
 
   return (
-    <section className="section space-y-14 md:px-10 px-5">
+    <section className="section space-y-8 md:space-y-14 px-5 md:px-10 ">
       <header className="space-y-6">
-        {name && <h1 className="text-3xl font-semibold text-center">{name}</h1>}
+        {name && <h1>{name}</h1>}
         {description && <p className="text-2xl text-center">{description}</p>}
       </header>
       {directoryChildren && (

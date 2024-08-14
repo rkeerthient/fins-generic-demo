@@ -19,10 +19,8 @@ const DirectoryHero = ({ pageTitle, description }: DirectoryHeroProps) => {
         className="absolute inset-0 bg-gray-900 bg-opacity-70"
       />
       <section className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          {pageTitle}
-        </h2>
-        <p className="mt-3 text-xl text-white">
+        <h2 className="text-white">{pageTitle}</h2>
+        <p className="mt-3 text-lg md:text-xl text-white">
           {description ||
             `Explore a world of banking solutions, from accounts and loans to investment insights. We're committed to your financial success, providing secure, user-friendly access to our services. Discover your path to a brighter financial future right here.`}
         </p>

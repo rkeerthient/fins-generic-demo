@@ -29,11 +29,11 @@ const InsightsCard = ({ result }: CardProps<any>) => {
 
         <section className="px-2 flex flex-col gap-3">
           <h2 className=" h-10">
-            <a href={`/${slug}`} className="text-black text-lg font-bold">
+            <a href={`/${slug}`} className="text-lg font-bold">
               {name}
             </a>
           </h2>
-          <p className="pointer-events-none font-medium text-black line-clamp-4">
+          <p className="pointer-events-none font-medium line-clamp-4">
             {c_insightsArticleSummary}
           </p>
 

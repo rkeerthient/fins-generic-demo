@@ -26,7 +26,7 @@ const DirectoryRootGrid = ({
     <article key={child.slug}>
       <a
         href={relativePrefixToRoot + child.slug}
-        className="font-bold text-xl   hover:underline"
+        className="font-bold text-lg md:text-xl hover:underline"
       >
         {child.c_addressRegionDisplayName
           ? child.c_addressRegionDisplayName
@@ -37,15 +37,13 @@ const DirectoryRootGrid = ({
   ));
   return (
     <>
-      <article className="section space-y-14 px-5 md:px-10 ">
+      <article className="section space-y-8 md:space-y-14 px-5 md:px-10 ">
         <section className="space-y-6">
-          {name && (
-            <h1 className="text-3xl font-semibold text-center">{name}</h1>
-          )}
+          {name && <h1>{name}</h1>}
           {description && <p className="text-2xl text-center">{description}</p>}
         </section>
         {directoryChildren && (
-          <article className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <article className="grid gap-4 md:gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {childrenDivs}
           </article>
         )}
