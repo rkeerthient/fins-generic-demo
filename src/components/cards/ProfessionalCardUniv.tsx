@@ -42,7 +42,7 @@ const ProfessionalCardUniv = ({ result }: CardProps<any>) => {
               {name}
             </a>
           </h2>
-          <p className="pointer-events-none block font-medium text-black">
+          <p className="pointer-events-none block font-medium ">
             {fins_jobTitle}
           </p>
           <article className="!text-sm">
@@ -52,12 +52,12 @@ const ProfessionalCardUniv = ({ result }: CardProps<any>) => {
               <p>Fill in your hours</p>
             )}
           </article>
-          <address className="text-[#333333] pointer-events-none flex flex-col gap-2  justify-start leading-loose text-sm">
+          <address className="pointer-events-none flex flex-col gap-2  justify-start leading-loose text-sm">
             <FormatAddress address={address} isDirectory={true} />
             <article className="flex flex-col">
               <FormatPhoneNumber mainPhone={mainPhone} />
 
-              <span className="flex items-center text-[#333333]">
+              <span className="flex items-center ">
                 <EnvelopeIcon className="h-4 w-4 text-primary" />
                 {emails && <span className="ml-2">{emails[0]}</span>}
               </span>
