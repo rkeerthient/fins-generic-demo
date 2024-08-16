@@ -155,7 +155,7 @@ const Header = ({ _site }: any) => {
 
           <div className="flex items-center gap-4 w-full justify-start">
             <a href="/">
-              <Image image={c_headerLogo!} width={259} layout="fixed" />
+              <Image loading="lazy" image={c_headerLogo!} width={259} layout="fixed" />
             </a>
             <NavMenu isPrimary={true} menuItems={c_topLeftNav} />
 
@@ -172,7 +172,7 @@ const Header = ({ _site }: any) => {
         <div className="flex justify-between items-center font-bold w-full">
           <div className="ml-2">
             <a href="/">
-              <Image
+              <Image loading="lazy"
                 image={c_headerLogo!}
                 width={150}
                 className="!h-auto"

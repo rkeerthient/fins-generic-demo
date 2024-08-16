@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   GetHeadConfig,
   GetPath,
@@ -10,7 +9,6 @@ import {
   TemplateRenderProps,
   TransformProps,
 } from "@yext/pages";
-import { isProduction } from "@yext/pages/util";
 import "../index.css";
 import PageLayout from "../components/page-layout";
 import DirectoryHero from "../components/DirectoryHero";
@@ -94,9 +92,7 @@ const State: Template<TemplateRenderProps> = ({
   const {
     name,
     description,
-    siteDomain,
     c_addressRegionDisplayName,
-    dm_directoryParents,
     dm_directoryChildren,
   } = document;
 

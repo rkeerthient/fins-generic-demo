@@ -30,7 +30,7 @@ const ProfessionalCard = ({ result }: CardProps<FinancialProfessional>) => {
       <header className="relative flex md:flex-row flex-col bg-white p-4">
         <article className="group aspect-square block overflow-hidden bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 bottom-12 md:w-1/6 w-full">
           {headshot && (
-            <Image
+            <Image loading="lazy"
               image={headshot!}
               className="pointer-events-none !aspect-square !md:w-full !max-w-none !object-top rounded-lg w-72  "
             />

@@ -14,7 +14,7 @@ const Hero = ({ c_heroBanners }: any) => {
       className="w-full md:h-[400px] relative flex items-center justify-center md:justify-start"
     >
       <h2 className="sr-only">Hero section</h2>
-      <Image
+      <Image loading="lazy"
         image={c_heroBanner.backgroundImage!}
         layout="fill"
         className="absolute z-0 !object-top	h-full"

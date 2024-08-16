@@ -80,12 +80,12 @@ const InsightsAndServicesHeroBanner = ({
             <>
               {pageType === "insights" && (
                 <figure className="w-full md:right-0 md:top-0 md:h-full md:w-1/2">
-                  <Image image={primaryPhoto} />
+                  <Image loading="lazy" image={primaryPhoto} />
                 </figure>
               )}
               {pageType !== "insights" && (
                 <figure className="w-full md:right-0 md:top-0 md:h-full md:w-1/2">
-                  <Image image={fins_servicesImage} />
+                  <Image loading="lazy" image={fins_servicesImage} />
                 </figure>
               )}
             </>

@@ -6,7 +6,6 @@ import {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import { useState } from "react";
 import HeroBanner from "../components/HeroBanner";
 import InpageNav from "../components/InpageNav";
 import LetsTalk from "../components/letsTalk";
@@ -77,8 +76,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   };
 };
 const Locations = ({ document, __meta }: TemplateProps) => {
-  const [isSubNavOpen, setIsSubNavOpen] = useState<boolean>(false);
-
   const InPageNavItems = [
     {
       name: "About me",

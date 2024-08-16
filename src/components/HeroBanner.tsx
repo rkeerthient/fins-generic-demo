@@ -26,7 +26,7 @@ const HeroBanner = ({ document, isProfessional = false }: HeroBannerProps) => {
         className={`w-full ${isProfessional ? `h-[500px]` : `h-[350px]`}  md:h-[600px] relative`}
       >
         <h2 className="sr-only">Hero section</h2>
-        <Image
+        <Image loading="lazy"
           image={photoGallery?.[0]}
           className=" !absolute !h-full !max-w-none"
         />
@@ -35,7 +35,7 @@ const HeroBanner = ({ document, isProfessional = false }: HeroBannerProps) => {
             className={`md:p-8 md:ml-16  w-full ${isProfessional ? `md:w-1/2` : `md:w-fit`} flex flex-col md:flex-row gap-4 md:gap-4 mx-6 my-12 p-4   text-white justify-center  md:text-left text-center`}
           >
             {isProfessional && (
-              <Image
+              <Image loading="lazy"
                 image={headshot}
                 layout="fixed"
                 className="md:!w-80 !w-24 rounded-full !max-w-none !h-auto mx-auto"

@@ -94,7 +94,7 @@ const Slider = ({
     const { fins_servicesImage, name, id, slug, c_serviceDescription } = data;
     return (
       <article className="bg-white border [&:not(:first-child)]:ml-8 flex flex-col pb-6 w-full md:w-1/3">
-        <Image image={fins_servicesImage} className="!h-[250px]"></Image>
+        <Image loading="lazy" image={fins_servicesImage} className="!h-[250px]"></Image>
         <h3 className="px-4">{name}</h3>
         <p className=" px-4">{c_serviceDescription}</p>
         <Cta

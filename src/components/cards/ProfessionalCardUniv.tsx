@@ -29,7 +29,7 @@ const ProfessionalCardUniv = ({ result }: CardProps<any>) => {
       <header className="relative flex flex-col bg-white">
         <figure className="group aspect-square block overflow-hidden bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 bottom-12  w-full">
           {headshot && (
-            <Image
+            <Image loading="lazy"
               image={headshot!}
               className="pointer-events-none !aspect-square !w-full !max-w-none !object-top rounded-t-lg "
             />

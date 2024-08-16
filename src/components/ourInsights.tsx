@@ -61,7 +61,7 @@ export const InsightsCard = ({
   return (
     <section className="flex flex-col gap-2">
       {showImage && (
-        <Image
+        <Image loading="lazy"
           image={_data.primaryPhoto}
           className="!mb-4 max-w-[700px] !aspect-video"
         ></Image>

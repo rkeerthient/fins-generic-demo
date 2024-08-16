@@ -20,7 +20,7 @@ const InsightsCard = ({ result }: CardProps<any>) => {
       <header className="relative flex flex-col bg-white p-4 gap-4">
         <figure className="group aspect-square block overflow-hidden bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 bottom-12 w-full">
           {primaryPhoto && (
-            <Image
+            <Image loading="lazy"
               image={primaryPhoto!}
               className="pointer-events-none !aspect-square  !max-w-none !object-top rounded-lg w-72  "
             />
