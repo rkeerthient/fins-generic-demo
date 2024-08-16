@@ -11,7 +11,7 @@ const getInTouchBanner = () => {
         loading="lazy"
         src="https://a.mktgcdn.com/p/sen0TdAb2xKxTvNWohNCdkYJE4HDF2yzHAYZHSYjTJk/1660x625.jpg"
         alt=""
-        className="!w-full !absolute h-[200px] md:h-full !max-w-none"
+        className="!w-full !absolute h-[200px] md:h-full"
       />
       <article className=" w-full absolute bg-black bg-opacity-75 flex items-center justify-center flex-col h-[200px] md:h-full text-white top-0 left-0 z-2">
         <section className="md:p-8 md:ml-16 justify-center  w-full  flex  gap-4 md:gap-4 mx-6 my-12 p-4   text-white items-center">
