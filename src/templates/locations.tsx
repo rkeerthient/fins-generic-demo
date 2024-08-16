@@ -108,11 +108,10 @@ const Locations = ({ document, __meta }: TemplateProps) => {
 
       <InpageNav navItems={InPageNavItems}></InpageNav>
       <article className="centered-container flex md:flex-row flex-col justify-center items-center py-16 gap-8 px-4 md:px-0">
-        <img loading="lazy"
-          src={
-            "https://a.mktgcdn.com/p/65JQqTuL6mWfKaHM0EiyiPEV820Oi35tUPhDN36Tq1A/3149x4724.jpg"
-          }
-          className="w-full md:w-[200.59px] aspect-[3/4] rounded-lg object-center object-cover"
+        <img
+          loading="lazy"
+          src="https://a.mktgcdn.com/p/65JQqTuL6mWfKaHM0EiyiPEV820Oi35tUPhDN36Tq1A/3149x4724.jpg"
+          className="w-full max-w-xs md:max-w-[200.59px] aspect-[3/4] rounded-lg object-center object-cover"
         />
         <section className="flex flex-col items-left gap-6">
           <a className="hidden" id="aboutMe"></a>
