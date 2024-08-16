@@ -1,10 +1,15 @@
-import { EnvelopeIcon } from "@heroicons/react/20/solid";
+import {
+  CheckIcon,
+  EnvelopeIcon,
+  PhoneIcon,
+  XMarkIcon,
+} from "@heroicons/react/20/solid";
 import { Image } from "@yext/pages-components";
 import { CardProps } from "@yext/search-ui-react";
-import { FormatAddress, FormatPhoneNumber } from "../../common/util";
-import FinancialProfessional from "../../types/financial_professionals";
 import HoursText from "../HoursText";
 import Cta from "../cta";
+import { FormatAddress, FormatPhoneNumber } from "../../common/util";
+import FinancialProfessional from "../../types/financial_professionals";
 
 const ProfessionalCard = ({ result }: CardProps<FinancialProfessional>) => {
   const { name } = result;
@@ -22,21 +27,17 @@ const ProfessionalCard = ({ result }: CardProps<FinancialProfessional>) => {
 
   return (
     <article className="border rounded-lg">
-      <header className="relative grid grid-cols-1 md:grid-cols-3 bg-white p-4">
-        <section className="flex gap-2">
-          <figure className="group aspect-square block overflow-hidden bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 bottom-12 md:w-1/6 w-full">
-            {headshot && (
-              <Image
-                image={headshot!}
-                className="pointer-events-none !aspect-square !md:w-full !max-w-none !object-top rounded-lg w-72  "
-              />
-            )}
-          </figure>
-          <h2>
-            <a href={landingPageUrl}>{name}</a>
-          </h2>
-        </section>
-        <section className="px-2 flex flex-col gap-3">
+      <header className="relative flex md:flex-row flex-col bg-white p-4">
+        <article className="group aspect-square block overflow-hidden bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 bottom-12 md:w-1/6 w-full">
+          {headshot && (
+            <Image
+              image={headshot!}
+              className="pointer-events-none !aspect-square !md:w-full !max-w-none !object-top rounded-lg w-72  "
+            />
+          )}
+        </article>
+
+        <section className="px-2 flex flex-col gap-3 justify-between">
           <p className="pointer-events-none block font-medium text-black">
             {fins_jobTitle}
           </p>
