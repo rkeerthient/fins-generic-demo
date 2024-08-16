@@ -154,7 +154,7 @@ const Header = ({ _site }: any) => {
           </h2>
 
           <div className="flex items-center gap-4 w-full justify-start">
-            <a href="/homepage">
+            <a href="/">
               <Image image={c_headerLogo!} width={259} layout="fixed" />
             </a>
             <NavMenu isPrimary={true} menuItems={c_topLeftNav} />
@@ -171,7 +171,7 @@ const Header = ({ _site }: any) => {
       <header className="p-6 justify-between items-center w-full max-w-screen-3xl bg-primary text-white md:hidden h-20 flex ">
         <div className="flex justify-between items-center font-bold w-full">
           <div className="ml-2">
-            <a href="/homepage">
+            <a href="/">
               <Image
                 image={c_headerLogo!}
                 width={150}

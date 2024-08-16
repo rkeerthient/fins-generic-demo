@@ -22,7 +22,7 @@ const InsightsAndServicesHeroBanner = ({
 
   const buildSubNav = (service: serviceProps) => {
     const currentNavMenu: serviceProps[] = [
-      { name: "Home", slug: "/homepage.html" },
+      { name: "Home", slug: "/" },
       ...(service ? [{ name: service.name, slug: service.slug }] : []),
       { name: name, slug: "" },
     ];
