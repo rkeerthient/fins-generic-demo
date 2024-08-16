@@ -30,7 +30,7 @@ const PageLayout = ({ _site, children, className }: Props) => {
       >
         <Header _site={_site} />
         <LocationsProvider>{children}</LocationsProvider>
-        <Footer _site={_site}></Footer>
+        {/* <Footer _site={_site}></Footer> */}
         {/* {import.meta.env.YEXT_PUBLIC_CHAT_APIKEY &&
         import.meta.env.YEXT_PUBLIC_CHAT_BOTID && (
           <ChatHeadlessProvider config={chatConfig}>
