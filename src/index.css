@@ -83,7 +83,7 @@ body {
   }
 }
 
-.chatHeaderAndBotResponseColors {
+/* .chatHeaderAndBotResponseColors {
   @apply !bg-none !bg-primary;
 }
 
@@ -97,4 +97,4 @@ body {
 .chatTextboxColor:focus {
   border-color: #66ccff;
   box-shadow: 0 0 0 0.2rem rgba(102, 204, 255, 0.5);
-}
+} */

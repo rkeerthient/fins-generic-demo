@@ -2,15 +2,10 @@ import {
   SearchHeadlessProvider,
   provideHeadless,
 } from "@yext/search-headless-react";
-import { LocationsProvider } from "../common/LocationsContext";
-import { chatConfig, searchConfig } from "./config";
-import Footer from "./footer";
-import Header from "./header";
-import { ChatHeadlessProvider } from "@yext/chat-headless-react";
-import { ChatPopUp } from "@yext/chat-ui-react";
-import "@yext/chat-ui-react/bundle.css";
-import Hero from "./Hero";
 import { twMerge } from "tailwind-merge";
+import { LocationsProvider } from "../common/LocationsContext";
+import { searchConfig } from "./config";
+import Header from "./header";
 
 type Props = {
   _site?: any;
