@@ -116,7 +116,7 @@ const Professionals = ({ document }: TemplateProps) => {
           <Details document={document} />
         </section>
       </section>
-      <section className=" centered-container">
+      <section className=" centered-container px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8">
         <h2 className="sr-only">Insights</h2>
         <a className="hidden" id="insights"></a>
         <h2 className="text-center">Insights</h2>

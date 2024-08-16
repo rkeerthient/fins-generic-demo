@@ -6,8 +6,6 @@ interface TeamMember {
   id: string;
   c_individualOrTeam: "INDIVIDUAL" | "TEAM";
   result: Result<any>;
-
-  // Add other properties of teamMember here if needed
 }
 
 interface OurTeamProps {

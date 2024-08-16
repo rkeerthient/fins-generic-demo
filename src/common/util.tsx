@@ -16,7 +16,7 @@ export const FormatPhoneNumber = ({ mainPhone }: UtilsProps) => {
   return (
     <>
       {mainPhone && (
-        <section className="flex items-center" aria-label="Phone number">
+        <div className="flex items-center" aria-label="Phone number">
           <h2 className="sr-only">Phone number</h2>
           <PhoneIcon className="h-4 w-4 text-primary" aria-hidden="true" />
           <span className="ml-2">
@@ -25,7 +25,7 @@ export const FormatPhoneNumber = ({ mainPhone }: UtilsProps) => {
               .replace(/\D+/g, "")
               .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
           </span>
-        </section>
+        </div>
       )}
     </>
   );

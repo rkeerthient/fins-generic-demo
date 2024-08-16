@@ -43,6 +43,7 @@ export const config: TemplateConfig = {
       "c_relatedFPsAndTeams.headshot",
       "c_relatedFPsAndTeams.hours",
       "c_relatedFPsAndTeams.timezone",
+      "c_relatedFPsAndTeams.address",
       "c_relatedFPsAndTeams.id",
       "c_relatedFPsAndTeams.fins_jobTitle",
       "c_relatedFPsAndTeams.slug",
