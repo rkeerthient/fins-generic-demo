@@ -102,7 +102,7 @@ const Locations = ({ document, __meta }: TemplateProps) => {
     },
     {
       name: "Let's Talk",
-      navId: "letstalk",
+      navId: "letsTalk",
     },
   ];
   return (
@@ -149,7 +149,7 @@ const Locations = ({ document, __meta }: TemplateProps) => {
         </section>
       </section>
       <section className="bg-white px-8  py-2 md:px-32  md:py-8 ">
-        <a className="hidden" id="insights"></a>
+        <a className="hidden" id="letsTalk"></a>
         <section className="centered-container flex flex-col gap-4 md:gap-8">
           <h2 className="text-center">Lets Talk</h2>
           <LetsTalk
