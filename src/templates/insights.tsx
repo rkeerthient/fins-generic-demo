@@ -56,7 +56,10 @@ const Insights = ({ document }: TemplateProps) => {
     <PageLayout _site={document._site}>
       <section className="w-full flex flex-col justify-center items-center text-center mx-auto  px-4  py-2 md:px-32  md:py-8 ">
         <h2 className="sr-only">{document.name} Page</h2>
-        <InsightsAndServicesHeroBanner document={document} isInsights={true} />
+        <InsightsAndServicesHeroBanner
+          document={document}
+          pageType="insights"
+        />
       </section>
       <section className="bg-white flex flex-col justify-center items-center text-center mx-auto  ">
         <h2 className="sr-only">Article body</h2>

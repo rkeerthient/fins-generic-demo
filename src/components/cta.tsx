@@ -19,7 +19,6 @@ const Cta = ({ buttonText, style, url, classNames = "", type }: CtaProps) => {
       eventName={type}
       href={url || "#"}
       className={`${styleClasses} ${classNames} `}
-      target="_blank"
       rel="noopener noreferrer"
     >
       {buttonText}

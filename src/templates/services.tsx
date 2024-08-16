@@ -19,7 +19,7 @@ export const config: TemplateConfig = {
     $id: "services",
     localization: { locales: ["en"] },
     filter: {
-      entityTypes: ["fins_service"],
+      entityTypes: ["fins_service", "fins_financialProduct"],
     },
     fields: [
       "name",
@@ -43,6 +43,8 @@ export const config: TemplateConfig = {
       "c_primaryFPs.slug",
       "c_primaryFPs.id",
       "c_primaryFPs.address",
+      "c_parentService.name",
+      "c_parentService.slug",
     ],
   },
 };
@@ -84,7 +86,7 @@ const Services = ({ document }: TemplateProps) => {
     <PageLayout _site={document._site}>
       <section className="w-full flex flex-col justify-center items-center text-center mx-auto bg-white  px-4  py-2 md:px-32  md:py-8 ">
         <h2 className="sr-only">{document.name} Page</h2>
-        <InsightsAndServicesHeroBanner document={document} isInsights={false} />
+        <InsightsAndServicesHeroBanner document={document} pageType="service" />
       </section>
       <section className="bg-secondary flex flex-col justify-center items-center text-center mx-auto ">
         <h2 className="sr-only">Article body</h2>
