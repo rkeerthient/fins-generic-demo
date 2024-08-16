@@ -12,13 +12,10 @@ interface TeamMember {
 
 interface OurTeamProps {
   teamMembers: TeamMember[];
+  name?: string;
 }
 
-interface OurTeamMobileProps extends OurTeamProps {
-  name: string;
-}
-
-const OurTeam: React.FC<OurTeamProps> = ({ teamMembers }) => {
+const OurTeam = ({ teamMembers }: OurTeamProps) => {
   const individualMembers = teamMembers.filter(
     (teamMember) => teamMember.c_individualOrTeam === "INDIVIDUAL"
   );
@@ -32,7 +29,7 @@ const OurTeam: React.FC<OurTeamProps> = ({ teamMembers }) => {
   );
 };
 
-const OurTeamMobile: React.FC<OurTeamMobileProps> = ({ teamMembers, name }) => {
+const OurTeamMobile = ({ teamMembers, name }: OurTeamProps) => {
   const individualMembers = teamMembers.filter(
     (teamMember) => teamMember.c_individualOrTeam === "INDIVIDUAL"
   );

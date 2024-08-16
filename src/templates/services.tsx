@@ -109,10 +109,8 @@ const Services = ({ document }: TemplateProps) => {
       )}
 
       {document.c_primaryFPs && (
-        <section className="px-8  py-2 md:px-24 md:py-8 bg-secondary centered-container flex flex-col gap-4 md:gap-8">
-          <h2 className="text-2xl md:text-[34px] font-medium text-center">
-            Related Professionals
-          </h2>
+        <section className="px-8  py-2 md:py-8 bg-secondary centered-container flex flex-col gap-4 md:gap-8">
+          <h2 className="text-center">Related Professionals</h2>
           <article className="md:hidden block">
             <OurTeamMobile teamMembers={currentRecords} name={document.name} />
           </article>
