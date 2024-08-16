@@ -9,6 +9,7 @@ const DirectoryHero = ({ pageTitle, description }: DirectoryHeroProps) => {
       <h1 className="sr-only">Directory Header</h1>
       <article className="absolute inset-0 overflow-hidden">
         <img
+          loading="lazy"
           src="https://a.mktgcdn.com/p/Kv4KDWsSWCn3y_x5VSRTLyN_AwatVuWE-Dp8ZSq0Z-w/1200x796.jpg"
           alt=""
           className="h-full w-full object-cover object-center"

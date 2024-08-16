@@ -108,7 +108,7 @@ const Locations = ({ document, __meta }: TemplateProps) => {
 
       <InpageNav navItems={InPageNavItems}></InpageNav>
       <article className="centered-container flex md:flex-row flex-col justify-center items-center py-16 gap-8 px-4 md:px-0">
-        <img
+        <img loading="lazy"
           src={
             "https://a.mktgcdn.com/p/65JQqTuL6mWfKaHM0EiyiPEV820Oi35tUPhDN36Tq1A/3149x4724.jpg"
           }

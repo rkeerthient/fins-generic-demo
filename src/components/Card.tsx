@@ -1,5 +1,3 @@
-
-
 export interface CardProps {
   title: string;
   url: string;
@@ -21,7 +19,7 @@ const Card = ({ title, url }: CardProps) => {
             </p>
           </div>
           <div>
-            <img className="rounded-t-lg" src={url} alt="" />
+            <img loading="lazy" className="rounded-t-lg" src={url} alt="" />
           </div>
         </div>
       </div>
