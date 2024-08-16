@@ -26,21 +26,12 @@ const InsightsAndServicesHeroBanner = ({
       ...(service ? [{ name: service.name, slug: service.slug }] : []),
       { name: name, slug: "" },
     ];
-    console.log(
-      JSON.parse(
-        JSON.stringify(
-          currentNavMenu.filter((item) => JSON.stringify(item) !== "{}")
-        )
-      ).length
-    );
 
     return (
       <ul className="flex gap-4 text-primary justify-start">
         {currentNavMenu
           .filter((item) => JSON.stringify(item) !== "{}")
           .map((item, index: number, filteredArray) => {
-            console.log(filteredArray.length);
-
             return (
               <li key={index} className={`flex flex-row items-center`}>
                 <a

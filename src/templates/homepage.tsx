@@ -62,12 +62,8 @@ export const config: TemplateConfig = {
   },
 };
 
-export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  return document.slug
-    ? document.slug
-    : `${document.locale}/${document.address.region}/${document.address.city}/${
-        document.address.line1
-      }-${document.id.toString()}`;
+export const getPath: GetPath<TemplateProps> = () => {
+  return `index.html`;
 };
 
 export const getHeadConfig: GetHeadConfig<
