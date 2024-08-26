@@ -13,6 +13,7 @@ import OurInsights from "../components/ourInsights";
 import PageLayout from "../components/page-layout";
 import "../index.css";
 import { OurTeam } from "../components/ourTeam";
+import LocSchema from "../components/SchemaLocations";
 
 export const config: TemplateConfig = {
   stream: {
@@ -102,6 +103,7 @@ const Locations = ({ document, __meta }: TemplateProps) => {
   ];
   return (
     <PageLayout _site={document._site}>
+      <LocSchema document={document} />
       <HeroBanner document={document} isProfessional={false} />
 
       <InpageNav navItems={InPageNavItems}></InpageNav>
