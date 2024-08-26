@@ -1,14 +1,22 @@
 import { JsonLd } from "react-schemaorg";
 import { ClothingStore, FAQPage, Place, ItemList, Person } from "schema-dts";
+
 const Schema = (props: any) => {
   const { document } = props;
   const name = `${document.name} in ${document.address.city}, ${document.address.region}`;
   const address = document.address;
   const telephone = document.mainPhone;
-  const description = document.decription;
+  const description = document.description;
   const faqsList: any = [];
   const productsList: any = [];
   const itemListElement: any = [];
+
+  // Check if window is defined
+  const windowUrl = typeof window !== "undefined" ? window.location.href : "";
+  const windowProtocolHost =
+    typeof window !== "undefined"
+      ? `${window.location.protocol}//${window.location.host}`
+      : "";
 
   return (
     <>
@@ -32,11 +40,11 @@ const Schema = (props: any) => {
           telephone,
           knowsLanguage: document.languages,
           image: document.headshot,
-          url: window.location.href,
+          url: windowUrl,
           affiliation: {
             "@type": "Organization",
             name: "Capital fins bank",
-            url: window.location.protocol + "//" + window.location.host,
+            url: windowProtocolHost,
           },
         }}
       />
