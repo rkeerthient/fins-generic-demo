@@ -23,7 +23,7 @@ const PageLayout = ({ _site, children, className }: Props) => {
           className
         )}
       >
-        <Header _site={_site} />
+        {/* <Header _site={_site} /> */}
         <LocationsProvider>{children}</LocationsProvider>
         {/* <Footer _site={_site}></Footer> */}
         {/* {import.meta.env.YEXT_PUBLIC_CHAT_APIKEY &&

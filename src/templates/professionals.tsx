@@ -94,6 +94,7 @@ const Professionals = ({ document }: TemplateProps) => {
       navId: "letstalk",
     },
   ];
+
   return (
     <PageLayout _site={document._site}>
       <HeroBanner document={document} isProfessional={true} />
