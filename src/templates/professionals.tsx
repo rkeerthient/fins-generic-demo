@@ -13,6 +13,7 @@ import LetsTalk from "../components/letsTalk";
 import OurInsights from "../components/ourInsights";
 import PageLayout from "../components/page-layout";
 import "../index.css";
+import Schema from "../components/Schema";
 
 export const config: TemplateConfig = {
   stream: {
@@ -97,6 +98,7 @@ const Professionals = ({ document }: TemplateProps) => {
 
   return (
     <PageLayout _site={document._site}>
+      <Schema document={document} />
       <HeroBanner document={document} isProfessional={true} />
       <InpageNav navItems={InPageNavItems}></InpageNav>
 
