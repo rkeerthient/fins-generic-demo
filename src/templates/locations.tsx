@@ -50,6 +50,7 @@ export const config: TemplateConfig = {
       "c_linkedInsightsArticles.c_insightsArticleSummary",
       "c_linkedInsightsArticles.primaryPhoto",
       "c_linkedInsightsArticles.datePosted",
+      "hours",
     ],
   },
 };

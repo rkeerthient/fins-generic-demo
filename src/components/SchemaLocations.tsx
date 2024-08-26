@@ -1,11 +1,12 @@
 import { JsonLd } from "react-schemaorg";
 import {
-  FinancialService,
-  FAQPage,
-  Place,
-  Person,
   BlogPosting,
+  FAQPage,
+  FinancialService,
+  Person,
+  Place,
 } from "schema-dts";
+import { useEffect, useState } from "react";
 
 const LocSchema = (props: any) => {
   const { document } = props;
@@ -16,6 +17,18 @@ const LocSchema = (props: any) => {
   const faqsList: any = [];
   const empList: any = [];
   const blogsList: any = [];
+
+  const [windowUrl, setWindowUrl] = useState("");
+  const [windowProtocolHost, setWindowProtocolHost] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowUrl(window.location.href);
+      setWindowProtocolHost(
+        `${window.location.protocol}//${window.location.host}`
+      );
+    }
+  }, []);
 
   // Populate Employee List
   document.c_teamMembers &&
@@ -40,7 +53,7 @@ const LocSchema = (props: any) => {
           "@type": "Person",
           name: item.authorName ?? "Unknown Author",
         },
-        url: `${window.location.protocol}//${window.location.host}/${item.slug}`,
+        url: `${windowProtocolHost}/${item.slug}`,
       })
     );
 
@@ -56,12 +69,6 @@ const LocSchema = (props: any) => {
         },
       })
     );
-
-  const windowUrl = typeof window !== "undefined" ? window.location.href : "";
-  const windowProtocolHost =
-    typeof window !== "undefined"
-      ? `${window.location.protocol}//${window.location.host}`
-      : "";
 
   return (
     <>
@@ -79,7 +86,9 @@ const LocSchema = (props: any) => {
             addressCountry: address.countryCode,
           },
           description,
-          openingHoursSpecification: buildHoursSchema(document.hours),
+          openingHoursSpecification: document.hours
+            ? buildHoursSchema(document.hours)
+            : "Mo,Tu,We,Th 09:00-12:00",
           telephone,
           url: windowUrl,
         }}
