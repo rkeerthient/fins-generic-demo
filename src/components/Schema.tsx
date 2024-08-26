@@ -1,23 +1,25 @@
 import { JsonLd } from "react-schemaorg";
-import { ClothingStore, FAQPage, Place, ItemList, Person } from "schema-dts";
+import { FAQPage, Place, Person } from "schema-dts";
 
 const Schema = (props: any) => {
+ 
   const { document } = props;
   const name = `${document.name} in ${document.address.city}, ${document.address.region}`;
   const address = document.address;
   const telephone = document.mainPhone;
   const description = document.description;
   const faqsList: any = [];
-  document.c_relatedFAQs && document.c_relatedFAQs.map((item: any) =>
-    faqsList.push({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })
-  );
+  document.c_relatedFAQs &&
+    document.c_relatedFAQs.map((item: any) =>
+      faqsList.push({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })
+    );
   const windowUrl = typeof window !== "undefined" ? window.location.href : "";
   const windowProtocolHost =
     typeof window !== "undefined"
@@ -45,7 +47,7 @@ const Schema = (props: any) => {
           ),
           telephone,
           knowsLanguage: document.languages,
-          image: document.headshot,
+          image: document.headshot.url,
           url: windowUrl,
           affiliation: {
             "@type": "Organization",
@@ -55,7 +57,7 @@ const Schema = (props: any) => {
         }}
       />
 
-       <JsonLd<FAQPage>
+      <JsonLd<FAQPage>
         item={{
           "@context": "https://schema.org",
           "@type": "FAQPage",

@@ -1,5 +1,6 @@
 import { JsonLd } from "react-schemaorg";
 import {
+  Blog,
   BlogPosting,
   FAQPage,
   FinancialService,
@@ -42,7 +43,6 @@ const LocSchema = (props: any) => {
       })
     );
 
-  // Populate Blog List
   document.c_linkedInsightsArticles &&
     document.c_linkedInsightsArticles.forEach((item: any) =>
       blogsList.push({
@@ -91,6 +91,7 @@ const LocSchema = (props: any) => {
             : "Mo,Tu,We,Th 09:00-12:00",
           telephone,
           url: windowUrl,
+          employee: empList,
         }}
       />
 
@@ -102,9 +103,15 @@ const LocSchema = (props: any) => {
         }}
       />
 
-      <JsonLd<BlogPosting> item={blogsList} />
-
-      {empList.length > 0 && <JsonLd<Person> item={empList} />}
+      {blogsList.length > 0 && (
+        <JsonLd<Blog>
+          item={{
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            blogPost: blogsList,
+          }}
+        />
+      )}
 
       {document.geocodedCoordinate && (
         <JsonLd<Place>
