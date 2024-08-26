@@ -19,7 +19,8 @@ export const config: TemplateConfig = {
     $id: "locations",
     localization: { locales: ["en"] },
     filter: {
-      entityTypes: ["location"],
+      entityTypes: ["financialProfessional"],
+      savedFilterIds: ["1339783446"],
     },
     fields: [
       "name",
@@ -32,20 +33,17 @@ export const config: TemplateConfig = {
       "address",
       "mainPhone",
       "geocodedCoordinate",
-      "fins_relatedServices.name",
-      "fins_relatedServices.c_serviceDescription",
-      "fins_relatedServices.slug",
-      "c_relatedFPsAndTeams.name",
-      "c_relatedFPsAndTeams.c_individualOrTeam",
-      "c_relatedFPsAndTeams.mainPhone",
-      "c_relatedFPsAndTeams.emails",
-      "c_relatedFPsAndTeams.headshot",
-      "c_relatedFPsAndTeams.hours",
-      "c_relatedFPsAndTeams.timezone",
-      "c_relatedFPsAndTeams.address",
-      "c_relatedFPsAndTeams.id",
-      "c_relatedFPsAndTeams.fins_jobTitle",
-      "c_relatedFPsAndTeams.slug",
+      "c_teamMembers.name",
+      "c_teamMembers.c_individualOrTeam",
+      "c_teamMembers.mainPhone",
+      "c_teamMembers.emails",
+      "c_teamMembers.headshot",
+      "c_teamMembers.hours",
+      "c_teamMembers.timezone",
+      "c_teamMembers.address",
+      "c_teamMembers.id",
+      "c_teamMembers.fins_jobTitle",
+      "c_teamMembers.slug",
       "c_linkedInsightsArticles.name",
       "c_linkedInsightsArticles.slug",
       "c_linkedInsightsArticles.c_insightsArticleSummary",
@@ -108,7 +106,8 @@ const Locations = ({ document, __meta }: TemplateProps) => {
 
       <InpageNav navItems={InPageNavItems}></InpageNav>
       <article className="centered-container flex md:flex-row flex-col justify-center items-center py-16 gap-8 px-4 md:px-0">
-        <img loading="lazy"
+        <img
+          loading="lazy"
           src={
             "https://a.mktgcdn.com/p/65JQqTuL6mWfKaHM0EiyiPEV820Oi35tUPhDN36Tq1A/3149x4724.jpg"
           }
@@ -122,7 +121,7 @@ const Locations = ({ document, __meta }: TemplateProps) => {
             jadams@capitalbank.com
           </p>
           <p className="  text-base font-normal">
-            {document.description.length <= 60
+            {!document.description || document.description.length <= 60
               ? `Welcome to Capital Bank, where your financial goals become our mission. At Capital Bank, we offer a comprehensive range of services to meet your banking needs. From retail banking solutions designed for your everyday transactions to mortgage and lending services to help you achieve your dream home, we've got you covered. Our dedicated team of experts specializes in wealth management, ensuring your financial future is secure and prosperous. For businesses, our business banking services provide tailored solutions to fuel your growth and success. At Capital Bank, we are committed to delivering excellence in banking, putting you on the path to financial success.`
               : document.description}
           </p>
@@ -140,8 +139,8 @@ const Locations = ({ document, __meta }: TemplateProps) => {
         <a className="hidden" id="team"></a>
         <section className="centered-container flex flex-col gap-4 md:gap-8">
           <h2 className="text-center">Our {document.address.city} Team</h2>
-          {document.c_relatedFPsAndTeams && (
-            <OurTeam teamMembers={document.c_relatedFPsAndTeams} />
+          {document.c_teamMembers && (
+            <OurTeam teamMembers={document.c_teamMembers} />
           )}
         </section>
       </section>
