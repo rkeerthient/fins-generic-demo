@@ -37,12 +37,12 @@ const Schema = (props: any) => {
           telephone,
           knowsLanguage: document.languages,
           image: document.headshot,
-          // url: windowUrl,
-          // affiliation: {
-          //   "@type": "Organization",
-          //   name: "Capital fins bank",
-          //   url: windowProtocolHost,
-          // },
+          url: windowUrl,
+          affiliation: {
+            "@type": "Organization",
+            name: "Capital fins bank",
+            url: windowProtocolHost,
+          },
         }}
       />
 
