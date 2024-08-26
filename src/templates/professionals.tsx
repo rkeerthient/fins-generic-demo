@@ -51,6 +51,7 @@ export const config: TemplateConfig = {
       "interests",
       "hobbies",
       "yextDisplayCoordinate",
+      "hours",
     ],
   },
 };

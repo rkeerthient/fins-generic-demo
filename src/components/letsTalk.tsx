@@ -1,8 +1,6 @@
-import { EnvelopeOpenIcon, PhoneIcon } from "@heroicons/react/24/outline";
-import { GoogleMaps, LocationMap } from "@yext/pages-components";
-import StaticMap from "./static-map";
-import Cta from "./cta";
 import { FormatEmail, FormatPhoneNumber } from "../common/util";
+import Cta from "./cta";
+import StaticMap from "./static-map";
 export interface Coordinate {
   latitude: string;
   longitude: string;

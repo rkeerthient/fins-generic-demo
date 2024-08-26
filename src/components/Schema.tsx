@@ -8,10 +8,7 @@ const Schema = (props: any) => {
   const telephone = document.mainPhone;
   const description = document.description;
   const faqsList: any = [];
-  const productsList: any = [];
-  const itemListElement: any = [];
 
-  // Check if window is defined
   const windowUrl = typeof window !== "undefined" ? window.location.href : "";
   const windowProtocolHost =
     typeof window !== "undefined"
@@ -40,12 +37,12 @@ const Schema = (props: any) => {
           telephone,
           knowsLanguage: document.languages,
           image: document.headshot,
-          url: windowUrl,
-          affiliation: {
-            "@type": "Organization",
-            name: "Capital fins bank",
-            url: windowProtocolHost,
-          },
+          // url: windowUrl,
+          // affiliation: {
+          //   "@type": "Organization",
+          //   name: "Capital fins bank",
+          //   url: windowProtocolHost,
+          // },
         }}
       />
 
