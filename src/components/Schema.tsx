@@ -8,7 +8,16 @@ const Schema = (props: any) => {
   const telephone = document.mainPhone;
   const description = document.description;
   const faqsList: any = [];
-
+  document.c_relatedFAQs && document.c_relatedFAQs.map((item: any) =>
+    faqsList.push({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })
+  );
   const windowUrl = typeof window !== "undefined" ? window.location.href : "";
   const windowProtocolHost =
     typeof window !== "undefined"
@@ -46,13 +55,13 @@ const Schema = (props: any) => {
         }}
       />
 
-      {/*  <JsonLd<FAQPage>
+       <JsonLd<FAQPage>
         item={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: faqsList,
         }}
-      /> */}
+      />
 
       {document.geocodedCoordinate && (
         <JsonLd<Place>

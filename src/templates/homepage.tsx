@@ -23,14 +23,7 @@ import "../index.css";
 export const config: TemplateConfig = {
   stream: {
     $id: "my-stream-id-1",
-    fields: [
-      "id",
-      "uid",
-      "meta",
-      "name",
-      "slug",
-      
-    ],
+    fields: ["id", "uid", "meta", "name", "slug"],
     filter: {
       entityTypes: ["ce_site"],
     },
@@ -40,10 +33,12 @@ export const config: TemplateConfig = {
   },
 };
 
-export const getPath: GetPath<TemplateProps> = () => {
-  return `index.html`;
+// export const getPath: GetPath<TemplateProps> = () => {
+//   return `index.html`;
+// };
+export const getPath: GetPath<TemplateProps> = ({ document }) => {
+  return document.slug ?? document.id.toString();
 };
-
 export const getHeadConfig: GetHeadConfig<
   TemplateRenderProps
 > = (): HeadConfig => {
