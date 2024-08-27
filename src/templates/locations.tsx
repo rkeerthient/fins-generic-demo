@@ -109,7 +109,7 @@ const Locations = ({ document, __meta }: TemplateProps) => {
   ];
   return (
     <PageLayout _site={document._site}>
-      {/* <LocSchema document={document} /> */}
+      <LocSchema document={document} />
       <HeroBanner document={document} isProfessional={false} />
 
       <InpageNav navItems={InPageNavItems}></InpageNav>

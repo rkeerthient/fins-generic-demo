@@ -99,7 +99,7 @@ const Professionals = ({ document }: TemplateProps) => {
 
   return (
     <PageLayout _site={document._site}>
-      {/* <Schema document={document} /> */}
+      <Schema document={document} />
       <HeroBanner document={document} isProfessional={true} />
       <InpageNav navItems={InPageNavItems}></InpageNav>
 
