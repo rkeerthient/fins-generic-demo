@@ -116,8 +116,7 @@ const Locations = ({ document, __meta }: TemplateProps) => {
           }
           className="w-full md:w-[200.59px] aspect-[3/4] rounded-lg object-center object-cover"
         />
-        <section className="flex flex-col items-left gap-6">
-          <a className="hidden" id="aboutMe"></a>
+        <section className="flex flex-col items-left gap-6" id="aboutMe">
           <h2>Joseph Adams</h2>
           <p className="  text-base font-bold">Regional Director</p>
           <p className=" text-base font-normal underline">
@@ -131,16 +130,20 @@ const Locations = ({ document, __meta }: TemplateProps) => {
         </section>
       </article>
 
-      <section className="bg-white  ">
-        <a className="hidden" id="insights"></a>
-        <section className="centered-container px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8 centered-container">
+      <section className="bg-white ">
+        <section
+          id="insights"
+          className="centered-container px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8 centered-container"
+        >
           <h2 className="text-center">Our Insights</h2>
           <OurInsights linkedArticles={document.c_linkedInsightsArticles} />
         </section>
       </section>
       <section className=" px-8  py-2 md:px-32  md:py-8 ">
-        <a className="hidden" id="team"></a>
-        <section className="centered-container flex flex-col gap-4 md:gap-8">
+        <section
+          id="team"
+          className="centered-container flex flex-col gap-4 md:gap-8"
+        >
           <h2 className="text-center">Our {document.address.city} Team</h2>
           {document.c_teamMembers && (
             <OurTeam teamMembers={document.c_teamMembers} />
@@ -148,8 +151,10 @@ const Locations = ({ document, __meta }: TemplateProps) => {
         </section>
       </section>
       <section className="bg-white px-8  py-2 md:px-32  md:py-8 ">
-        <a className="hidden" id="letsTalk"></a>
-        <section className="centered-container flex flex-col gap-4 md:gap-8">
+        <section
+          id="letsTalk"
+          className="centered-container flex flex-col gap-4 md:gap-8"
+        >
           <h2 className="text-center">Lets Talk</h2>
           <LetsTalk
             description={document.description}

@@ -103,29 +103,31 @@ const Professionals = ({ document }: TemplateProps) => {
       <HeroBanner document={document} isProfessional={true} />
       <InpageNav navItems={InPageNavItems}></InpageNav>
 
-      <section className="centered-container px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8">
+      <section
+        id="about"
+        className="centered-container px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8"
+      >
         <h2 className="sr-only">About me</h2>
-        <a className="hidden" id="about"></a>
         <h2 className="text-center">About {name}</h2>
         <p>{document.c_fPBio}</p>
       </section>
-      <section className="bg-white ">
+      <section className="bg-white " id="details">
         <h2 className="sr-only">My Details</h2>
         <section className="centered-container  px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8">
-          <a className="hidden" id="details"></a>
           <h2 className="text-center">My Details</h2>
           <Details document={document} />
         </section>
       </section>
-      <section className=" centered-container px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8">
+      <section
+        id="insights"
+        className=" centered-container px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8"
+      >
         <h2 className="sr-only">Insights</h2>
-        <a className="hidden" id="insights"></a>
         <h2 className="text-center">Insights</h2>
         <OurInsights linkedArticles={document.c_linkedInsightsArticles} />
       </section>
-      <section className="bg-white">
+      <section className="bg-white" id="letstalk">
         <h2 className="sr-only">Lets talk</h2>
-        <a className="hidden" id="letstalk"></a>
         <section className="px-8 py-4 md:px-32 md:py-8 flex flex-col gap-4 md:gap-8">
           <h2 className="text-center">Lets Talk</h2>
           <LetsTalk
