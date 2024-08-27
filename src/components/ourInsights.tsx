@@ -78,7 +78,7 @@ export const InsightsCard = ({
         href={`/${_data.slug}`}
         className={`${showImage ? `text-base` : `text-sm`}  font-medium flex gap-1 items-center hover:cursor-pointer hover:underline mt-4 text-primary`}
       >
-        Read more
+        Know more 
         <svg
           stroke="currentColor"
           fill="currentColor"

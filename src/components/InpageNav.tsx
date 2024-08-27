@@ -33,20 +33,19 @@ const InpageNav = ({ navItems }: InpageNavProps) => {
             className="h-4 w-4 hover:cursor-pointer"
             onClick={() => setIsSubNavOpen(false)}
           />
+          <hr className="mt-4" />
         </li>
-        <hr className="mt-4" />
+
         {isSubNavOpen && (
           <span
             className="bg-white  rounded py-2  transition-all"
             style={{ opacity: isSubNavOpen ? 1 : 0 }}
           >
             {navItems.map((item, index) => (
-              <span key={index}>
-                <li className="text-sm">
-                  <a href={`#${item.navId}`}>{item.name}</a>
-                </li>
+              <li className="text-sm" key={index}>
+                <a href={`#${item.navId}`}>{item.name}</a>
                 <hr className="my-2" />
-              </span>
+              </li>
             ))}
           </span>
         )}

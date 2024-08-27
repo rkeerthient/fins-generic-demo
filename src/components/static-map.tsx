@@ -9,6 +9,7 @@ const StaticMap = (props: Coordinates) => {
   return (
     <>
       <img
+        alt="Map block"
         loading="lazy"
         className="w-full md:w-[45%]"
         width="300"
