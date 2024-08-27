@@ -21,7 +21,9 @@ const OurTeam = ({ teamMembers }: OurTeamProps) => {
   return (
     <ul role="list" className="grid grid-cols-1 gap-2 md:grid-cols-4">
       {individualMembers.map((teamMember: any) => (
-        <ProfessionalCardUniv key={teamMember.id} result={teamMember} />
+        <li key={teamMember.id} role="listitem">
+          <ProfessionalCardUniv result={teamMember} />
+        </li>
       ))}
     </ul>
   );
@@ -37,7 +39,9 @@ const OurTeamMobile = ({ teamMembers, name }: OurTeamProps) => {
     <>
       <ul role="list" className="grid grid-cols-1 gap-2 md:grid-cols-4">
         {displayedMembers.map((teamMember: any) => (
-          <ProfessionalCardUniv key={teamMember.id} result={teamMember} />
+          <li key={teamMember.id} role="listitem">
+            <ProfessionalCardUniv result={teamMember} />
+          </li>
         ))}
       </ul>
       {teamMembers.length > 10 && (
