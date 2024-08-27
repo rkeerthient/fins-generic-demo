@@ -61,7 +61,8 @@ export const InsightsCard = ({
   return (
     <section className="flex flex-col gap-2">
       {showImage && (
-        <Image loading="lazy"
+        <Image
+          loading="lazy"
           image={_data.primaryPhoto}
           className="!mb-4 max-w-[700px] !aspect-video"
         ></Image>
@@ -74,6 +75,7 @@ export const InsightsCard = ({
         {_data.c_insightsArticleSummary}
       </p>
       <a
+        href={`/${_data.slug}`}
         className={`${showImage ? `text-base` : `text-sm`}  font-medium flex gap-1 items-center hover:cursor-pointer hover:underline mt-4 text-primary`}
       >
         Read more
