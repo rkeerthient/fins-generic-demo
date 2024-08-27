@@ -14,6 +14,7 @@ import PageLayout from "../components/page-layout";
 import "../index.css";
 import { OurTeam } from "../components/ourTeam";
 import LocSchema from "../components/SchemaLocations";
+import { Image } from "@yext/pages-components";
 
 export const config: TemplateConfig = {
   stream: {
@@ -51,6 +52,10 @@ export const config: TemplateConfig = {
       "c_linkedInsightsArticles.primaryPhoto",
       "c_linkedInsightsArticles.datePosted",
       "hours",
+      "c_teamManager.name",
+      "c_teamManager.headshot",
+      "c_teamManager.slug",
+      "c_teamManager.emails",
     ],
   },
 };
@@ -108,27 +113,28 @@ const Locations = ({ document, __meta }: TemplateProps) => {
       <HeroBanner document={document} isProfessional={false} />
 
       <InpageNav navItems={InPageNavItems}></InpageNav>
-      <article className="centered-container flex md:flex-row flex-col justify-center items-center py-16 gap-8 px-4 md:px-0">
-        <img
-          loading="lazy"
-          src={
-            "https://a.mktgcdn.com/p/65JQqTuL6mWfKaHM0EiyiPEV820Oi35tUPhDN36Tq1A/3149x4724.jpg"
-          }
-          className="w-full md:w-[200.59px] aspect-[3/4] rounded-lg object-center object-cover"
-        />
-        <section className="flex flex-col items-left gap-6" id="aboutMe">
-          <h2>Joseph Adams</h2>
-          <p className="  text-base font-bold">Regional Director</p>
-          <p className=" text-base font-normal underline">
-            jadams@capitalbank.com
-          </p>
-          <p className="  text-base font-normal">
-            {!document.description || document.description.length <= 60
-              ? `Welcome to Capital Bank, where your financial goals become our mission. At Capital Bank, we offer a comprehensive range of services to meet your banking needs. From retail banking solutions designed for your everyday transactions to mortgage and lending services to help you achieve your dream home, we've got you covered. Our dedicated team of experts specializes in wealth management, ensuring your financial future is secure and prosperous. For businesses, our business banking services provide tailored solutions to fuel your growth and success. At Capital Bank, we are committed to delivering excellence in banking, putting you on the path to financial success.`
-              : document.description}
-          </p>
-        </section>
-      </article>
+      {document.c_teamManager && (
+        <article className="centered-container flex md:flex-row flex-col justify-center items-center py-16 gap-8 px-4 md:px-0">
+          <Image
+            image={document.c_teamManager[0].headshot}
+            className="w-full md:!w-[250px] !aspect-square rounded-lg object-right object-cover !max-w-none"
+          />
+
+          <section className="flex flex-col items-left gap-4" id="aboutMe">
+            <h2>{document.c_teamManager[0].name}</h2>
+            <p className="  text-base font-bold">Regional Director</p>
+            <p className=" text-base font-normal underline">
+              {document.c_teamManager[0].emails?.[0] ??
+                `capitalfins@capitalfins.com`}
+            </p>
+            <p className="  text-base font-normal">
+              {!document.description || document.description.length <= 60
+                ? `Welcome to Capital Bank, where your financial goals become our mission. At Capital Bank, we offer a comprehensive range of services to meet your banking needs. From retail banking solutions designed for your everyday transactions to mortgage and lending services to help you achieve your dream home, we've got you covered. Our dedicated team of experts specializes in wealth management, ensuring your financial future is secure and prosperous. For businesses, our business banking services provide tailored solutions to fuel your growth and success. At Capital Bank, we are committed to delivering excellence in banking, putting you on the path to financial success.`
+                : document.description}
+            </p>
+          </section>
+        </article>
+      )}
 
       <section className="bg-white ">
         <section
