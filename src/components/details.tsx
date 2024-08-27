@@ -15,9 +15,9 @@ const Details = ({ document }: any) => {
       className=" w-[96%] mx-auto md:w-full grid grid-cols-1 md:grid-cols-3 justify-between gap-4 md:gap-8 "
       aria-labelledby="wealth-manager-details"
     >
-      <h1 id="wealth-manager-details" className="sr-only">
+      <h2 id="wealth-manager-details" className="sr-only">
         Wealth Manager Detailed Page
-      </h1>
+      </h2>
 
       <article className="flex flex-col gap-2 md:gap-4 p-4 border rounded-md">
         <section className="flex flex-col">
