@@ -16,6 +16,7 @@ const Cta = ({ buttonText, style, url, classNames = "", type }: CtaProps) => {
 
   return (
     <Link
+      aria-label={buttonText}
       eventName={type}
       href={url || "#"}
       className={`${styleClasses} ${classNames} `}
