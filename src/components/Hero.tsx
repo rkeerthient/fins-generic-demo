@@ -14,12 +14,14 @@ const Hero = ({ c_heroBanners }: any) => {
       className="w-full md:h-[400px] relative flex items-center justify-center md:justify-start"
     >
       <h2 className="sr-only">Hero section</h2>
-      <Image
-        loading="lazy"
-        image={c_heroBanner.backgroundImage!}
-        layout="fill"
-        className="absolute z-0 !object-top	h-full w-full"
-      />
+      {c_heroBanner.backgroundImage && (
+        <Image
+          loading="lazy"
+          image={c_heroBanner.backgroundImage}
+          layout="fill"
+          className="absolute z-0 !object-top	h-full w-full"
+        />
+      )}
       <section className="bg-white md:p-6 md:ml-16 border rounded-md w-full md:w-1/3 flex flex-col gap-2 md:gap-0 mx-6 my-12 p-4 z-10">
         <h3>{c_heroBanner.name}</h3>
         <p className="md:text-base text-[12px] ">{c_heroBanner.description}</p>

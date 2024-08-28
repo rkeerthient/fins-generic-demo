@@ -60,13 +60,7 @@ const handleSearch: onSearchFunc = (searchEventData) => {
 };
 const Header = ({ _site }: any) => {
   const { queryPrompts } = useTypingEffect();
-  const {
-    c_primaryNav,
-    c_secondaryNav,
-    c_topLeftNav,
-    c_topRightNav,
-    c_headerLogo,
-  } = _site;
+  const { c_primaryNav, c_topLeftNav, c_topRightNav, c_headerLogo } = _site;
   useEffect(() => {
     const currLocation = window.location.pathname;
     currLocation.includes("search")
@@ -115,7 +109,7 @@ const Header = ({ _site }: any) => {
             Top Left Navigation
           </h2>
           <ul className="flex items-center" aria-label="Primary navigation">
-            {c_primaryNav.map((item: NavProps, index: number) => (
+            {c_topLeftNav.map((item: NavProps, index: number) => (
               <li key={index} className="ml-4 text-sm ">
                 <a className="hover:underline" href="#">
                   {item.name}
@@ -155,9 +149,14 @@ const Header = ({ _site }: any) => {
 
           <div className="flex items-center gap-4 w-full justify-start">
             <a href="/">
-              <Image loading="lazy" image={c_headerLogo!} width={259} layout="fixed" />
+              <Image
+                loading="lazy"
+                image={c_headerLogo!}
+                width={259}
+                layout="fixed"
+              />
             </a>
-            <NavMenu isPrimary={true} menuItems={c_topLeftNav} />
+            <NavMenu menuItems={c_primaryNav} />
 
             {!isSearchPage && (
               <SearchBarComponent
@@ -172,7 +171,8 @@ const Header = ({ _site }: any) => {
         <div className="flex justify-between items-center font-bold w-full">
           <div className="ml-2">
             <a href="/">
-              <Image loading="lazy"
+              <Image
+                loading="lazy"
                 image={c_headerLogo!}
                 width={150}
                 className="!h-auto"
