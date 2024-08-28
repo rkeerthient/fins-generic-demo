@@ -181,12 +181,12 @@ const Slider = ({
         <div className="carousel-indicators">
           {showIndicators &&
             elements.map((element, index) => (
-              <a key={index}>
-                <span
-                  onClick={() => goToSlide(index)}
-                  color={currentIndex === index ? "black" : "grey"}
-                />
-              </a>
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                style={{ color: currentIndex === index ? "black" : "grey" }}
+                aria-label={`Go to slide ${index + 1}`}
+              ></button>
             ))}
         </div>
         {/* {showNextPrev && (

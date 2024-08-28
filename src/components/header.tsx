@@ -170,7 +170,7 @@ const Header = ({ _site }: any) => {
       <header className="p-6 justify-between items-center w-full max-w-screen-3xl bg-primary text-white md:hidden h-20 flex ">
         <div className="flex justify-between items-center font-bold w-full">
           <div className="ml-2">
-            <a href="/">
+            <a href="/" aria-label="Homepage">
               <Image
                 loading="lazy"
                 image={c_headerLogo!}
