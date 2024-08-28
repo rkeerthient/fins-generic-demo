@@ -100,13 +100,12 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
           <h2 className="sr-only">Learn more section</h2>
           <Cta
             buttonText={"Learn more"}
-            url={""}
+            url={"/search.html"}
             style="primary"
             classNames="px-2 py-1.5 md:px-6 md:py-2.5 text-sm md:text-base rounded-md "
           ></Cta>
         </section>
         <section className="bg-primary-bg px-8  py-2 md:px-32  md:py-8 flex flex-col gap-4 md:gap-8">
-          <a id="insights"></a>
           <h2 className="text-2xl md:text-[34px] font-medium text-center ">
             Our Services
           </h2>
@@ -121,14 +120,12 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
 
         <GetInTouchBanner />
         <section className="bg-primary-bg  px-8  py-2 md:px-32  md:py-8 flex flex-col gap-4 md:gap-8 centered-container">
-          <a id="insights"></a>
           <h2 className="text-2xl md:text-[34px] font-medium text-center ">
             Insights
           </h2>
           <OurInsights linkedArticles={c_featuredArticles} />
         </section>
         <section className="bg-white px-8  py-2 md:px-32  md:py-8 ">
-          <a id="nearbyLocations"></a>
           <section className="centered-container flex flex-col gap-4 md:gap-8">
             <h2 className="text-2xl md:text-[34px] ont-medium text-center">
               Near by Locations
@@ -137,7 +134,6 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
           </section>
         </section>
         <section className="px-8  py-2 md:px-32  md:py-8 bg-primary-bg centered-container flex flex-col gap-4   md:gap-8">
-          <a id="Featured FAQs"></a>
           <h2 className="text-2xl md:text-[34px] font-medium text-center">
             Featured FAQs
           </h2>

@@ -64,7 +64,7 @@ export const InsightsCard = ({
         <Image
           loading="lazy"
           image={_data.primaryPhoto}
-          className="!mb-4 max-w-[700px] !aspect-video"
+          className="!mb-4 w-full max-w-[700px] !aspect-video"
         ></Image>
       )}
       <p className="text-sm">{formatDate(_data.datePosted)}</p>
@@ -78,7 +78,7 @@ export const InsightsCard = ({
         href={`/${_data.slug}`}
         className={`${showImage ? `text-base` : `text-sm`}  font-medium flex gap-1 items-center hover:cursor-pointer hover:underline mt-4 text-primary`}
       >
-        Know more 
+        Know more
         <svg
           stroke="currentColor"
           fill="currentColor"
