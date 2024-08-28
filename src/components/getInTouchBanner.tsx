@@ -21,8 +21,8 @@ const getInTouchBanner = () => {
         loading="lazy"
         alt=""
       ></img>
-      <article className=" w-full absolute bg-black bg-opacity-75 flex items-center justify-center flex-col h-[200px] md:h-full text-white top-0 left-0 z-2">
-        <section className="md:p-8 md:ml-16 justify-center  w-full  flex  gap-4 md:gap-4 mx-6 my-12 p-4   text-white items-center">
+      <article className="  absolute bg-black bg-opacity-75 w-full h-full">
+        <section className="md:p-8 md:ml-16 justify-center   flex  gap-4 md:gap-4 mx-6 my-12 p-4   text-white items-center">
           <img
             src="https://dyn.mktgcdn.com/p/JUivhtB3rL5IfY4Vv86lmCinXDSswh1MGCMoy8_LXvQ/width=2336,height=2336"
             className="!w-52 rounded-full aspect-square  !h-auto hidden  md:block object-cover object-center"
