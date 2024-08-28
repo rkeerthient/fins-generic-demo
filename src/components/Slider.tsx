@@ -25,8 +25,6 @@ const Slider = ({
   showIndicators = false,
   onSlideChange,
 }: SliderProps) => {
-  console.log(JSON.stringify(sliderData));
-
   const [currentIndex, setCurrentIndex] = useState<number>(2);
   const interval = useRef<ReturnType<typeof setInterval> | null>(null);
   const [elements, setElements] = useState<ElementDefinition[]>([]);
