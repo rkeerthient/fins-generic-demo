@@ -109,16 +109,16 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
           <h2 className="text-2xl md:text-[34px] font-medium text-center ">
             Our Services
           </h2>
-          <Slider
+          {/* <Slider
             sliderData={c_featuredServices}
             duration={1000}
             animation={"horizontal flip"}
             showNextPrev={true}
             showIndicators={true}
-          ></Slider>
+          ></Slider> */}
         </section>
 
-        {/* <GetInTouchBanner /> */}
+        <GetInTouchBanner />
         <section className="bg-primary-bg  px-8  py-2 md:px-32  md:py-8 flex flex-col gap-4 md:gap-8 centered-container">
           <h2 className="text-2xl md:text-[34px] font-medium text-center ">
             Insights
