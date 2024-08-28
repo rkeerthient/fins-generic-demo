@@ -6,13 +6,6 @@ const getInTouchBanner = () => {
       className="w-full h-[200px] md:h-[500px] relative"
     >
       <h2 className="sr-only">Hero section</h2>
-
-      {/* <img
-        loading="lazy"
-        src="https://a.mktgcdn.com/p/sen0TdAb2xKxTvNWohNCdkYJE4HDF2yzHAYZHSYjTJk/1660x625.jpg"
-        alt=""
-        className="!w-full !absolute h-[200px] md:h-full"
-      /> */}
       <img
         src="https://dyn.mktgcdn.com/p/sen0TdAb2xKxTvNWohNCdkYJE4HDF2yzHAYZHSYjTJk/width=500,height=500"
         className=" !absolute !h-full !max-w-none  object-cover object-center w-full"
