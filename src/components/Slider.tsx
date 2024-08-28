@@ -25,7 +25,9 @@ const Slider = ({
   showIndicators = false,
   onSlideChange,
 }: SliderProps) => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  console.log(JSON.stringify(sliderData));
+
+  const [currentIndex, setCurrentIndex] = useState<number>(2);
   const interval = useRef<ReturnType<typeof setInterval> | null>(null);
   const [elements, setElements] = useState<ElementDefinition[]>([]);
 
@@ -94,9 +96,23 @@ const Slider = ({
     const { fins_servicesImage, name, id, slug, c_serviceDescription } = data;
     return (
       <article className="bg-white border [&:not(:first-child)]:ml-8 flex flex-col pb-6 w-full md:w-1/3">
-        <Image loading="lazy" image={fins_servicesImage} className="!h-[250px]"></Image>
-        <h3 className="px-4">{name}</h3>
-        <p className=" px-4">{c_serviceDescription}</p>
+        <Image
+          loading="lazy"
+          image={fins_servicesImage}
+          className="!h-[250px]"
+        ></Image>
+        <h3
+          className="px-4 line-clamp-2 flex items-center"
+          style={{ minHeight: "4rem", maxHeight: "6rem" }}
+        >
+          {name}
+        </h3>
+        <p
+          className="px-4 line-clamp-3"
+          style={{ minHeight: "3rem", maxHeight: "9rem" }}
+        >
+          {c_serviceDescription}
+        </p>
         <Cta
           buttonText={"Learn more"}
           url={slug}
