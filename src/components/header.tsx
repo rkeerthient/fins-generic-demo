@@ -148,7 +148,7 @@ const Header = ({ _site }: any) => {
           </h2>
 
           <div className="flex items-center gap-4 w-full justify-start">
-            <a href="/">
+            <a href="/" aria-label="homepage">
               <Image
                 loading="lazy"
                 image={c_headerLogo!}

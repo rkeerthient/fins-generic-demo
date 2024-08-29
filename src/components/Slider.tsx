@@ -134,9 +134,9 @@ const Slider = ({
     >
       {elements.length > 0 ? (
         <>
-          <h1 id="services-heading" className="sr-only">
+          <h2 id="services-heading" className="sr-only">
             Our Services
-          </h1>
+          </h2>
           <div className="hidden md:flex">
             {[
               currentIndex,
