@@ -11,21 +11,21 @@ type UtilsProps = {
   email?: string;
   isDirectory?: boolean;
 };
-
+function formatPhoneNumber(phoneNumber: any) {
+  return phoneNumber
+    .replace(/\+1/, "") // Remove +1 country code
+    .replace(/\D+/g, "") // Remove non-numeric characters
+    .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3"); // Format as (XXX) XXX-XXXX
+}
 export const FormatPhoneNumber = ({ mainPhone }: UtilsProps) => {
   return (
     <>
       {mainPhone && (
-        <div className="flex items-center" aria-label="Phone number">
+        <section className="flex items-center" aria-label="Phone number">
           <h2 className="sr-only">Phone number</h2>
           <PhoneIcon className="h-4 w-4 text-primary" aria-hidden="true" />
-          <span className="ml-2">
-            {mainPhone
-              .replace(/\+1/, "")
-              .replace(/\D+/g, "")
-              .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
-          </span>
-        </div>
+          <span className="ml-2">{formatPhoneNumber(mainPhone)}</span>
+        </section>
       )}
     </>
   );
