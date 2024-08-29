@@ -27,8 +27,11 @@ const Slider = ({
 }: SliderProps) => {
   const [currentIndex, setCurrentIndex] = useState<number>(2);
   const interval = useRef<ReturnType<typeof setInterval> | null>(null);
-  const [elements, setElements] = useState<ElementDefinition[]>([]);
-
+  const [elements, setElements] = useState<ElementDefinition[]>(
+    sliderData.map((item) => ({
+      render: () => buildCard(item),
+    }))
+  );
   useEffect(() => {
     const newElements: ElementDefinition[] = sliderData.map((item) => ({
       render: () => buildCard(item),
@@ -129,71 +132,63 @@ const Slider = ({
       aria-labelledby="services-heading"
       className={`overflow-hidden relative max-w-screen-xl  mx-auto`}
     >
-      <h1 id="services-heading" className="sr-only">
-        Our Services
-      </h1>
-      <div className="hidden md:flex">
-        {[
-          currentIndex,
-          (currentIndex + 1) % elements.length,
-          (currentIndex + 2) % elements.length,
-        ].map((index) => (
-          <Transition
-            key={index}
-            transitionOnMount={true}
-            visible={true}
-            duration={1000}
-            animation={animation}
-          >
-            {elements[index]?.render()}
-          </Transition>
-        ))}
-        {showIndicators &&
-          elements.map((element, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              style={{ color: currentIndex === index ? "black" : "grey" }}
-              aria-label={`Go to slide ${index + 1}`}
-            ></button>
-          ))}
-        {/* {showNextPrev && (
-          <ChevronRightIcon className="h-4 w-4" onClick={prevClicked} />
-        )}
-        {showNextPrev && (
-          <ChevronLeftIcon className="h-4 w-4" onClick={nextClicked} />
-        )} */}
-      </div>
-      <div className="flex md:hidden">
-        {[currentIndex].map((index) => (
-          <Transition
-            key={index}
-            transitionOnMount={true}
-            visible={true}
-            duration={1000}
-            animation={animation}
-          >
-            {elements[index]?.render()}
-          </Transition>
-        ))}
-        <div className="carousel-indicators">
-          {showIndicators &&
-            elements.map((element, index) => (
-              <button
+      {elements.length > 0 ? (
+        <>
+          <h1 id="services-heading" className="sr-only">
+            Our Services
+          </h1>
+          <div className="hidden md:flex">
+            {[
+              currentIndex,
+              (currentIndex + 1) % elements.length,
+              (currentIndex + 2) % elements.length,
+            ].map((index) => (
+              <Transition
                 key={index}
-                onClick={() => goToSlide(index)}
-                style={{ color: currentIndex === index ? "black" : "grey" }}
-                aria-label={`Go to slide ${index + 1}`}
-              ></button>
+                transitionOnMount={true}
+                visible={true}
+                duration={1000}
+                animation={animation}
+              >
+                {elements[index]?.render()}
+              </Transition>
             ))}
-        </div>
-        {/* {showNextPrev && (
-          <ChevronRightIcon className="h-4 w-4" onClick={prevClicked} />
-        )}
-        {showNextPrev && (
-          <ChevronLeftIcon className="h-4 w-4" onClick={nextClicked} />
-        )} */}
-      </div>
+            {showIndicators &&
+              elements.map((element, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  style={{ color: currentIndex === index ? "black" : "grey" }}
+                  aria-label={`Go to slide ${index + 1}`}
+                ></button>
+              ))}
+          </div>
+          <div className="flex md:hidden">
+            {[currentIndex].map((index) => (
+              <Transition
+                key={index}
+                transitionOnMount={true}
+                visible={true}
+                duration={1000}
+                animation={animation}
+              >
+                {elements[index]?.render()}
+              </Transition>
+            ))}
+            <div className="carousel-indicators">
+              {showIndicators &&
+                elements.map((element, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    style={{ color: currentIndex === index ? "black" : "grey" }}
+                    aria-label={`Go to slide ${index + 1}`}
+                  ></button>
+                ))}
+            </div>
+          </div>
+        </>
+      ) : null}
     </section>
   );
 };
