@@ -93,7 +93,7 @@ const Slider = ({
   const buildCard = (data: any) => {
     const { fins_servicesImage, name, id, slug, c_serviceDescription } = data;
     return (
-      <article className="bg-white border [&:not(:first-child)]:ml-8 flex flex-col pb-6 w-full md:w-1/3">
+      <article className="bg-white border [&:not(:first-child)]:ml-8 flex flex-col pb-6 w-full md:w-1/3 h-[450px] md:h-[490px]">
         <Image
           loading="lazy"
           image={fins_servicesImage}
