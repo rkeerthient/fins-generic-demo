@@ -58,9 +58,9 @@ const getInTouchBanner = () => {
         src="https://a.mktgcdn.com/p/sen0TdAb2xKxTvNWohNCdkYJE4HDF2yzHAYZHSYjTJk/1660x625.jpg"
         srcSet="https://dyn.mktgcdn.com/p/sen0TdAb2xKxTvNWohNCdkYJE4HDF2yzHAYZHSYjTJk/width=100,height=38 100w, https://dyn.mktgcdn.com/p/sen0TdAb2xKxTvNWohNCdkYJE4HDF2yzHAYZHSYjTJk/width=320,height=120 320w, https://dyn.mktgcdn.com/p/sen0TdAb2xKxTvNWohNCdkYJE4HDF2yzHAYZHSYjTJk/width=640,height=241 640w, https://dyn.mktgcdn.com/p/sen0TdAb2xKxTvNWohNCdkYJE4HDF2yzHAYZHSYjTJk/width=960,height=361 960w, https://dyn.mktgcdn.com/p/sen0TdAb2xKxTvNWohNCdkYJE4HDF2yzHAYZHSYjTJk/width=1280,height=482 1280w, https://dyn.mktgcdn.com/p/sen0TdAb2xKxTvNWohNCdkYJE4HDF2yzHAYZHSYjTJk/width=1920,height=723 1920w"
         alt=""
-        className="!w-full !absolute !h-[200px] md:h-full !max-w-none"
+        className="!w-full !absolute h-[200px] md:h-full !max-w-none"
       />
-      <article className="w-full absolute bg-black bg-opacity-75 flex items-center justify-center flex-col !h-[200px] md:h-full text-white top-0 left-0 z-10">
+      <article className="w-full absolute bg-black bg-opacity-75 flex items-center justify-center flex-col h-[200px] md:h-full text-white top-0 left-0 z-10">
         <section className="md:p-8 md:ml-16 justify-center w-full h-full flex gap-4 md:gap-4 mx-6 my-12 p-4 text-white items-center">
           <img
             loading="lazy"
