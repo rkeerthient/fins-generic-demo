@@ -112,7 +112,7 @@ const Slider = ({
           {c_serviceDescription}
         </p>
         <Cta
-          buttonText={"Learn more"}
+          buttonText={`More about ${name}`}
           url={slug}
           style="primary"
           classNames="mt-4 px-2 py-1.5 md:px-4 md:py-2 text-sm md:text-base rounded-md ml-4"

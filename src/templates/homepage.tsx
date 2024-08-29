@@ -99,7 +99,7 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
         <section className="w-full flex justify-center items-center h-16 md:h-24 text-center mx-auto bg-white">
           <h2 className="sr-only">Learn more section</h2>
           <Cta
-            buttonText={"Learn more"}
+            buttonText={"Learn more about us"}
             url={"/search.html"}
             style="primary"
             classNames="px-2 py-1.5 md:px-6 md:py-2.5 text-sm md:text-base rounded-md "
