@@ -19,6 +19,7 @@ import OurInsights from "../components/ourInsights";
 import PageLayout from "../components/page-layout";
 import RelatedFaqs from "../components/relatedFaqs";
 import "../index.css";
+import FeatureCarousel from "../components/Carousel";
 
 export const config: TemplateConfig = {
   stream: {
@@ -111,11 +112,12 @@ const Homepage: Template<TemplateRenderProps> = ({ document }) => {
           </h2>
           <Slider
             sliderData={c_featuredServices}
-            duration={1000}
-            animation={"horizontal flip"}
-            showNextPrev={true}
-            showIndicators={true}
-          ></Slider>
+            duration={3000}
+            animation={""}
+            showNextPrev={false}
+            showIndicators={false}
+          />
+          {/* <FeatureCarousel data={c_featuredServices} /> */}
         </section>
 
         <GetInTouchBanner />

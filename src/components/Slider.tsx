@@ -110,7 +110,7 @@ const Slider = ({
         </h3>
         <p
           className="px-4 line-clamp-3"
-          style={{ minHeight: "3rem", maxHeight: "9rem" }}
+          style={{ minHeight: "4rem", maxHeight: "9rem" }}
         >
           {c_serviceDescription}
         </p>
